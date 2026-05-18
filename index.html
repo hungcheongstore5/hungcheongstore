@@ -1,0 +1,3332 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>鴻昌辦館 Hung Cheong Store | 香港零食 懷舊零食 酒類</title>
+  <meta name="description" content="鴻昌辦館 — 香港製造零食、懷舊零食、酒類網上購物。歡迎自取。買滿$450免運費。支援Alipay、WeChat Pay及FPS。">
+  <meta name="keywords" content="鴻昌辦館,香港零食,香港製造,懷舊零食,HK snacks,網上購物,自取,順豐到付">
+  <meta property="og:title" content="鴻昌辦館 Hung Cheong Store">
+  <meta property="og:description" content="香港製造·懷舊零食·酒類 | 買滿$450免運費 | 歡迎自取">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://hungcheongstore.com">
+  <meta property="og:image" content="https://hungcheongstore.com/og-cover.jpg">
+  <meta property="og:site_name" content="鴻昌辦館 Hung Cheong Store">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://hungcheongstore.com">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Store","name":"鴻昌辦館 Hung Cheong Store","description":"香港製造零食、懷舊零食、酒類","paymentAccepted":"Alipay, WeChat Pay, FPS","currenciesAccepted":"HKD"}</script>
+
+  <style>
+    :root {
+      --green:      #2d6a4f;
+      --green-d:    #1b4332;
+      --green-l:    #52b788;
+      --green-p:    #b7e4c7;
+      --cream:      #fefae0;
+      --cream-d:    #ede8ce;
+      --text:       #1b4332;
+      --mid:        #3a5a40;
+      --gold:       #c8871a;
+      --gold-l:     #f4d35e;
+      --red:        #c1121f;
+      --white:      #fff;
+      --sh:         rgba(45,106,79,.14);
+      --shd:        rgba(27,67,50,.28);
+      --r:          12px;
+      --rs:         8px;
+      --t:          all .25s ease;
+      --ann-h:      36px;
+      --hdr-h:      70px;
+      --nav-h:      46px;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:'Helvetica Neue','PingFang HK','蘋方-港',Arial,sans-serif;background:var(--cream);color:var(--text);overflow-x:hidden}
+    a{text-decoration:none;color:inherit}
+    img{max-width:100%;display:block}
+    button{cursor:pointer;font-family:inherit;border:none;background:none}
+    ul{list-style:none}
+    ::-webkit-scrollbar{width:5px}
+    ::-webkit-scrollbar-thumb{background:var(--green-l);border-radius:3px}
+
+    /* ══ ANNOUNCEMENT BAR ══ */
+    #ann-bar{
+      height:var(--ann-h);background:var(--green-d);
+      display:flex;align-items:center;justify-content:space-between;
+      padding:0 14px;position:sticky;top:0;z-index:1100;overflow:hidden;
+    }
+    .ann-social{display:flex;gap:8px;flex-shrink:0}
+    .ann-social a{color:rgba(255,255,255,.8);font-size:16px;transition:var(--t)}
+    .ann-social a:hover{color:white}
+    /* Rotating ticker */
+    .ann-ticker{flex:1;overflow:hidden;padding:0 12px;position:relative;height:100%;display:flex;align-items:center}
+    .ann-slide{position:absolute;left:0;right:0;text-align:center;color:white;font-size:12px;font-weight:600;letter-spacing:.3px;opacity:0;transform:translateY(10px);transition:opacity .5s ease,transform .5s ease;pointer-events:none}
+    .ann-slide.active{opacity:1;transform:translateY(0)}
+    .ann-lang{display:flex;gap:5px;flex-shrink:0}
+    .ann-lang button{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);color:white;border-radius:12px;padding:3px 9px;font-size:11px;font-weight:600;cursor:pointer;transition:var(--t)}
+    .ann-lang button.active{background:rgba(255,255,255,.32);border-color:rgba(255,255,255,.5)}
+
+    /* ══ HEADER ══ */
+    #hdr{
+      height:var(--hdr-h);background:var(--cream);
+      border-bottom:2px solid var(--cream-d);
+      position:sticky;top:var(--ann-h);z-index:1000;
+    }
+    .hdr-in{max-width:1280px;margin:0 auto;height:100%;display:flex;align-items:center;gap:14px;padding:0 18px}
+    .hdr-logo{display:flex;align-items:center;gap:10px;flex-shrink:0}
+    .hdr-logo-ic{width:46px;height:46px;background:var(--green);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+    .hdr-logo-tx .cn{font-size:17px;font-weight:800;color:var(--green-d);line-height:1.1}
+    .hdr-logo-tx .en{font-size:10px;color:var(--mid);letter-spacing:.5px}
+    .hdr-srch{flex:1;max-width:540px;display:flex;align-items:center;background:var(--white);border:2px solid var(--cream-d);border-radius:28px;overflow:hidden;transition:border-color .2s}
+    .hdr-srch:focus-within{border-color:var(--green-l)}
+    .hdr-srch input{flex:1;border:none;background:none;padding:10px 16px;font-size:14px;color:var(--text);outline:none;font-family:inherit}
+    .hdr-srch input::placeholder{color:#bbb}
+    .hdr-srch-btn{background:var(--green);color:white;padding:10px 16px;font-size:15px;transition:var(--t)}
+    .hdr-srch-btn:hover{background:var(--green-d)}
+    .hdr-acts{display:flex;align-items:center;gap:7px;margin-left:auto;flex-shrink:0}
+    .hdr-ic{position:relative;width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:19px;background:var(--white);border:2px solid var(--cream-d);color:var(--text);transition:var(--t);cursor:pointer}
+    .hdr-ic:hover{border-color:var(--green-l);color:var(--green)}
+    .cart-badge{position:absolute;top:-4px;right:-4px;background:var(--red);color:white;font-size:10px;font-weight:700;border-radius:50%;width:17px;height:17px;display:none;align-items:center;justify-content:center}
+    .mob-srch-btn{width:38px;height:38px;border-radius:var(--rs);background:var(--white);border:2px solid var(--cream-d);display:none;align-items:center;justify-content:center;font-size:17px;cursor:pointer}
+    @media(max-width:620px){.mob-srch-btn{display:flex}.hdr-srch{display:none}}
+
+    /* Mobile search bar */
+    #mob-srch{display:none;background:var(--white);border-bottom:2px solid var(--cream-d);padding:10px 14px;gap:8px}
+    #mob-srch.show{display:flex}
+    #mob-srch input{flex:1;border:2px solid var(--cream-d);border-radius:28px;padding:9px 14px;font-size:14px;outline:none;font-family:inherit}
+    #mob-srch input:focus{border-color:var(--green-l)}
+    #mob-srch button{background:var(--green);color:white;border:none;border-radius:28px;padding:9px 14px;font-size:13px;cursor:pointer}
+
+    /* ══ MAIN NAV ══ */
+    #nav{
+      height:var(--nav-h);background:var(--green-d);
+      position:sticky;top:calc(var(--ann-h) + var(--hdr-h));z-index:999;
+      border-bottom:3px solid var(--gold);
+    }
+    .nav-in{max-width:1280px;margin:0 auto;height:100%;display:flex;align-items:stretch;padding:0 10px;overflow-x:auto;scrollbar-width:none}
+    .nav-in::-webkit-scrollbar{display:none}
+    .nav-item{position:relative;flex-shrink:0}
+    .nav-lnk{height:var(--nav-h);padding:0 15px;color:rgba(255,255,255,.9);font-size:13.5px;font-weight:600;background:none;border:none;cursor:pointer;display:flex;align-items:center;gap:5px;white-space:nowrap;transition:var(--t)}
+    .nav-lnk:hover,.nav-item.open .nav-lnk,.nav-lnk.cur{color:var(--gold-l);background:rgba(255,255,255,.08)}
+    .arr{font-size:9px;transition:transform .2s}
+    .nav-item.open .arr{transform:rotate(180deg)}
+
+    .dd-menu{display:none;position:absolute;top:100%;left:0;min-width:195px;background:var(--white);border-radius:0 0 var(--r) var(--r);box-shadow:0 8px 28px var(--shd);border-top:3px solid var(--green);z-index:2000;padding:5px 0}
+    .nav-item.open .dd-menu{display:block}
+    .dd-menu a,.dd-menu button{display:flex;align-items:center;gap:9px;width:100%;padding:9px 16px;font-size:13px;font-weight:500;color:var(--text);transition:var(--t);background:none;border:none;cursor:pointer;text-align:left}
+    .dd-menu a:hover,.dd-menu button:hover{background:var(--cream);color:var(--green);padding-left:20px}
+    .dd-div{border-top:1px solid var(--cream-d);margin:4px 0}
+
+    /* ══ PROMO BANNER ══ */
+    #promo-banner{position:relative;overflow:hidden;display:none}
+    #promo-banner img{width:100%;max-height:400px;object-fit:cover;display:block}
+    .promo-close{position:absolute;top:10px;right:10px;background:rgba(0,0,0,.5);color:white;border:none;border-radius:50%;width:32px;height:32px;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center}
+
+    /* ══ HERO (default when no promo image) ══ */
+    #hero{background:linear-gradient(135deg,var(--green-d) 0%,var(--green) 60%,#40916c 100%);padding:42px 20px 36px;text-align:center;position:relative;overflow:hidden}
+    #hero::after{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='40' cy='40' r='30' fill='%2395d5b2' fill-opacity='0.06'/%3E%3C/svg%3E");pointer-events:none}
+    .hero-in{position:relative;z-index:1;max-width:700px;margin:0 auto}
+    .hero-em{font-size:50px;margin-bottom:8px}
+    .hero-t{font-size:clamp(26px,6vw,46px);font-weight:900;color:white;line-height:1.05}
+    .hero-t span{color:var(--gold-l)}
+    .hero-s{font-size:clamp(12px,2.5vw,15px);color:rgba(255,255,255,.75);margin-top:8px}
+    .hero-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:20px}
+    .btn-gold{background:var(--gold);color:white;border:none;border-radius:28px;padding:12px 26px;font-size:14px;font-weight:700;box-shadow:0 4px 14px rgba(200,135,26,.45);transition:var(--t);cursor:pointer}
+    .btn-gold:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(200,135,26,.6)}
+    .btn-ghost{background:transparent;color:white;border:2px solid rgba(255,255,255,.5);border-radius:28px;padding:10px 22px;font-size:14px;font-weight:600;transition:var(--t);cursor:pointer}
+    .btn-ghost:hover{background:rgba(255,255,255,.12)}
+
+    /* ══ INFO STRIP (中間橫額) ══ */
+    #info-strip{
+      background:var(--white);border-bottom:2px solid var(--cream-d);
+      padding:0;overflow:hidden;
+    }
+    /* Scrolling marquee */
+    .info-track-wrap{overflow:hidden;height:42px;display:flex;align-items:center;position:relative;cursor:default}
+    .info-track{display:flex;align-items:center;gap:0;white-space:nowrap;animation:marquee 28s linear infinite}
+    .info-track:hover{animation-play-state:paused}
+    @keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+    .info-pill{display:inline-flex;align-items:center;gap:6px;padding:0 22px;font-size:12.5px;font-weight:600;color:var(--text);border-right:1px solid var(--cream-d);white-space:nowrap;height:42px}
+    .info-pill .pi{font-size:15px}
+
+    /* ══ SEARCH RESULT BAR ══ */
+    #srch-bar{display:none;background:var(--cream-d);padding:10px 18px;align-items:center;gap:12px;flex-wrap:wrap}
+    #srch-bar.show{display:flex}
+    .srch-lbl{font-size:13px;color:var(--mid)}
+    .srch-lbl strong{color:var(--green);font-weight:700}
+    .srch-clr{font-size:12px;color:var(--red);font-weight:600;cursor:pointer}
+
+    /* ══ SHOP SECTION ══ */
+    #shop{padding:20px 16px 60px;max-width:1280px;margin:0 auto}
+    .shop-hd{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:10px}
+    .shop-title{font-size:20px;font-weight:800;color:var(--green);display:flex;align-items:center;gap:8px}
+    .shop-controls{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+    /* Sort dropdown */
+    .sort-wrap{position:relative}
+    .sort-btn{display:flex;align-items:center;gap:7px;background:var(--white);border:2px solid var(--cream-d);border-radius:var(--rs);padding:8px 14px;font-size:13px;font-weight:600;color:var(--text);cursor:pointer;transition:var(--t)}
+    .sort-btn:hover{border-color:var(--green-l)}
+    .sort-btn .arr2{font-size:9px;transition:transform .2s}
+    .sort-wrap.open .arr2{transform:rotate(180deg)}
+    .sort-menu{display:none;position:absolute;right:0;top:calc(100% + 4px);min-width:200px;background:var(--white);border-radius:var(--r);box-shadow:0 8px 28px var(--shd);border:1px solid var(--cream-d);z-index:500;padding:4px 0}
+    .sort-wrap.open .sort-menu{display:block}
+    .sort-opt{display:flex;align-items:center;gap:8px;padding:9px 16px;font-size:13px;color:var(--text);cursor:pointer;transition:var(--t);border:none;background:none;width:100%;text-align:left}
+    .sort-opt:hover{background:var(--cream);color:var(--green)}
+    .sort-opt.active{background:var(--cream);color:var(--green);font-weight:700}
+    .sort-opt .check{font-size:12px;width:14px}
+    .prod-count{font-size:13px;color:var(--mid)}
+
+    /* Product Grid */
+    #prod-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:14px}
+    @media(min-width:560px){#prod-grid{grid-template-columns:repeat(auto-fill,minmax(188px,1fr))}}
+    @media(min-width:900px){#prod-grid{grid-template-columns:repeat(auto-fill,minmax(215px,1fr))}}
+    @media(min-width:1200px){#prod-grid{grid-template-columns:repeat(auto-fill,minmax(228px,1fr))}}
+
+    .p-card{background:var(--white);border-radius:var(--r);overflow:hidden;box-shadow:0 2px 10px var(--sh);transition:var(--t);cursor:pointer;position:relative}
+    .p-card:hover{transform:translateY(-4px);box-shadow:0 8px 24px var(--sh)}
+    .p-card:hover .p-img{transform:scale(1.05)}
+    .p-img-w{width:100%;aspect-ratio:1;overflow:hidden;background:var(--cream)}
+    .p-img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease}
+    .p-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:54px;background:linear-gradient(135deg,var(--cream),var(--green-p))}
+    .p-badges{position:absolute;top:8px;left:8px;display:flex;flex-direction:column;gap:4px}
+    .p-bdg{font-size:10px;font-weight:700;padding:3px 8px;border-radius:20px;width:fit-content}
+    .bdg-hot{background:#ff4757;color:white}
+    .bdg-new{background:var(--green);color:white}
+    .bdg-sale{background:var(--gold);color:white}
+    .bdg-hk{background:#003087;color:white}
+    .p-body{padding:11px}
+    .p-name{font-size:14px;font-weight:700;color:var(--text);line-height:1.3}
+    .p-sub{font-size:11px;color:var(--mid);margin-top:2px;line-height:1.3}
+    .p-row{display:flex;align-items:center;justify-content:space-between;margin-top:9px;gap:6px}
+    .p-price{font-size:17px;font-weight:800;color:var(--green)}
+    .p-price .u{font-size:11px;font-weight:400;color:var(--mid)}
+    .p-sold{font-size:10px;color:var(--mid);margin-top:3px}
+    .add-btn{background:var(--green);color:white;border:none;border-radius:var(--rs);padding:7px 11px;font-size:12px;font-weight:700;transition:var(--t);white-space:nowrap;flex-shrink:0}
+    .add-btn:hover{background:var(--green-d)}
+    .add-btn:active{transform:scale(.95)}
+    .out-of-stock .p-img-w{filter:grayscale(.5) opacity(.7)}
+    .out-of-stock .add-btn{background:#ccc;cursor:not-allowed}
+
+    .empty-state{grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--mid)}
+    .empty-state .ei{font-size:52px;margin-bottom:12px}
+    .loading-state{grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--mid)}
+    .spinner{width:38px;height:38px;border:4px solid var(--cream-d);border-top-color:var(--green);border-radius:50%;animation:spin .8s linear infinite;margin:0 auto 14px}
+    @keyframes spin{to{transform:rotate(360deg)}}
+
+    /* ══ PAGINATION ══ */
+    #pagination{display:flex;align-items:center;justify-content:center;gap:6px;margin-top:28px;flex-wrap:wrap}
+    .pg-btn{min-width:36px;height:36px;border-radius:var(--rs);background:var(--white);border:2px solid var(--cream-d);color:var(--text);font-size:13px;font-weight:600;cursor:pointer;transition:var(--t);display:flex;align-items:center;justify-content:center;padding:0 8px}
+    .pg-btn:hover:not(:disabled){border-color:var(--green-l);color:var(--green)}
+    .pg-btn.active{background:var(--green);border-color:var(--green);color:white}
+    .pg-btn:disabled{opacity:.4;cursor:not-allowed}
+    .pg-dots{font-size:14px;color:var(--mid);padding:0 4px}
+
+    /* ══ FEATURES ══ */
+    #features{background:var(--white);padding:32px 20px;border-top:2px solid var(--cream-d)}
+    .feat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:14px;max-width:860px;margin:0 auto}
+    .feat-card{text-align:center;padding:18px 10px;background:var(--cream);border-radius:var(--r)}
+    .feat-ic{font-size:28px;margin-bottom:7px}
+    .feat-lbl{font-size:13px;font-weight:700;color:var(--text)}
+    .feat-sub{font-size:11px;color:var(--mid);margin-top:2px;line-height:1.3}
+
+    /* ══ FOOTER ══ */
+    footer{background:var(--green-d);color:rgba(255,255,255,.9);padding:32px 20px 18px}
+    .ft-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(175px,1fr));gap:26px;max-width:1100px;margin:0 auto 22px}
+    .ft-brand .fn{font-size:17px;font-weight:800}
+    .ft-brand .fe{font-size:11px;opacity:.6;margin-top:2px}
+    .ft-brand p{font-size:12.5px;opacity:.72;margin-top:9px;line-height:1.6;max-width:200px}
+    .ft-col h4{font-size:11px;font-weight:700;opacity:.5;text-transform:uppercase;letter-spacing:1px;margin-bottom:11px}
+    .ft-col li{margin-bottom:7px;font-size:13px;opacity:.8}
+    .soc-row{display:flex;gap:8px;margin-top:9px}
+    .soc-ic{width:34px;height:34px;background:rgba(255,255,255,.1);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;transition:var(--t)}
+    .soc-ic:hover{background:rgba(255,255,255,.22);transform:translateY(-2px)}
+    .ft-btm{border-top:1px solid rgba(255,255,255,.12);padding-top:14px;max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:11.5px;opacity:.5}
+    .adm-lnk{cursor:pointer;opacity:.4;font-size:10px}
+    .adm-lnk:hover{opacity:.8}
+
+    /* ══ CART SIDEBAR ══ */
+    #cart-ov{position:fixed;inset:0;z-index:1800;background:rgba(0,0,0,.45);display:none}
+    #cart-ov.open{display:block}
+    #cart{position:fixed;top:0;right:0;bottom:0;z-index:1900;width:min(440px,100vw);background:var(--white);box-shadow:-4px 0 28px var(--shd);display:flex;flex-direction:column;transform:translateX(100%);transition:transform .3s ease}
+    #cart.open{transform:translateX(0)}
+    @media(max-width:480px){#cart{width:100vw}}
+    .cart-hd{padding:16px 18px;background:var(--green);color:white;display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+    .cart-hd-t{font-size:16px;font-weight:700}
+    .cart-cls{width:32px;height:32px;background:rgba(255,255,255,.2);border-radius:50%;color:white;display:flex;align-items:center;justify-content:center;font-size:16px;cursor:pointer;border:none;flex-shrink:0}
+    .cart-body{flex:1;overflow-y:auto;padding:14px 16px}
+    .ci{display:flex;gap:12px;padding:13px 0;border-bottom:1px solid var(--cream-d);align-items:flex-start}
+    .ci-th{width:64px;height:64px;border-radius:var(--rs);background:var(--cream);flex-shrink:0;overflow:hidden;display:flex;align-items:center;justify-content:center;font-size:26px}
+    .ci-th img{width:100%;height:100%;object-fit:cover}
+    .ci-inf{flex:1;min-width:0}
+    .ci-nm{font-size:14px;font-weight:600;line-height:1.4;word-break:break-word}
+    .ci-pr{font-size:13px;font-weight:700;color:var(--green);margin-top:3px}
+    .ci-qty{display:flex;align-items:center;gap:9px;margin-top:7px}
+    .cq-b{width:26px;height:26px;background:var(--cream-d);border-radius:50%;font-size:15px;font-weight:700;color:var(--green);display:flex;align-items:center;justify-content:center;border:none;cursor:pointer;flex-shrink:0}
+    .cq-n{font-size:13px;font-weight:700;min-width:18px;text-align:center}
+    .ci-rm{color:#ccc;font-size:18px;cursor:pointer;border:none;background:none;flex-shrink:0;padding:2px 0 0}
+    .cart-empty{text-align:center;padding:60px 20px;color:var(--mid);font-size:14px}
+    .cart-ft{padding:16px 18px;border-top:2px solid var(--cream-d);flex-shrink:0}
+    .cart-tot{display:flex;justify-content:space-between;align-items:center;font-size:16px;font-weight:700;margin-bottom:12px}
+    .co-btn{width:100%;background:var(--gold);color:white;border:none;border-radius:var(--r);padding:14px;font-size:15px;font-weight:700;box-shadow:0 4px 14px rgba(200,135,26,.4);cursor:pointer;transition:var(--t)}
+    .co-btn:hover{transform:translateY(-1px)}
+
+    /* ══ MODALS ══ */
+    .mo{position:fixed;inset:0;z-index:2500;background:rgba(27,67,50,.55);backdrop-filter:blur(4px);display:flex;align-items:flex-end;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s}
+    .mo.open{opacity:1;pointer-events:all}
+    @media(min-width:600px){.mo{align-items:center}}
+    .mo-box{background:var(--white);border-radius:var(--r) var(--r) 0 0;width:100%;max-width:500px;max-height:92vh;overflow-y:auto;padding:22px;position:relative;transform:translateY(40px);transition:transform .3s}
+    @media(min-width:600px){.mo-box{border-radius:var(--r);transform:scale(.95)}}
+    .mo.open .mo-box{transform:translateY(0)}
+    @media(min-width:600px){.mo.open .mo-box{transform:scale(1)}}
+    .mo-cls{position:absolute;top:13px;right:13px;width:28px;height:28px;background:var(--cream-d);border-radius:50%;font-size:14px;color:var(--text);display:flex;align-items:center;justify-content:center;cursor:pointer;border:none}
+
+    /* Product modal */
+    .pm-img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:var(--rs);margin-bottom:13px}
+    .pm-ph{width:100%;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;font-size:72px;background:linear-gradient(135deg,var(--cream),var(--green-p));border-radius:var(--rs);margin-bottom:13px}
+    .pm-nm{font-size:20px;font-weight:800}
+    .pm-en{font-size:13px;color:var(--mid);margin-top:3px}
+    .pm-desc{font-size:13px;color:var(--mid);margin-top:9px;line-height:1.6}
+    .pm-price{font-size:23px;font-weight:800;color:var(--green);margin-top:11px}
+    .pm-sold{font-size:11px;color:var(--mid);margin-top:2px}
+    .qty-row{display:flex;align-items:center;gap:13px;margin-top:13px}
+    .qty-b{width:32px;height:32px;background:var(--cream-d);border-radius:50%;font-size:18px;font-weight:700;color:var(--green);display:flex;align-items:center;justify-content:center;border:none;cursor:pointer}
+    .qty-n{font-size:16px;font-weight:700;min-width:26px;text-align:center}
+    .pm-add{width:100%;margin-top:13px;background:var(--green);color:white;border-radius:var(--r);padding:13px;font-size:15px;font-weight:700;transition:var(--t);cursor:pointer;border:none}
+    .pm-add:hover{background:var(--green-d)}
+
+    /* ══ REVIEWS ══ */
+    #pm-reviews{margin-top:18px;border-top:1px solid var(--cream-d);padding-top:14px}
+    .rv-title{font-size:14px;font-weight:800;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+    .rv-avg{background:var(--cream);border-radius:8px;padding:3px 10px;font-size:13px;font-weight:700;color:#92400e}
+    .rv-item{padding:11px 0;border-bottom:1px solid var(--cream-d)}
+    .rv-item:last-child{border:none}
+    .rv-meta{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+    .rv-name{font-size:12px;font-weight:700}
+    .rv-stars{color:#f59e0b;font-size:13px;letter-spacing:1px}
+    .rv-date{font-size:11px;color:var(--mid)}
+    .rv-comment{font-size:13px;color:#374151;margin-top:5px;line-height:1.55}
+    .rv-form{background:var(--cream);border-radius:10px;padding:13px;margin-top:10px}
+    .rv-form-title{font-size:13px;font-weight:700;margin-bottom:10px}
+    .star-pick{display:flex;gap:4px;margin-bottom:10px}
+    .star-pick span{font-size:26px;cursor:pointer;transition:transform .1s;line-height:1;color:#d1d5db;user-select:none}
+    .star-pick span.lit{color:#f59e0b}
+    .star-pick span:hover{transform:scale(1.15)}
+    .rv-ta{width:100%;border:1px solid #e5e7eb;border-radius:8px;padding:9px 12px;font-size:13px;font-family:inherit;resize:none;outline:none;height:70px;background:white}
+    .rv-ta:focus{border-color:var(--green)}
+    .rv-submit{margin-top:8px;background:var(--green-d);color:white;border:none;border-radius:8px;padding:9px 20px;font-size:13px;font-weight:700;cursor:pointer;width:100%}
+    .rv-photo-label{display:inline-flex;align-items:center;gap:6px;margin-top:8px;cursor:pointer;font-size:12px;color:var(--green);font-weight:600;background:white;border:1.5px dashed var(--green-l);border-radius:8px;padding:7px 12px;width:100%;box-sizing:border-box}
+    .rv-photo-label input{display:none}
+    .rv-photo-preview{width:72px;height:72px;object-fit:cover;border-radius:8px;margin-top:8px;cursor:pointer;display:block}
+    .rv-item-photo{width:100%;max-width:260px;border-radius:10px;margin-top:8px;object-fit:cover;cursor:pointer;display:block}
+    /* product card avg stars */
+    .p-stars{font-size:11px;color:#f59e0b;font-weight:600;margin-top:2px}
+
+    /* ══ CHECKOUT ══ */
+    .co-mo .mo-box{max-width:480px;max-height:92vh;overflow-y:auto}
+    .co-prog{display:flex;align-items:center;justify-content:center;margin-bottom:18px;padding:0 4px}
+    .cp-dot{width:28px;height:28px;border-radius:50%;background:var(--cream-d);color:var(--mid);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:var(--t)}
+    .cp-dot.done{background:var(--green-l);color:white}
+    .cp-dot.active{background:var(--green);color:white;box-shadow:0 0 0 3px var(--green-p)}
+    .cp-line{flex:1;height:2px;background:var(--cream-d);transition:background .3s}
+    .cp-line.done{background:var(--green-l)}
+    .co-step{display:none}
+    .co-step.active{display:block}
+    .co-hd{font-size:17px;font-weight:800;color:var(--green);margin-bottom:14px}
+    .co-bk{color:var(--mid);font-size:13px;cursor:pointer;margin-bottom:11px;background:none;border:none;display:flex;align-items:center;gap:4px}
+    .fg{margin-bottom:11px}
+    .fl{font-size:12px;font-weight:600;color:var(--mid);margin-bottom:4px;display:block}
+    .fi{width:100%;border:2px solid var(--cream-d);border-radius:var(--rs);padding:9px 12px;font-size:14px;background:var(--cream);outline:none;font-family:inherit;color:var(--text);transition:border-color .2s}
+    .fi:focus{border-color:var(--green-l)}
+    /* Cart review */
+    .cr-list{margin-bottom:12px;border:1px solid var(--cream-d);border-radius:var(--rs);overflow:hidden}
+    .cr-item{display:flex;align-items:center;gap:10px;padding:10px 12px;border-bottom:1px solid var(--cream-d);font-size:13px}
+    .cr-item:last-child{border-bottom:none}
+    .cr-thumb{width:42px;height:42px;border-radius:6px;object-fit:cover;background:var(--cream-d);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:18px}
+    .cr-info{flex:1;min-width:0}
+    .cr-nm{font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .cr-pr{color:var(--mid);font-size:11px;margin-top:2px}
+    .cr-qty{font-size:12px;color:var(--mid);flex-shrink:0;white-space:nowrap}
+    .cr-sub{font-weight:700;color:var(--green);flex-shrink:0;white-space:nowrap}
+    /* Coupon */
+    .coupon-row{display:flex;gap:7px;margin-bottom:8px}
+    .coupon-input{flex:1;border:2px solid var(--cream-d);border-radius:var(--rs);padding:9px 12px;font-size:13px;font-family:inherit;outline:none;background:var(--cream);color:var(--text);transition:border-color .2s}
+    .coupon-input:focus{border-color:var(--green-l)}
+    .coupon-apply{background:var(--green);color:white;border:none;border-radius:var(--rs);padding:9px 15px;font-size:13px;font-weight:700;cursor:pointer;white-space:nowrap;transition:var(--t)}
+    .coupon-apply:hover{background:var(--green-d)}
+    .coupon-ok{color:var(--green);font-size:12px;font-weight:600;padding:2px 0 8px;display:none}
+    .coupon-ok.show{display:block}
+    /* Summary */
+    .sum-rows{background:var(--cream);border-radius:var(--rs);padding:12px 14px;margin-bottom:14px}
+    .sum-row{display:flex;justify-content:space-between;font-size:13px;color:var(--mid);margin-bottom:5px}
+    .sum-row:last-child{margin-bottom:0}
+    .sum-total{font-size:16px;font-weight:800;color:var(--green-d);border-top:1px solid var(--cream-d);padding-top:8px;margin-top:8px;display:flex;justify-content:space-between}
+    .ship-free{color:var(--green);font-weight:700}
+    .ship-fee{color:var(--gold);font-weight:700}
+    /* Delivery options */
+    .del-opts{display:flex;flex-direction:column;gap:9px;margin-bottom:14px}
+    .del-opt{border:2px solid var(--cream-d);border-radius:var(--r);padding:14px 16px;cursor:pointer;transition:var(--t);display:flex;align-items:center;gap:13px}
+    .del-opt:hover{border-color:var(--green-l)}
+    .del-opt.sel{border-color:var(--green);background:#f0faf4}
+    .del-radio{width:20px;height:20px;border-radius:50%;border:2px solid var(--cream-d);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:var(--t)}
+    .del-opt.sel .del-radio{border-color:var(--green);background:var(--green)}
+    .del-radio-dot{width:8px;height:8px;border-radius:50%;background:white;display:none}
+    .del-opt.sel .del-radio-dot{display:block}
+    .del-info{flex:1}
+    .del-title{font-weight:700;font-size:14px}
+    .del-desc{font-size:12px;color:var(--mid);margin-top:2px}
+    .del-price-badge{font-size:12px;font-weight:700;padding:3px 9px;border-radius:20px;flex-shrink:0;white-space:nowrap}
+    .del-free{background:#d1fae5;color:#065f46}
+    .del-pay{background:#fff3cd;color:#92400e}
+    /* Mode selector */
+    .co-mode-sel{display:flex;gap:8px;margin-bottom:14px}
+    .cm-btn{flex:1;border:2px solid var(--cream-d);border-radius:var(--rs);padding:11px;font-size:13px;font-weight:700;cursor:pointer;text-align:center;transition:var(--t);background:var(--white);color:var(--mid)}
+    .cm-btn.sel{border-color:var(--green);background:var(--green);color:white}
+    /* Payment method cards */
+    .pay-mc-list{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:12px}
+    .pay-mc{border:2px solid var(--cream-d);border-radius:var(--r);padding:14px 10px;cursor:pointer;text-align:center;transition:var(--t);background:var(--white)}
+    .pay-mc:hover{border-color:var(--green-l)}
+    .pay-mc.sel{border-color:var(--green);background:#f0faf4}
+    .pay-mc-ic{font-size:28px;margin-bottom:5px}
+    .pay-mc-nm{font-size:12px;font-weight:700;color:var(--text);line-height:1.3}
+    .pay-content-box{display:none;margin-bottom:12px}
+    .pay-content-box.show{display:block}
+    .qr-box,.fps-box{background:var(--cream);border-radius:var(--r);padding:16px;text-align:center}
+    .qr-iw{width:200px;height:200px;margin:0 auto 10px;background:white;border:2px solid var(--green-p);border-radius:var(--rs);display:flex;align-items:center;justify-content:center;overflow:hidden;flex-direction:column;gap:6px;color:var(--mid);font-size:12px;cursor:pointer;transition:var(--t);position:relative}
+    .qr-iw:hover{border-color:var(--green);box-shadow:0 4px 16px var(--sh)}
+    .qr-iw img{width:100%;height:100%;object-fit:contain}
+    .qr-zoom-hint{position:absolute;bottom:0;left:0;right:0;background:rgba(45,106,79,.7);color:white;font-size:11px;font-weight:600;padding:4px;opacity:0;transition:opacity .2s}
+    .qr-iw:hover .qr-zoom-hint{opacity:1}
+    .fps-num{font-size:20px;font-weight:800;color:var(--green);letter-spacing:2px;margin:10px 0}
+    .fps-note{font-size:12px;color:var(--mid)}
+    .fps-copy{display:inline-flex;align-items:center;gap:5px;background:var(--green);color:white;border:none;border-radius:var(--rs);padding:7px 14px;font-size:13px;font-weight:700;cursor:pointer;margin-top:6px;transition:var(--t)}
+    .fps-copy:hover{background:var(--green-d)}
+    .pay-app-btns{display:flex;gap:8px;justify-content:center;margin-top:10px;flex-wrap:wrap}
+    .pay-app-btn{display:inline-flex;align-items:center;gap:6px;border:none;border-radius:var(--r);padding:9px 16px;font-size:13px;font-weight:700;cursor:pointer;transition:var(--t);text-decoration:none}
+    .pay-app-btn-ali{background:#1677FF;color:white}
+    .pay-app-btn-ali:hover{background:#0058d6}
+    .pay-app-btn-wc{background:#07C160;color:white}
+    .pay-app-btn-wc:hover{background:#059e4d}
+    /* OTP input */
+    .otp-wrap{display:flex;gap:7px;justify-content:center;margin:14px 0}
+    .otp-digit{width:42px;height:52px;border:2px solid var(--cream-d);border-radius:var(--rs);text-align:center;font-size:22px;font-weight:700;font-family:inherit;color:var(--text);background:var(--cream);outline:none;transition:border-color .2s;-moz-appearance:textfield}
+    .otp-digit::-webkit-outer-spin-button,.otp-digit::-webkit-inner-spin-button{-webkit-appearance:none}
+    .otp-digit:focus{border-color:var(--green-l)}
+    .otp-resend{background:none;border:none;color:var(--green);font-size:13px;font-weight:600;cursor:pointer;text-align:center;margin-top:8px;display:block;width:100%;padding:4px}
+    .otp-resend:disabled{color:var(--mid);cursor:default}
+    /* Next button */
+    .co-nx{width:100%;margin-top:14px;background:var(--green);color:white;border:none;border-radius:var(--r);padding:13px;font-size:15px;font-weight:700;cursor:pointer;transition:var(--t)}
+    .co-nx:hover{background:var(--green-d)}
+    /* Success */
+    .succ-box{text-align:center;padding:14px 0}
+    .succ-box .si{font-size:58px}
+    .succ-box h3{font-size:20px;font-weight:800;color:var(--green);margin-top:10px}
+    .succ-box p{font-size:13px;color:var(--mid);margin-top:7px;line-height:1.5}
+    .succ-ord{background:var(--cream);border-radius:var(--rs);padding:10px 16px;margin:10px auto;max-width:260px;font-size:12px;color:var(--mid)}
+    .succ-ord strong{color:var(--green-d);font-size:16px;font-weight:800;display:block;margin-top:3px}
+    .wa-send{display:inline-flex;align-items:center;gap:7px;background:#25D366;color:white;border:none;border-radius:var(--r);padding:11px 20px;font-size:14px;font-weight:700;margin-top:16px;cursor:pointer;transition:var(--t)}
+    .wa-send:hover{background:#128C7E}
+
+    /* QR Fullscreen lightbox */
+    #qr-fs{position:fixed;inset:0;z-index:3500;background:rgba(0,0,0,.92);display:none;align-items:center;justify-content:center;flex-direction:column;gap:14px;padding:20px}
+    #qr-fs.open{display:flex}
+    #qr-fs img{max-width:min(90vw,420px);max-height:min(90vh,420px);border-radius:var(--r);box-shadow:0 0 40px rgba(255,255,255,.15)}
+    #qr-fs-lbl{color:white;font-size:16px;font-weight:700}
+    #qr-fs-close{background:rgba(255,255,255,.15);color:white;border:2px solid rgba(255,255,255,.3);border-radius:28px;padding:10px 24px;font-size:14px;font-weight:700;cursor:pointer}
+
+    /* ══ WhatsApp float ══ */
+    #wa-fl{position:fixed;bottom:130px;right:16px;z-index:1500}
+    /* ══ Live Chat ══ */
+    #chat-bubble{position:fixed;bottom:66px;right:16px;z-index:1600;width:52px;height:52px;background:var(--green-d);border-radius:50%;border:none;color:white;font-size:22px;cursor:pointer;box-shadow:0 4px 18px rgba(27,67,50,.45);transition:transform .2s;display:flex;align-items:center;justify-content:center}
+    #chat-bubble:hover{transform:scale(1.1)}
+    #chat-unread{position:absolute;top:-3px;right:-3px;width:18px;height:18px;background:#ef4444;border-radius:50%;font-size:10px;font-weight:700;color:white;display:none;align-items:center;justify-content:center;border:2px solid white;pointer-events:none}
+    #chat-unread.show{display:flex}
+    #chat-panel{position:fixed;bottom:132px;right:16px;z-index:1601;width:min(360px,calc(100vw - 32px));background:white;border-radius:16px;box-shadow:0 8px 40px rgba(0,0,0,.22);display:none;flex-direction:column;max-height:520px;overflow:hidden}
+    #chat-panel.open{display:flex}
+    .chat-hdr{background:var(--green-d);color:white;padding:14px 16px;display:flex;align-items:center;gap:10px;flex-shrink:0}
+    .chat-hdr-info{flex:1}
+    .chat-hdr-title{font-size:14px;font-weight:700;line-height:1.2}
+    .chat-hdr-sub{font-size:11px;opacity:.75;margin-top:2px}
+    .chat-msgs{flex:1;overflow-y:auto;padding:14px 12px;display:flex;flex-direction:column;gap:10px;min-height:180px;max-height:300px}
+    .cm-wrap{display:flex;flex-direction:column}
+    .cm-bubble{max-width:78%;padding:9px 13px;border-radius:12px;font-size:13px;line-height:1.5;word-break:break-word}
+    .cm-from-customer{align-self:flex-end}.cm-from-customer .cm-bubble{background:var(--cream);border-bottom-right-radius:3px}
+    .cm-from-admin{align-self:flex-start}.cm-from-admin .cm-bubble{background:var(--green-d);color:white;border-bottom-left-radius:3px}
+    .cm-time{font-size:10px;color:#9ca3af;margin-top:3px}
+    .chat-input-row{display:flex;gap:8px;padding:10px 12px;border-top:1px solid #f3f4f6;flex-shrink:0;align-items:flex-end}
+    .chat-inp{flex:1;border:1px solid #e5e7eb;border-radius:20px;padding:9px 14px;font-size:13px;outline:none;font-family:inherit;resize:none;max-height:80px;line-height:1.4}
+    .chat-inp:focus{border-color:var(--green)}
+    .chat-send{width:36px;height:36px;background:var(--green-d);color:white;border:none;border-radius:50%;font-size:15px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .15s}
+    .chat-send:hover{transform:scale(1.1)}
+    .chat-fi{border:1px solid #e5e7eb;border-radius:8px;padding:9px 12px;font-size:13px;outline:none;font-family:inherit;width:100%;box-sizing:border-box}
+    .chat-fi:focus{border-color:var(--green)}
+    .wa-btn{width:52px;height:52px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;box-shadow:0 4px 16px rgba(37,211,102,.5);text-decoration:none;animation:wap 2.5s infinite}
+    @keyframes wap{0%,100%{box-shadow:0 4px 16px rgba(37,211,102,.5)}50%{box-shadow:0 4px 26px rgba(37,211,102,.8)}}
+    .wa-btn:hover{transform:scale(1.1)}
+    .wa-tip{position:absolute;right:60px;top:50%;transform:translateY(-50%);background:var(--text);color:white;font-size:11px;padding:5px 9px;border-radius:7px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .2s}
+    #wa-fl:hover .wa-tip{opacity:1}
+    #bk-top{position:fixed;bottom:16px;right:16px;z-index:1500;width:38px;height:38px;background:var(--green);color:white;border:none;border-radius:50%;font-size:15px;box-shadow:0 2px 10px var(--sh);display:none;align-items:center;justify-content:center;cursor:pointer;transition:var(--t)}
+    #bk-top.show{display:flex}
+
+    /* ══ TOAST ══ */
+    #toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--green-d);color:white;padding:10px 20px;border-radius:28px;font-size:13px;font-weight:600;z-index:9999;transition:transform .3s;white-space:nowrap;box-shadow:0 4px 16px var(--shd)}
+    #toast.show{transform:translateX(-50%) translateY(0)}
+
+    @media(max-width:380px){#prod-grid{grid-template-columns:repeat(2,1fr);gap:9px}}
+    @media(max-width:500px){.shop-hd{flex-direction:column;align-items:flex-start}}
+
+    /* ══ RECEIPT UPLOAD ══ */
+    #receipt-section{margin-bottom:12px}
+    .receipt-drop{border:2px dashed var(--cream-d);border-radius:10px;padding:20px;text-align:center;cursor:pointer;transition:border-color .2s}
+    .receipt-drop:hover{border-color:var(--green-l)}
+    #receipt-img{max-width:100%;max-height:180px;border-radius:8px;border:2px solid var(--green-p)}
+
+    /* ══ PRODUCT GALLERY ══ */
+    .pm-gallery{margin-bottom:13px}
+    .pm-gal-main-w{width:100%;aspect-ratio:4/3;overflow:hidden;border-radius:var(--rs);background:var(--cream);position:relative}
+    .pm-gal-main{width:100%;height:100%;object-fit:cover}
+    .pm-gal-nav{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.88);border:none;border-radius:50%;width:34px;height:34px;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,.18);z-index:5;line-height:1}
+    .pm-gal-nav-l{left:8px}
+    .pm-gal-nav-r{right:8px}
+    .pm-thumbs{display:flex;gap:7px;overflow-x:auto;scrollbar-width:none;margin-top:8px;padding-bottom:2px}
+    .pm-thumbs::-webkit-scrollbar{display:none}
+    .pm-thumb{width:58px;height:58px;border-radius:7px;object-fit:cover;cursor:pointer;border:2px solid var(--cream-d);flex-shrink:0;transition:border-color .2s,opacity .2s;opacity:.75}
+    .pm-thumb.active,.pm-thumb:hover{border-color:var(--green);opacity:1}
+
+    /* ══ FLASH SALE ══ */
+    .flash-bdg{background:linear-gradient(135deg,#ff4757,#c1121f)!important;color:white!important;animation:flashPulse 1.5s ease-in-out infinite}
+    @keyframes flashPulse{0%,100%{opacity:1}50%{opacity:.75}}
+    .js-countdown{display:inline-flex;align-items:center;font-size:10px;font-weight:700;color:var(--red);background:#fff0f0;border-radius:6px;padding:2px 7px;margin-top:3px;letter-spacing:.2px}
+    .p-orig-price{font-size:11px;text-decoration:line-through;color:#9ca3af;font-weight:400;margin-left:4px}
+    .pm-flash-row{display:flex;align-items:center;gap:10px;margin-top:6px;flex-wrap:wrap}
+    .pm-flash-price{font-size:26px;font-weight:800;color:var(--red)}
+    .pm-flash-orig{font-size:15px;text-decoration:line-through;color:#9ca3af;font-weight:400}
+    /* ══ LOYALTY POINTS ══ */
+    .pts-badge{background:linear-gradient(135deg,#f59e0b,#d97706);color:white;border-radius:20px;padding:6px 14px;font-size:13px;font-weight:700;display:inline-flex;align-items:center;gap:6px;margin-bottom:8px}
+    .pts-redeem-row{background:var(--cream);border-radius:var(--rs);padding:12px 14px;margin-bottom:8px;border:1.5px solid var(--cream-d)}
+    /* ══ RELATED PRODUCTS ══ */
+    .related-wrap{margin-top:16px;border-top:1px solid var(--cream-d);padding-top:14px}
+    .related-title{font-size:13px;font-weight:800;margin-bottom:10px;color:var(--text)}
+    .related-row{display:flex;gap:10px;overflow-x:auto;padding:2px 0 6px;scrollbar-width:none}
+    .related-row::-webkit-scrollbar{display:none}
+    .rel-card{flex-shrink:0;width:100px;cursor:pointer;transition:transform .2s}
+    .rel-card:hover{transform:translateY(-2px)}
+    .rel-img{width:100px;height:100px;border-radius:8px;overflow:hidden;background:var(--cream);display:flex;align-items:center;justify-content:center;font-size:32px}
+    .rel-img img{width:100%;height:100%;object-fit:cover}
+    .rel-name{font-size:11px;font-weight:600;margin-top:5px;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+    .rel-price{font-size:11px;color:var(--green);font-weight:700;margin-top:2px}
+
+    /* ══ AUTH MODAL ══ */
+    #auth-mo{position:fixed;inset:0;z-index:4000;background:rgba(0,0,0,.5);display:none;align-items:center;justify-content:center;padding:16px}
+    #auth-mo.open{display:flex}
+
+    /* ══ ORDER TRACKING ══ */
+    #track-mo{position:fixed;inset:0;z-index:3800;background:rgba(0,0,0,.5);display:none;align-items:center;justify-content:center;padding:16px}
+    #track-mo.open{display:flex}
+    .track-box{background:var(--white);border-radius:var(--r);width:100%;max-width:460px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.3);position:relative;max-height:88vh;overflow-y:auto}
+    .track-hdr{background:var(--green-d);color:white;padding:18px 20px;display:flex;align-items:center;gap:10px}
+    .track-hdr-title{font-size:16px;font-weight:800;flex:1}
+    .track-body{padding:20px}
+    .track-inp-row{display:flex;gap:8px;margin-bottom:16px}
+    .track-inp{flex:1;border:2px solid var(--cream-d);border-radius:10px;padding:11px 14px;font-size:14px;outline:none;font-family:inherit}
+    .track-inp:focus{border-color:var(--green)}
+    .track-btn{background:var(--green-d);color:white;border:none;border-radius:10px;padding:11px 18px;font-size:14px;font-weight:700;cursor:pointer;white-space:nowrap}
+    .track-result{display:none}
+    .track-result.show{display:block}
+    .track-ord-id{font-size:12px;color:var(--mid);margin-bottom:12px}
+    .track-timeline{position:relative;padding-left:28px}
+    .track-timeline::before{content:'';position:absolute;left:9px;top:0;bottom:0;width:2px;background:#e5e7eb}
+    .track-step{position:relative;margin-bottom:16px}
+    .track-step::before{content:'';position:absolute;left:-23px;top:4px;width:14px;height:14px;border-radius:50%;border:2px solid #e5e7eb;background:white;z-index:1}
+    .track-step.done::before{background:var(--green);border-color:var(--green)}
+    .track-step.active::before{background:var(--green-d);border-color:var(--green-d);box-shadow:0 0 0 3px rgba(27,67,50,.2)}
+    .track-step-label{font-size:13px;font-weight:700;color:#9ca3af}
+    .track-step.done .track-step-label,.track-step.active .track-step-label{color:#1a1a1a}
+    .track-step-sub{font-size:12px;color:#9ca3af;margin-top:2px}
+    .track-step.active .track-step-sub{color:var(--green-d);font-weight:600}
+    .track-info-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px}
+    .track-info-cell{background:var(--cream);border-radius:8px;padding:10px 12px}
+    .track-info-label{font-size:11px;color:var(--mid)}
+    .track-info-val{font-size:13px;font-weight:700;margin-top:2px}
+    .auth-box{background:var(--white);border-radius:var(--r);width:100%;max-width:420px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.3);position:relative}
+    .auth-tabs{display:flex;border-bottom:2px solid var(--cream-d)}
+    .auth-tab{flex:1;padding:14px;font-size:14px;font-weight:700;color:var(--mid);cursor:pointer;border:none;background:none;transition:var(--t)}
+    .auth-tab.active{color:var(--green);border-bottom:3px solid var(--green);margin-bottom:-2px}
+    .auth-bdy{padding:22px 22px 24px}
+    .auth-fi{width:100%;padding:10px 14px;border:2px solid var(--cream-d);border-radius:var(--rs);font-size:14px;font-family:inherit;outline:none;transition:border-color .2s;margin-bottom:11px;background:var(--cream);color:var(--text)}
+    .auth-fi:focus{border-color:var(--green-l)}
+    .auth-btn{width:100%;background:var(--green);color:white;border:none;border-radius:var(--rs);padding:12px;font-size:15px;font-weight:700;cursor:pointer;transition:var(--t);margin-top:2px}
+    .auth-btn:hover{background:var(--green-d)}
+    .auth-err{color:var(--red);font-size:12.5px;margin-bottom:10px;display:none;background:#fff0f0;padding:8px 11px;border-radius:var(--rs)}
+    .auth-err.show{display:block}
+    .auth-cls{position:absolute;top:11px;right:13px;background:var(--cream-d);border:none;border-radius:50%;width:28px;height:28px;font-size:14px;cursor:pointer;color:var(--mid);display:flex;align-items:center;justify-content:center}
+    .auth-hd{font-size:18px;font-weight:800;color:var(--green-d);margin-bottom:16px}
+    .auth-link{font-size:12.5px;color:var(--mid);text-align:center;margin-top:12px}
+    .auth-link span{color:var(--green);cursor:pointer;font-weight:700}
+
+    /* ══ ACCOUNT BUTTON ══ */
+    .acct-logged{border-color:var(--green-l)!important;color:var(--green)!important}
+    .acct-dot{position:absolute;top:-3px;right:-3px;width:10px;height:10px;background:var(--green);border-radius:50%;border:2px solid var(--cream);display:none}
+    .acct-dot.show{display:block}
+
+    /* ══ MEMBER PANEL ══ */
+    #mem-ov{position:fixed;inset:0;z-index:1800;background:rgba(0,0,0,.35);display:none}
+    #mem-ov.open{display:block}
+    #mem-panel{position:fixed;top:0;right:0;bottom:0;z-index:1900;width:min(420px,100vw);background:var(--white);box-shadow:-4px 0 28px var(--shd);display:flex;flex-direction:column;transform:translateX(100%);transition:transform .3s ease}
+    #mem-panel.open{transform:translateX(0)}
+    .mem-hd{padding:17px 18px;background:var(--green);color:white;display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+    .mem-hd-t{font-size:16px;font-weight:700}
+    .mem-cls{width:28px;height:28px;background:rgba(255,255,255,.2);border-radius:50%;color:white;display:flex;align-items:center;justify-content:center;font-size:14px;cursor:pointer;border:none;flex-shrink:0}
+    .mem-tabs{display:flex;border-bottom:2px solid var(--cream-d);flex-shrink:0}
+    .mem-tab{flex:1;padding:12px;font-size:13px;font-weight:600;color:var(--mid);cursor:pointer;border:none;background:none;transition:var(--t)}
+    .mem-tab.active{color:var(--green);border-bottom:3px solid var(--green);margin-bottom:-2px}
+    .mem-body{flex:1;overflow-y:auto;padding:16px}
+    .mem-sec{margin-bottom:14px}
+    .mem-lbl{font-size:11px;font-weight:700;color:var(--mid);margin-bottom:5px;text-transform:uppercase;letter-spacing:.5px}
+    .mem-inp{width:100%;padding:9px 12px;border:2px solid var(--cream-d);border-radius:var(--rs);font-size:13.5px;font-family:inherit;outline:none;transition:border-color .2s;background:var(--cream);color:var(--text)}
+    .mem-inp:focus{border-color:var(--green-l)}
+    .mem-save{width:100%;background:var(--green);color:white;border:none;border-radius:var(--rs);padding:11px;font-size:14px;font-weight:700;cursor:pointer;margin-top:10px;transition:var(--t)}
+    .mem-save:hover{background:var(--green-d)}
+    .mem-logout{width:100%;background:none;border:2px solid var(--cream-d);border-radius:var(--rs);padding:9px;font-size:13px;font-weight:600;color:var(--mid);cursor:pointer;margin-top:8px;transition:var(--t)}
+    .mem-logout:hover{border-color:var(--red);color:var(--red)}
+    .mem-email{font-size:12.5px;color:var(--mid);text-align:center;margin-bottom:14px;padding:8px;background:var(--cream);border-radius:var(--rs)}
+    .ord-card{background:var(--cream);border-radius:var(--rs);padding:13px;margin-bottom:10px;font-size:13px;border:1.5px solid transparent;transition:border-color .2s}
+    .ord-card:hover{border-color:var(--green-p)}
+    .ord-hdr{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:5px;gap:8px}
+    .ord-id{font-weight:700;color:var(--green);font-size:12px}
+    .ord-date{font-size:11px;color:var(--mid)}
+    .ord-items{color:var(--text);margin-bottom:6px;line-height:1.5}
+    .ord-tot{font-weight:800;color:var(--green-d)}
+    .ord-st{display:inline-block;font-size:11px;font-weight:700;padding:2px 8px;border-radius:20px;white-space:nowrap}
+    .ord-st-pending{background:#fff3cd;color:#856404}
+    .ord-st-confirmed{background:#d1e7dd;color:#0a3622}
+    .ord-st-preparing{background:#dbeafe;color:#1d4ed8}
+    .ord-st-collected{background:#fef3c7;color:#92400e}
+    .ord-st-transit{background:#ede9fe;color:#5b21b6}
+    .ord-st-shipped{background:#cff4fc;color:#055160}
+    .ord-st-delivered{background:#d1fae5;color:#065f46}
+    .ord-st-cancelled{background:#fee2e2;color:#dc2626}
+    .ord-empty{text-align:center;padding:40px 20px;color:var(--mid);font-size:14px}
+    .ord-footer{display:flex;align-items:center;justify-content:space-between;margin-top:10px;gap:8px;flex-wrap:wrap}
+    .reorder-btn{background:var(--green-d);color:white;border:none;border-radius:8px;padding:7px 16px;font-size:12px;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:5px;transition:background .2s;white-space:nowrap}
+    .reorder-btn:hover{background:var(--green)}
+    .track-link{font-size:11px;color:var(--green);font-weight:600;text-decoration:none;cursor:pointer;white-space:nowrap}
+  </style>
+</head>
+<body>
+
+<!-- ══ ANNOUNCEMENT BAR ══ -->
+<div id="ann-bar">
+  <div class="ann-social">
+    <a href="https://www.instagram.com/hungcheongstore" target="_blank">📸</a>
+    <a href="https://www.facebook.com/hungcheongstore" target="_blank">📘</a>
+  </div>
+  <div class="ann-ticker" id="ann-ticker">
+    <!-- slides injected by JS -->
+  </div>
+  <div class="ann-lang">
+    <button onclick="setLang('cn')" id="l-cn" class="active">中</button>
+    <button onclick="setLang('en')" id="l-en">EN</button>
+  </div>
+</div>
+
+<!-- ══ HEADER ══ -->
+<header id="hdr">
+  <div class="hdr-in">
+    <a class="hdr-logo" href="#" onclick="filterCat('all')">
+      <div class="hdr-logo-ic">🏪</div>
+      <div class="hdr-logo-tx">
+        <div class="cn">鴻昌辦館</div>
+        <div class="en">Hung Cheong Store</div>
+      </div>
+    </a>
+    <div class="hdr-srch">
+      <input type="search" id="srch-in" placeholder="搜尋商品 Search..." onkeydown="if(event.key==='Enter')doSearch()">
+      <button class="hdr-srch-btn" onclick="doSearch()">🔍</button>
+    </div>
+    <div class="hdr-acts">
+      <button class="mob-srch-btn" onclick="toggleMobSrch()">🔍</button>
+      <button class="hdr-ic" id="acct-btn" onclick="openAcct()" title="會員帳戶">👤<span class="acct-dot" id="acct-dot"></span></button>
+      <button class="hdr-ic" onclick="openCart()" title="購物車">
+        🛒<span class="cart-badge" id="cart-count">0</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile search -->
+<div id="mob-srch">
+  <input type="search" id="mob-srch-in" placeholder="搜尋商品..." onkeydown="if(event.key==='Enter')doMobSearch()">
+  <button onclick="doMobSearch()">搜尋</button>
+</div>
+
+<!-- ══ NAV ══ -->
+<nav id="nav">
+  <div class="nav-in">
+
+    <div class="nav-item">
+      <button class="nav-lnk" id="nl-all" onclick="filterCat('all')">
+        🛍️ <span data-cn="所有商品" data-en="All Products">所有商品</span>
+      </button>
+    </div>
+
+    <div class="nav-item" id="dd-hkmade">
+      <button class="nav-lnk" onclick="toggleDD('dd-hkmade')">
+        🇭🇰 <span data-cn="香港製造" data-en="Made in HK">香港製造</span>
+        <span class="arr">▾</span>
+      </button>
+      <div class="dd-menu">
+        <button onclick="filterCat('hkmade');closeAllDD()">🇭🇰 <span data-cn="所有香港製造" data-en="All Made in HK">所有香港製造</span></button>
+        <button onclick="filterCat('hkmade');closeAllDD()">🍪 <span data-cn="港式餅乾" data-en="HK Biscuits">港式餅乾</span></button>
+        <button onclick="filterCat('hkmade');closeAllDD()">🥜 <span data-cn="港式零食" data-en="HK Snacks">港式零食</span></button>
+        <button onclick="filterCat('hkmade');closeAllDD()">🍵 <span data-cn="港式飲品" data-en="HK Drinks">港式飲品</span></button>
+      </div>
+    </div>
+
+    <div class="nav-item" id="dd-nostalgic">
+      <button class="nav-lnk" onclick="toggleDD('dd-nostalgic')">
+        🕰️ <span data-cn="懷舊零食" data-en="Nostalgic Snacks">懷舊零食</span>
+        <span class="arr">▾</span>
+      </button>
+      <div class="dd-menu">
+        <button onclick="filterCat('nostalgic');closeAllDD()">🕰️ <span data-cn="所有懷舊零食" data-en="All Nostalgic">所有懷舊零食</span></button>
+        <button onclick="filterCat('nostalgic');closeAllDD()">🍬 <span data-cn="80年代零食" data-en="80s Snacks">80年代零食</span></button>
+        <button onclick="filterCat('nostalgic');closeAllDD()">🍡 <span data-cn="90年代零食" data-en="90s Snacks">90年代零食</span></button>
+        <button onclick="filterCat('nostalgic');closeAllDD()">🍭 <span data-cn="童年糖果" data-en="Childhood Candy">童年糖果</span></button>
+      </div>
+    </div>
+
+    <div class="nav-item" id="dd-wine">
+      <button class="nav-lnk" onclick="toggleDD('dd-wine')">
+        🍷 <span data-cn="酒類" data-en="Wine & Spirits">酒類</span>
+        <span class="arr">▾</span>
+      </button>
+      <div class="dd-menu">
+        <button onclick="filterCat('wine');closeAllDD()">🍷 <span data-cn="所有酒類" data-en="All Wines">所有酒類</span></button>
+        <div class="dd-div"></div>
+        <button onclick="filterCat('wine');closeAllDD()">🍷 <span data-cn="紅酒" data-en="Red Wine">紅酒</span></button>
+        <button onclick="filterCat('wine');closeAllDD()">🥂 <span data-cn="白酒/氣泡酒" data-en="White / Sparkling">白酒/氣泡酒</span></button>
+        <button onclick="filterCat('wine');closeAllDD()">🍶 <span data-cn="日本清酒" data-en="Sake">日本清酒</span></button>
+        <button onclick="filterCat('wine');closeAllDD()">🥃 <span data-cn="烈酒" data-en="Spirits">烈酒</span></button>
+        <button onclick="filterCat('wine');closeAllDD()">🍺 <span data-cn="啤酒" data-en="Beer">啤酒</span></button>
+      </div>
+    </div>
+
+    <div class="nav-item" id="dd-others">
+      <button class="nav-lnk" onclick="toggleDD('dd-others')">
+        🧺 <span data-cn="其他" data-en="Others">其他</span>
+        <span class="arr">▾</span>
+      </button>
+      <div class="dd-menu">
+        <button onclick="filterCat('others');closeAllDD()">🧺 <span data-cn="所有其他商品" data-en="All Others">所有其他商品</span></button>
+        <button onclick="filterCat('others');closeAllDD()">🍵 <span data-cn="飲品/茶葉" data-en="Drinks / Tea">飲品/茶葉</span></button>
+        <button onclick="filterCat('others');closeAllDD()">🧂 <span data-cn="調味料" data-en="Condiments">調味料</span></button>
+        <button onclick="filterCat('others');closeAllDD()">🧹 <span data-cn="生活雜貨" data-en="Daily Goods">生活雜貨</span></button>
+      </div>
+    </div>
+
+    <div class="nav-item" id="dd-deals">
+      <button class="nav-lnk" onclick="toggleDD('dd-deals')">
+        💥 <span data-cn="優惠" data-en="Deals">優惠</span>
+        <span class="arr">▾</span>
+      </button>
+      <div class="dd-menu">
+        <button onclick="filterBadge('HOT');closeAllDD()">🔥 <span data-cn="熱賣商品" data-en="Hot Items">熱賣商品</span></button>
+        <button onclick="filterBadge('SALE');closeAllDD()">💥 <span data-cn="特價優惠" data-en="On Sale">特價優惠</span></button>
+        <button onclick="filterBadge('NEW');closeAllDD()">🆕 <span data-cn="新品推薦" data-en="New Arrivals">新品推薦</span></button>
+        <button onclick="filterBadge('HKMADE');closeAllDD()">🇭🇰 <span data-cn="香港製造" data-en="Made in HK">香港製造</span></button>
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+<!-- ══ PROMO BANNER (admin can upload image) ══ -->
+<div id="promo-banner">
+  <img id="promo-img" src="" alt="Promotion">
+  <button class="promo-close" onclick="document.getElementById('promo-banner').style.display='none'">✕</button>
+</div>
+
+<!-- ══ HERO (shown when no promo image) ══ -->
+<section id="hero">
+  <div class="hero-in">
+    <div class="hero-em">🥢🍪🍷</div>
+    <div class="hero-t"><span>鴻昌辦館</span></div>
+    <div class="hero-s" data-cn="香港製造 · 懷舊零食 · 酒類 | 買滿$450免運費" data-en="Made in HK · Nostalgic Snacks · Wine | Free delivery over $450">香港製造 · 懷舊零食 · 酒類 | 買滿$450免運費</div>
+    <div class="hero-btns">
+      <button class="btn-gold" onclick="document.getElementById('shop').scrollIntoView({behavior:'smooth'})" data-cn="立即選購 →" data-en="Shop Now →">立即選購 →</button>
+      <button class="btn-ghost" onclick="openWA()" data-cn="💬 WhatsApp 查詢" data-en="💬 WhatsApp Us">💬 WhatsApp 查詢</button>
+    </div>
+  </div>
+</section>
+
+<!-- ══ INFO STRIP (中間橫額 — scrolling ticker) ══ -->
+<div id="info-strip">
+  <div class="info-track-wrap">
+    <div class="info-track" id="info-track">
+      <!-- Duplicated for seamless scroll, injected by JS -->
+    </div>
+  </div>
+</div>
+
+<!-- ══ SEARCH RESULT BAR ══ -->
+<div id="srch-bar">
+  <span class="srch-lbl" id="srch-lbl"></span>
+  <span class="srch-clr" onclick="clearSearch()">✕ <span data-cn="清除" data-en="Clear">清除</span></span>
+</div>
+
+<!-- ══ SHOP ══ -->
+<section id="shop">
+  <div class="shop-hd">
+    <div class="shop-title" id="shop-title">🛍️ <span data-cn="所有商品" data-en="All Products">所有商品</span></div>
+    <div class="shop-controls">
+      <span class="prod-count" id="prod-count"></span>
+      <!-- Sort dropdown -->
+      <div class="sort-wrap" id="sort-wrap">
+        <button class="sort-btn" onclick="toggleSort()">
+          <span id="sort-label" data-cn="預設排序" data-en="Default">預設排序</span>
+          <span class="arr2">▾</span>
+        </button>
+        <div class="sort-menu" id="sort-menu">
+          <button class="sort-opt active" onclick="setSort('default',this)" data-cn="預設排序" data-en="Default Sort">
+            <span class="check" id="sc-default">✓</span>預設排序
+          </button>
+          <button class="sort-opt" onclick="setSort('popular',this)" data-cn="依熱銷排序" data-en="By Popularity">
+            <span class="check" id="sc-popular"></span>依熱銷排序
+          </button>
+          <button class="sort-opt" onclick="setSort('price-asc',this)" data-cn="價錢：低至高" data-en="Price: Low to High">
+            <span class="check" id="sc-price-asc"></span>價錢：低至高
+          </button>
+          <button class="sort-opt" onclick="setSort('price-desc',this)" data-cn="價錢：高至低" data-en="Price: High to Low">
+            <span class="check" id="sc-price-desc"></span>價錢：高至低
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="prod-grid">
+    <div class="loading-state"><div class="spinner"></div><div>載入商品中...</div></div>
+  </div>
+  <div id="pagination"></div>
+</section>
+
+<!-- ══ FEATURES ══ -->
+<section id="features">
+  <div class="feat-grid">
+    <div class="feat-card"><div class="feat-ic">🇭🇰</div><div class="feat-lbl" data-cn="正宗香港製造" data-en="Authentic HK">正宗香港製造</div><div class="feat-sub" data-cn="嚴選品質" data-en="Carefully curated">嚴選品質</div></div>
+    <div class="feat-card"><div class="feat-ic">🏪</div><div class="feat-lbl" data-cn="歡迎自取" data-en="In-store Pickup">歡迎自取</div><div class="feat-sub" data-cn="到店取貨免運費" data-en="Free pickup in-store">到店取貨免運費</div></div>
+    <div class="feat-card"><div class="feat-ic">🚚</div><div class="feat-lbl" data-cn="滿$450免運" data-en="Free Delivery $450+">滿$450免運</div><div class="feat-sub" data-cn="本地送遞" data-en="Local delivery">本地送遞</div></div>
+    <div class="feat-card"><div class="feat-ic">📦</div><div class="feat-lbl" data-cn="順豐到付" data-en="SF Express COD">順豐到付</div><div class="feat-sub" data-cn="亦接受其他速遞" data-en="Other couriers too">亦接受其他速遞</div></div>
+    <div class="feat-card"><div class="feat-ic">💳</div><div class="feat-lbl" data-cn="多種付款" data-en="Multiple Payment">多種付款</div><div class="feat-sub">Alipay · WeChat · FPS</div></div>
+    <div class="feat-card"><div class="feat-ic">💬</div><div class="feat-lbl" data-cn="WhatsApp查詢" data-en="WhatsApp Support">WhatsApp查詢</div><div class="feat-sub" data-cn="即時客服" data-en="Live support">即時客服</div></div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="ft-grid">
+    <div class="ft-brand">
+      <div class="fn">🏪 鴻昌辦館</div>
+      <div class="fe">Hung Cheong Store</div>
+      <p data-cn="香港製造、懷舊零食、酒類網上購物。歡迎到店自取。" data-en="HK made snacks, nostalgic treats & wine. In-store pickup welcome.">香港製造、懷舊零食、酒類網上購物。歡迎到店自取。</p>
+      <div class="soc-row">
+        <a href="https://www.instagram.com/hungcheongstore" target="_blank" class="soc-ic">📸</a>
+        <a href="https://www.facebook.com/hungcheongstore" target="_blank" class="soc-ic">📘</a>
+        <a href="https://www.threads.net/@hungcheongstore" target="_blank" class="soc-ic">🧵</a>
+        <a href="#" onclick="openWA();return false" class="soc-ic">💬</a>
+      </div>
+    </div>
+    <div class="ft-col">
+      <h4 data-cn="商品分類" data-en="Categories">商品分類</h4>
+      <ul>
+        <li><a href="#" onclick="filterCat('hkmade')" data-cn="🇭🇰 香港製造" data-en="🇭🇰 Made in HK">🇭🇰 香港製造</a></li>
+        <li><a href="#" onclick="filterCat('nostalgic')" data-cn="🕰️ 懷舊零食" data-en="🕰️ Nostalgic">🕰️ 懷舊零食</a></li>
+        <li><a href="#" onclick="filterCat('wine')" data-cn="🍷 酒類" data-en="🍷 Wine">🍷 酒類</a></li>
+        <li><a href="#" onclick="filterCat('others')" data-cn="🧺 其他" data-en="🧺 Others">🧺 其他</a></li>
+      </ul>
+    </div>
+    <div class="ft-col">
+      <h4 data-cn="送遞及付款" data-en="Delivery & Payment">送遞及付款</h4>
+      <ul>
+        <li data-cn="🏪 歡迎到店自取" data-en="🏪 In-store pickup">🏪 歡迎到店自取</li>
+        <li data-cn="🚚 滿$450免運費" data-en="🚚 Free delivery $450+">🚚 滿$450免運費</li>
+        <li data-cn="📦 順豐/速遞到付" data-en="📦 SF Express COD">📦 順豐/速遞到付</li>
+        <li>💙 Alipay · 💚 WeChat · 🏦 FPS</li>
+      </ul>
+    </div>
+    <div class="ft-col">
+      <h4 data-cn="聯絡我們" data-en="Contact">聯絡我們</h4>
+      <ul>
+        <li><a href="#" onclick="openWA();return false" data-cn="💬 WhatsApp查詢" data-en="💬 WhatsApp">💬 WhatsApp查詢</a></li>
+        <li><a href="#" onclick="openTrack();return false" data-cn="🔍 訂單查詢" data-en="🔍 Track Order">🔍 訂單查詢</a></li>
+        <li>📸 @hungcheongstore</li>
+      </ul>
+    </div>
+  </div>
+  <div class="ft-btm">
+    <span>© 2026 鴻昌辦館 Hung Cheong Store</span>
+    <span class="adm-lnk" onclick="window.location='admin.html'">⚙️ Admin</span>
+  </div>
+</footer>
+
+<!-- ══ QR FULLSCREEN ══ -->
+<div id="qr-fs" onclick="if(event.target===this)closeQRFS()">
+  <div id="qr-fs-lbl"></div>
+  <img id="qr-fs-img" src="" alt="QR Code">
+  <button id="qr-fs-close" onclick="closeQRFS()">✕ 關閉 Close</button>
+</div>
+
+<!-- ══ AUTH MODAL ══ -->
+<div id="auth-mo" onclick="if(event.target===this)closeAuth()">
+  <div class="auth-box">
+    <button class="auth-cls" onclick="closeAuth()">✕</button>
+    <div class="auth-tabs">
+      <button class="auth-tab active" id="at-login" onclick="switchAuthTab('login')">登入 Login</button>
+      <button class="auth-tab" id="at-reg" onclick="switchAuthTab('reg')">新會員 Register</button>
+    </div>
+    <!-- LOGIN -->
+    <div class="auth-bdy" id="auth-login-form">
+      <div class="auth-hd">歡迎回來 👋</div>
+      <div class="auth-err" id="login-err"></div>
+      <input class="auth-fi" id="li-email" type="email" placeholder="電郵 Email">
+      <input class="auth-fi" id="li-pw" type="password" placeholder="密碼 Password" onkeydown="if(event.key==='Enter')doLogin()">
+      <button class="auth-btn" onclick="doLogin()">登入 Login</button>
+      <div class="auth-link">沒有帳戶？<span onclick="switchAuthTab('reg')">立即免費登記</span></div>
+    </div>
+    <!-- REGISTER -->
+    <div class="auth-bdy" id="auth-reg-form" style="display:none">
+      <!-- Step 1: fill details -->
+      <div id="rg-step1">
+        <div class="auth-hd">新會員登記 🎉</div>
+        <div style="font-size:12px;color:var(--green);background:#f0faf4;border-radius:var(--rs);padding:8px 10px;margin-bottom:12px">🎁 成功登記即送 <strong>HK$10</strong> 現金券！</div>
+        <div class="auth-err" id="reg-err"></div>
+        <input class="auth-fi" id="rg-name" type="text" placeholder="姓名 Name *">
+        <input class="auth-fi" id="rg-email" type="email" placeholder="電郵 Email *">
+        <input class="auth-fi" id="rg-phone" type="tel" placeholder="電話 Phone">
+        <input class="auth-fi" id="rg-bday" type="date" placeholder="生日 Birthday">
+        <input class="auth-fi" id="rg-addr" type="text" placeholder="地址 Address">
+        <input class="auth-fi" id="rg-pw" type="password" placeholder="密碼 Password (最少6位) *" onkeydown="if(event.key==='Enter')doRegister()">
+        <button class="auth-btn" onclick="doRegister()">發送驗證碼 Send OTP →</button>
+        <div class="auth-link">已有帳戶？<span onclick="switchAuthTab('login')">登入</span></div>
+      </div>
+      <!-- Step 2: OTP verify -->
+      <div id="rg-step2" style="display:none">
+        <div class="auth-hd">📧 輸入驗證碼</div>
+        <p style="font-size:13px;color:var(--mid);margin-bottom:14px">驗證碼已傳送至您的電郵，請在10分鐘內輸入。</p>
+        <div class="auth-err" id="otp-err"></div>
+        <div class="otp-wrap">
+          <input class="otp-digit" id="otp1" type="number" min="0" max="9" oninput="otpNext(this,'otp2')">
+          <input class="otp-digit" id="otp2" type="number" min="0" max="9" oninput="otpNext(this,'otp3')">
+          <input class="otp-digit" id="otp3" type="number" min="0" max="9" oninput="otpNext(this,'otp4')">
+          <input class="otp-digit" id="otp4" type="number" min="0" max="9" oninput="otpNext(this,'otp5')">
+          <input class="otp-digit" id="otp5" type="number" min="0" max="9" oninput="otpNext(this,'otp6')">
+          <input class="otp-digit" id="otp6" type="number" min="0" max="9" oninput="otpNext(this,null)">
+        </div>
+        <button class="auth-btn" onclick="doVerifyOtp()">驗證並完成登記 ✓</button>
+        <button class="otp-resend" id="otp-resend-btn" onclick="resendOtp()" disabled>重新發送（60秒後）</button>
+        <div style="text-align:center;margin-top:10px"><span style="font-size:12px;color:var(--mid);cursor:pointer" onclick="document.getElementById('rg-step1').style.display='block';document.getElementById('rg-step2').style.display='none'">← 修改資料</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ MEMBER PANEL ══ -->
+<div id="mem-ov" onclick="closeMember()"></div>
+<div id="mem-panel">
+  <div class="mem-hd">
+    <div class="mem-hd-t">👤 <span id="mem-name-hd">我的帳戶</span></div>
+    <button class="mem-cls" onclick="closeMember()">✕</button>
+  </div>
+  <div class="mem-tabs">
+    <button class="mem-tab active" id="mt-profile" onclick="switchMemTab('profile')">👤 個人資料</button>
+    <button class="mem-tab" id="mt-orders" onclick="switchMemTab('orders')">📦 訂單記錄</button>
+  </div>
+  <div class="mem-body">
+    <div id="mem-profile-tab">
+      <div class="mem-email" id="mem-email-disp">-</div>
+      <div id="mem-pts-row" style="display:none;text-align:center;margin-bottom:12px">
+        <div class="pts-badge">⭐ <span id="mem-pts-num">0</span> 積分</div>
+        <div style="font-size:11px;color:var(--mid);margin-top:2px">每消費HK$1賺1積分 · 10積分 = HK$1折扣</div>
+      </div>
+      <div class="mem-sec"><div class="mem-lbl">姓名 Name</div><input class="mem-inp" id="mp-name" type="text" placeholder="您的姓名"></div>
+      <div class="mem-sec"><div class="mem-lbl">電話 Phone</div><input class="mem-inp" id="mp-phone" type="tel" placeholder="+852 XXXX XXXX"></div>
+      <div class="mem-sec"><div class="mem-lbl">生日 Birthday</div><input class="mem-inp" id="mp-bday" type="date"></div>
+      <div class="mem-sec"><div class="mem-lbl">地址 Address</div><input class="mem-inp" id="mp-addr" type="text" placeholder="送貨地址"></div>
+      <button class="mem-save" onclick="saveProfile()">💾 儲存 Save Profile</button>
+      <button class="mem-logout" onclick="doLogout()">🚪 登出 Logout</button>
+    </div>
+    <div id="mem-orders-tab" style="display:none">
+      <div id="mem-orders-list"><div class="ord-empty">📦 載入訂單中...</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ WhatsApp Float ══ -->
+<div id="wa-fl">
+  <a class="wa-btn" id="wa-fl-lnk" href="#" onclick="openWA();return false">💬</a>
+  <div class="wa-tip" data-cn="WhatsApp查詢" data-en="Chat with us">WhatsApp查詢</div>
+</div>
+<!-- ══ Live Chat Bubble ══ -->
+<button id="chat-bubble" onclick="toggleChat()" style="position:relative" title="客服查詢 Live Chat">
+  💬
+  <span id="chat-unread"></span>
+</button>
+<!-- ══ Live Chat Panel ══ -->
+<div id="chat-panel">
+  <div class="chat-hdr">
+    <div style="font-size:28px">🏪</div>
+    <div class="chat-hdr-info">
+      <div class="chat-hdr-title">鴻昌辦館 客服</div>
+      <div class="chat-hdr-sub">通常數小時內回覆 · Usually replies within hours</div>
+    </div>
+    <button onclick="closeChat()" style="background:none;border:none;color:white;font-size:20px;cursor:pointer;padding:0;line-height:1;opacity:.8">✕</button>
+  </div>
+  <div id="chat-body" style="display:flex;flex-direction:column;flex:1;overflow:hidden"></div>
+</div>
+<button id="bk-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<!-- ══ CART ══ -->
+<div id="cart-ov" onclick="closeCart()"></div>
+<div id="cart">
+  <div class="cart-hd">
+    <div class="cart-hd-t" data-cn="🛒 購物車" data-en="🛒 Cart">🛒 購物車</div>
+    <button class="cart-cls" onclick="closeCart()">✕</button>
+  </div>
+  <div class="cart-body" id="cart-body"></div>
+  <div id="cart-ft" class="cart-ft" style="display:none">
+    <div class="cart-tot">
+      <span data-cn="總計" data-en="Total">總計</span>
+      <span id="cart-tot-pr">HK$0</span>
+    </div>
+    <button class="co-btn" onclick="openCheckout()" data-cn="前往結帳 →" data-en="Checkout →">前往結帳 →</button>
+  </div>
+</div>
+
+<!-- ══ PRODUCT MODAL ══ -->
+<div class="mo" id="pm" onclick="if(event.target===this)closePM()">
+  <div class="mo-box">
+    <button class="mo-cls" onclick="closePM()">✕</button>
+    <div id="pm-iw"></div>
+    <div class="pm-nm" id="pm-nm"></div>
+    <div class="pm-en" id="pm-en"></div>
+    <div class="pm-desc" id="pm-desc"></div>
+    <div class="pm-price" id="pm-price"></div>
+    <div class="pm-sold" id="pm-sold"></div>
+    <div class="qty-row">
+      <button class="qty-b" onclick="dq(-1)">−</button>
+      <div class="qty-n" id="pm-qty">1</div>
+      <button class="qty-b" onclick="dq(1)">+</button>
+    </div>
+    <button class="pm-add" onclick="pmAdd()" data-cn="加入購物車 🛒" data-en="Add to Cart 🛒">加入購物車 🛒</button>
+    <div id="pm-reviews"></div>
+    <div id="pm-related"></div>
+  </div>
+</div>
+
+<!-- ══ CHECKOUT MODAL ══ -->
+<div class="mo co-mo" id="cm" onclick="if(event.target===this)closeCM()">
+  <div class="mo-box">
+    <button class="mo-cls" onclick="closeCM()">✕</button>
+    <!-- Progress bar (steps 1-4, step 5 = success hidden) -->
+    <div class="co-prog" id="co-prog">
+      <div class="cp-dot active" id="cp1">1</div>
+      <div class="cp-line" id="cl12"></div>
+      <div class="cp-dot" id="cp2">2</div>
+      <div class="cp-line" id="cl23"></div>
+      <div class="cp-dot" id="cp3">3</div>
+      <div class="cp-line" id="cl34"></div>
+      <div class="cp-dot" id="cp4">4</div>
+    </div>
+
+    <!-- Step 1: Cart Review + Coupon -->
+    <div class="co-step active" id="cs1">
+      <div class="co-hd">🛒 確認購物車</div>
+      <div class="cr-list" id="cr-list"></div>
+      <div class="coupon-row">
+        <input class="coupon-input" id="coupon-inp" type="text" placeholder="優惠券碼 Coupon Code">
+        <button class="coupon-apply" onclick="applyCoupon()">使用</button>
+      </div>
+      <div class="coupon-ok" id="coupon-ok"></div>
+      <div id="pts-redeem-section" style="display:none">
+        <div class="pts-redeem-row">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
+            <div>
+              <div style="font-size:13px;font-weight:700">⭐ 我的積分</div>
+              <div style="font-size:12px;color:var(--mid)">可用 <strong id="pts-avail">0</strong> 積分（= HK$<span id="pts-val">0</span>）</div>
+            </div>
+            <label style="display:flex;align-items:center;gap:6px;cursor:pointer">
+              <input type="checkbox" id="pts-use-chk" onchange="togglePointsRedemption()" style="width:18px;height:18px;accent-color:var(--green);cursor:pointer">
+              <span style="font-size:13px;font-weight:600">使用積分</span>
+            </label>
+          </div>
+          <div id="pts-use-detail" style="display:none;font-size:12px;color:var(--green);font-weight:600">✅ 已套用積分折扣 -HK$<span id="pts-disc-amt">0</span></div>
+        </div>
+      </div>
+      <div class="sum-rows" id="co-summary"></div>
+      <button class="co-nx" onclick="goStep(2)">下一步：選擇取貨方式 →</button>
+    </div>
+
+    <!-- Step 2: Delivery -->
+    <div class="co-step" id="cs2">
+      <button class="co-bk" onclick="goStep(1)">← 返回</button>
+      <div class="co-hd">🚚 取貨方式</div>
+      <div class="del-opts">
+        <div class="del-opt sel" id="del-pickup" onclick="selDelivery('pickup')">
+          <div class="del-radio"><div class="del-radio-dot"></div></div>
+          <div class="del-info">
+            <div class="del-title">🏪 門市自取</div>
+            <div class="del-desc">歡迎到店取貨，完全免費</div>
+          </div>
+          <span class="del-price-badge del-free">免費</span>
+        </div>
+        <div class="del-opt" id="del-sf" onclick="selDelivery('sf')">
+          <div class="del-radio"><div class="del-radio-dot"></div></div>
+          <div class="del-info">
+            <div class="del-title">📦 順豐速遞</div>
+            <div class="del-desc" id="del-sf-desc">買滿$450免運費，否則另加$50運費</div>
+          </div>
+          <span class="del-price-badge del-pay" id="del-sf-badge">+$50</span>
+        </div>
+      </div>
+      <div class="fg" id="sf-addr-fg" style="display:none">
+        <label class="fl">送貨地址 Delivery Address *</label>
+        <input class="fi" id="co-addr" type="text" placeholder="香港地址 Hong Kong Address">
+      </div>
+      <div class="sum-rows" id="co-summary2"></div>
+      <button class="co-nx" onclick="goStep(3)">下一步：填寫資料 →</button>
+    </div>
+
+    <!-- Step 3: Customer Info -->
+    <div class="co-step" id="cs3">
+      <button class="co-bk" onclick="goStep(2)">← 返回</button>
+      <div class="co-hd">👤 您的資料</div>
+      <div class="co-mode-sel">
+        <button class="cm-btn sel" id="cm-guest" onclick="selCheckoutMode('guest')">訪客下單 Guest</button>
+        <button class="cm-btn" id="cm-member" onclick="selCheckoutMode('member')">會員登入 Member</button>
+      </div>
+      <div id="co-guest-form">
+        <div class="fg"><label class="fl">姓名 Name *</label><input class="fi" id="co-name" type="text" placeholder="您的姓名"></div>
+        <div class="fg"><label class="fl">電話 / WhatsApp *</label><input class="fi" id="co-phone" type="tel" placeholder="+852 XXXX XXXX"></div>
+        <div class="fg"><label class="fl">電郵（收訂單確認）Email</label><input class="fi" id="co-email" type="email" placeholder="you@example.com"></div>
+        <div class="fg"><label class="fl">備註 Remarks</label><input class="fi" id="co-note" type="text" placeholder="特別要求..."></div>
+      </div>
+      <div id="co-member-info" style="display:none">
+        <div style="text-align:center;padding:16px;background:var(--cream);border-radius:var(--r);margin-bottom:12px">
+          <div style="font-size:38px;margin-bottom:8px">👤</div>
+          <div id="co-member-name" style="font-weight:800;color:var(--green-d);font-size:16px"></div>
+          <div id="co-member-email" style="font-size:12px;color:var(--mid);margin-top:4px"></div>
+          <div style="font-size:12px;color:var(--green);margin-top:6px">✅ 將使用已儲存的個人資料下單</div>
+        </div>
+      </div>
+      <button class="co-nx" onclick="goStep(4)">下一步：選擇付款 →</button>
+    </div>
+
+    <!-- Step 4: Payment -->
+    <div class="co-step" id="cs4">
+      <button class="co-bk" onclick="goStep(3)">← 返回</button>
+      <div class="co-hd">💳 付款方式</div>
+      <div class="pay-mc-list">
+        <div class="pay-mc" id="pm-alipay" onclick="selPayMethod('alipay')">
+          <div class="pay-mc-ic">💙</div>
+          <div class="pay-mc-nm">Alipay<br>支付寶</div>
+        </div>
+        <div class="pay-mc" id="pm-wechat" onclick="selPayMethod('wechat')">
+          <div class="pay-mc-ic">💚</div>
+          <div class="pay-mc-nm">WeChat Pay<br>微信支付</div>
+        </div>
+        <div class="pay-mc" id="pm-fps" onclick="selPayMethod('fps')">
+          <div class="pay-mc-ic">🏦</div>
+          <div class="pay-mc-nm">FPS<br>轉數快</div>
+        </div>
+        <div class="pay-mc" id="pm-cash" onclick="selPayMethod('cash')">
+          <div class="pay-mc-ic">💵</div>
+          <div class="pay-mc-nm">門市現金<br>In-Store Cash</div>
+        </div>
+      </div>
+      <!-- Payment detail panels -->
+      <div class="pay-content-box" id="pc-alipay">
+        <div class="qr-box">
+          <div class="qr-iw" id="qr-alipay" onclick="openQRFullscreen('alipay')">
+            <span style="font-size:36px">💙</span>
+            <span style="font-size:12px;font-weight:600">Alipay 支付寶</span>
+            <small>（管理員上傳）</small>
+            <div class="qr-zoom-hint">點擊放大 Tap to enlarge</div>
+          </div>
+          <div style="font-size:12px;color:var(--mid);margin-top:6px">掃描後截圖傳WhatsApp確認</div>
+          <div class="pay-app-btns"><a class="pay-app-btn pay-app-btn-ali" href="alipays://" onclick="tryOpenApp(event,'alipays://')">💙 開啟 Alipay App</a></div>
+        </div>
+      </div>
+      <div class="pay-content-box" id="pc-wechat">
+        <div class="qr-box">
+          <div class="qr-iw" id="qr-wechat" onclick="openQRFullscreen('wechat')">
+            <span style="font-size:36px">💚</span>
+            <span style="font-size:12px;font-weight:600">WeChat Pay 微信支付</span>
+            <small>（管理員上傳）</small>
+            <div class="qr-zoom-hint">點擊放大 Tap to enlarge</div>
+          </div>
+          <div style="font-size:12px;color:var(--mid);margin-top:6px">掃描後截圖傳WhatsApp確認</div>
+          <div class="pay-app-btns"><a class="pay-app-btn pay-app-btn-wc" href="weixin://" onclick="tryOpenApp(event,'weixin://')">💚 開啟 WeChat</a></div>
+        </div>
+      </div>
+      <div class="pay-content-box" id="pc-fps">
+        <div class="fps-box">
+          <div style="font-size:36px">🏦</div>
+          <div style="font-size:12px;color:var(--mid);margin-top:6px">FPS 轉數快帳號</div>
+          <div class="fps-num" id="fps-d">-</div>
+          <button class="fps-copy" onclick="copyFPS()">📋 複製帳號</button>
+          <div class="fps-note" style="margin-top:8px">轉帳後截圖傳WhatsApp確認</div>
+        </div>
+      </div>
+      <div class="pay-content-box" id="pc-cash">
+        <div class="fps-box">
+          <div style="font-size:36px">💵</div>
+          <div style="font-size:13px;font-weight:700;color:var(--green-d);margin-top:8px">門市現金付款</div>
+          <div style="font-size:12px;color:var(--mid);margin-top:6px;line-height:1.6">請到本店親身付款取貨。<br>我們確認訂單後會WhatsApp聯絡您。</div>
+        </div>
+      </div>
+      <!-- Receipt Upload -->
+      <div id="receipt-section" style="display:none;margin-bottom:12px">
+        <div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:8px">📸 上傳付款截圖 Upload Receipt</div>
+        <input type="file" id="receipt-file" accept="image/*" capture="environment" style="display:none" onchange="handleReceiptUpload(this)">
+        <div class="receipt-drop" id="receipt-drop" onclick="document.getElementById('receipt-file').click()">
+          <div style="font-size:32px;margin-bottom:6px">📷</div>
+          <div style="font-size:13px;color:var(--mid)">點擊拍照或選擇截圖</div>
+          <div style="font-size:11px;color:#bbb;margin-top:3px">Tap to take photo or choose screenshot</div>
+        </div>
+        <div id="receipt-preview" style="display:none;text-align:center;padding-top:10px">
+          <img id="receipt-img" src="" alt="receipt">
+          <button onclick="clearReceipt()" style="display:block;margin:8px auto 0;background:none;border:none;color:var(--red);font-size:12px;cursor:pointer;font-family:inherit">✕ 重新上傳 Re-upload</button>
+        </div>
+        <div style="font-size:11px;color:#9ca3af;margin-top:6px;text-align:center">選填 Optional — 可WhatsApp傳送截圖確認</div>
+      </div>
+      <div class="sum-rows" id="co-summary3"></div>
+      <button class="co-nx" onclick="confirmOrder()">確認訂單 ✓ Confirm Order</button>
+    </div>
+
+    <!-- Step 5: Success -->
+    <div class="co-step" id="cs5">
+      <div class="succ-box">
+        <div class="si">🎉</div>
+        <h3>訂單已提交！Order Submitted!</h3>
+        <div class="succ-ord">訂單編號 Order #<br><strong id="succ-ord-id">-</strong></div>
+        <p>感謝訂購！請將付款截圖傳送至WhatsApp以確認訂單。</p>
+        <button class="wa-send" onclick="sendWAOrder()">💬 WhatsApp傳送截圖</button><br>
+        <button onclick="closeCM();setTimeout(()=>openTrack(S.lastOrderId?.slice(-8)),200)" style="margin-top:8px;background:var(--cream);border:1px solid var(--cream-d);border-radius:8px;padding:9px 20px;font-size:13px;font-weight:600;cursor:pointer;color:var(--green-d);width:100%">🔍 查詢訂單狀態 Track My Order</button>
+        <button onclick="closeCM();clearCart()" style="margin-top:8px;background:none;border:none;color:var(--mid);font-size:13px;cursor:pointer">繼續購物 Continue Shopping</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ ORDER TRACKING MODAL ══ -->
+<div id="track-mo" onclick="if(event.target===this)closeTrack()">
+  <div class="track-box">
+    <div class="track-hdr">
+      <div style="font-size:24px">🔍</div>
+      <div class="track-hdr-title">查詢訂單 Order Tracking</div>
+      <button onclick="closeTrack()" style="background:none;border:none;color:white;font-size:22px;cursor:pointer;padding:0;opacity:.8">✕</button>
+    </div>
+    <div class="track-body">
+      <p style="font-size:13px;color:var(--mid);margin-bottom:14px">輸入訂單號碼查詢狀態，無需登入。<br>Enter your order number to check status — no login needed.</p>
+      <div class="track-inp-row">
+        <input class="track-inp" id="track-inp" placeholder="訂單號碼 e.g. ORD-8F3A2C" oninput="this.value=this.value.toUpperCase()"
+          onkeydown="if(event.key==='Enter')trackOrder()">
+        <button class="track-btn" onclick="trackOrder()">查詢</button>
+      </div>
+      <div id="track-result" class="track-result"></div>
+    </div>
+  </div>
+</div>
+
+<div id="toast"></div>
+
+<!-- ══════════════════════════════════════
+     JAVASCRIPT
+══════════════════════════════════════ -->
+<!-- EmailJS SDK -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script type="module">
+
+// ── FIREBASE SHARED INSTANCE ──────────────────────────────────────────────────
+let _app = null, _db = null, _auth = null, _FS = null, _AU = null;
+
+async function getFirebase() {
+  if (_app) return { db: _db, auth: _auth, FS: _FS, AU: _AU };
+  try {
+    const { default: cfg } = await import('./firebase-config.js').catch(() => ({default:null}));
+    if (!cfg?.apiKey || cfg.apiKey === 'YOUR_API_KEY') return null;
+    const [{ initializeApp }, FS, AU] = await Promise.all([
+      import('https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js'),
+      import('https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js'),
+      import('https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js'),
+    ]);
+    _app = initializeApp(cfg);
+    _db = FS.getFirestore(_app);
+    _auth = AU.getAuth(_app);
+    _FS = FS; _AU = AU;
+    return { db: _db, auth: _auth, FS: _FS, AU: _AU };
+  } catch(e) { console.warn('Firebase init:', e); return null; }
+}
+
+// ── EMAILJS HELPER ─────────────────────────────────────────────────────────────
+async function sendEmail(templateId, params) {
+  try {
+    const { default: ejsCfg } = await import('./emailjs-config.js').catch(() => ({default:null}));
+    if (!ejsCfg?.publicKey || ejsCfg.publicKey === 'YOUR_EMAILJS_PUBLIC_KEY') return;
+    if (!window.emailjs) return;
+    emailjs.init({ publicKey: ejsCfg.publicKey });
+    await emailjs.send(ejsCfg.serviceId, templateId, params);
+  } catch(e) { console.warn('EmailJS:', e); }
+}
+
+// ── DEFAULT BANNER MESSAGES ────────────────────────────────────────────────────
+const DEFAULT_ANN_MSGS = [
+  '🚚 買滿$450免運費 | Free delivery over HK$450',
+  '🏪 歡迎到店自取 | In-store pickup welcome',
+  '📦 接受順豐速遞到付 | SF Express COD accepted',
+  '💳 接受 Alipay · WeChat Pay · FPS 轉數快',
+  '💬 如有查詢請WhatsApp我們 | WhatsApp us anytime',
+];
+
+const DEFAULT_INFO_PILLS = [
+  { icon:'🏪', text:'歡迎到店自取 | In-store Pickup' },
+  { icon:'🚚', text:'買滿$450免運費 | Free Delivery over $450' },
+  { icon:'📦', text:'順豐速遞到付 | SF Express COD' },
+  { icon:'💙', text:'支援Alipay 支付寶' },
+  { icon:'💚', text:'支援WeChat Pay 微信支付' },
+  { icon:'🏦', text:'支援FPS 轉數快' },
+  { icon:'💬', text:'WhatsApp 即時查詢' },
+  { icon:'🇭🇰', text:'正宗香港製造商品' },
+];
+
+// ── SAMPLE PRODUCTS (2 per category) ──────────────────────────────────────────
+const SAMPLES = [
+  // 香港製造
+  {id:'hk1', nameCn:'嘉頓梳打餅', nameEn:'Garden Cream Crackers', price:18, cat:'hkmade',
+   desc:'香港嘉頓出品，薄脆鹹香，佐茶一流，分量足夠。是香港家庭常備零食。', badge:'HKMADE', photo:null, sold:238},
+  {id:'hk2', nameCn:'美樂粟米條', nameEn:'Mei Lok Corn Sticks', price:25, cat:'hkmade',
+   desc:'香港本地品牌，香脆粟米條，輕盈不油膩，獨立小包裝。', badge:'HOT', photo:null, sold:189},
+
+  // 懷舊零食
+  {id:'no1', nameCn:'旺旺仙貝', nameEn:'Want Want Rice Crackers', price:28, cat:'nostalgic',
+   desc:'80年代經典零食！香脆可口，雙重米餅口感，全家大小都喜愛。', badge:'HOT', photo:null, sold:412},
+  {id:'no2', nameCn:'喜之郎果凍', nameEn:'Xizhilang Jelly Cups', price:15, cat:'nostalgic',
+   desc:'童年必備！多口味果凍杯，QQ彈彈，甜蜜童年味道。', badge:'NEW', photo:null, sold:156},
+
+  // 酒類
+  {id:'wi1', nameCn:'法國波爾多紅酒', nameEn:'Bordeaux Red Wine 750ml', price:188, cat:'wine',
+   desc:'法國波爾多AOC產區，單寧豐富，果香濃郁，配搭紅肉一流。', badge:'', photo:null, sold:67},
+  {id:'wi2', nameCn:'日本獺祭清酒', nameEn:'Dassai Japanese Sake 720ml', price:320, cat:'wine',
+   desc:'日本山口縣名酒，純米大吟釀，口感極為細滑清雅，送禮佳品。', badge:'NEW', photo:null, sold:43},
+
+  // 其他
+  {id:'ot1', nameCn:'港式絲滑奶茶包', nameEn:'HK Silk Milk Tea Bags', price:35, cat:'others',
+   desc:'重現正宗香港茶餐廳絲滑奶茶，特調茶葉配方，在家輕鬆沖泡。', badge:'', photo:null, sold:201},
+  {id:'ot2', nameCn:'李錦記老抽王', nameEn:'Lee Kum Kee Premium Soy Sauce', price:28, cat:'others',
+   desc:'香港著名品牌，老抽王色澤鮮亮，豉香濃郁，炒菜撈麵均適用。', badge:'', photo:null, sold:178},
+];
+
+// ── STATE ──────────────────────────────────────────────────────────────────────
+const S = {
+  products: [],
+  cart: [],
+  lang: 'cn',
+  cat: 'all',
+  badgeFilter: null,
+  searchQ: '',
+  sortBy: 'default',
+  page: 1,
+  perPage: 12,
+  modalProd: null,
+  modalQty: 1,
+  waNum: '852XXXXXXXX',
+  fpsNum: '待更新',
+  adminEmail: '',
+  fcmVapidKey: '',
+  fcmToken: null,       // current browser's FCM token
+  categories: [],
+  reviewSummary: {}, // { [productId]: { avg, count } }
+  qr: { alipay: null, wechat: null },
+  promoImg: null,
+  annMsgs: null,
+  infoPills: null,
+  user: null,
+  memberProfile: null,
+  // Checkout state
+  delivery: 'pickup',
+  couponApplied: null,
+  shippingFee: 0,
+  checkoutMode: 'guest',
+  payMethod: null,
+  lastOrderId: null,
+  _coStep: 1,
+};
+
+const CAT_IC = { all:'🛍️', hkmade:'🇭🇰', nostalgic:'🕰️', wine:'🍷', others:'🧺' };
+const CAT_CN = { all:'所有商品', hkmade:'香港製造', nostalgic:'懷舊零食', wine:'酒類', others:'其他' };
+const CAT_EN = { all:'All Products', hkmade:'Made in HK', nostalgic:'Nostalgic Snacks', wine:'Wine & Spirits', others:'Others' };
+
+// ── EXPOSE GLOBALS ────────────────────────────────────────────────────────────
+// ── PUSH NOTIFICATIONS (FCM) ──────────────────────────────────────────────────
+async function initFCM() {
+  if (!('serviceWorker' in navigator) || !('Notification' in window)) return;
+  if (!S.fcmVapidKey) return; // not configured yet
+  const fb = await getFirebase().catch(() => null);
+  if (!fb) return;
+  try {
+    // Register service worker
+    const reg = await navigator.serviceWorker.register('./firebase-messaging-sw.js');
+    await navigator.serviceWorker.ready;
+
+    // Send Firebase config to the SW so it can init FCM there
+    const { default: cfg } = await import('./firebase-config.js').catch(() => ({ default: null }));
+    if (!cfg?.apiKey) return;
+    (reg.active || reg.installing || reg.waiting)?.postMessage({ type: 'FCM_INIT', config: cfg });
+
+    // Import Messaging SDK
+    const { getMessaging, getToken, onMessage } = await import(
+      'https://www.gstatic.com/firebasejs/10.12.2/firebase-messaging.js'
+    );
+    const messaging = getMessaging(_app);
+
+    // Ask permission (silently skip if already denied)
+    const perm = Notification.permission === 'granted'
+      ? 'granted'
+      : await Notification.requestPermission().catch(() => 'denied');
+    if (perm !== 'granted') return;
+
+    // Get FCM token
+    const token = await getToken(messaging, {
+      vapidKey: S.fcmVapidKey,
+      serviceWorkerRegistration: reg,
+    }).catch(e => { console.warn('FCM getToken:', e); return null; });
+    if (!token) return;
+
+    S.fcmToken = token;
+
+    // Save token linked to member uid (if logged in)
+    if (S.user) {
+      const { doc, setDoc, serverTimestamp } = fb.FS;
+      await setDoc(doc(fb.db, 'fcmTokens', token), {
+        uid: S.user.uid,
+        token,
+        updatedAt: serverTimestamp(),
+        platform: 'web',
+      }, { merge: true }).catch(() => {});
+    }
+
+    // Show foreground notifications as toast
+    onMessage(messaging, payload => {
+      const n = payload.notification || {};
+      toast(`🔔 ${n.title || ''}${n.body ? ': ' + n.body : ''}`);
+    });
+
+  } catch (e) { console.warn('FCM init:', e); }
+}
+
+// ── ORDER TRACKING ────────────────────────────────────────────────────────────
+function openTrack(prefill){
+  document.getElementById('track-mo').classList.add('open');
+  document.body.style.overflow='hidden';
+  if(prefill){ document.getElementById('track-inp').value=prefill.toUpperCase(); trackOrder(); }
+  else { document.getElementById('track-result').classList.remove('show'); }
+}
+function closeTrack(){
+  document.getElementById('track-mo').classList.remove('open');
+  document.body.style.overflow='';
+}
+
+const TRACK_STAGES = [
+  { key:'pending',   label:'⏳ 待確認 Pending',   sub:'訂單已收到，等待確認' },
+  { key:'confirmed', label:'✅ 已確認 Confirmed',  sub:'訂單已確認，準備備貨' },
+  { key:'preparing', label:'📦 備貨中 Preparing',  sub:'正在為您備貨' },
+  { key:'collected', label:'🚚 已交速遞 Collected', sub:'包裹已交速遞公司' },
+  { key:'transit',   label:'✈️ 運送中 In Transit', sub:'包裹正在運送途中' },
+  { key:'delivered', label:'🎉 已送達 Delivered',  sub:'訂單已成功送達' },
+];
+const PICKUP_STAGES = ['pending','confirmed','preparing','delivered'];
+
+async function trackOrder(){
+  const raw = (document.getElementById('track-inp').value||'').trim().toUpperCase();
+  if(!raw){ toast('⚠️ 請輸入訂單號碼'); return; }
+  const el = document.getElementById('track-result');
+  el.innerHTML='<div style="text-align:center;padding:20px;color:var(--mid);font-size:13px">查詢中...</div>';
+  el.classList.add('show');
+
+  let order = null;
+  const fb = await getFirebase().catch(()=>null);
+  if(fb){
+    const { collection, query, where, getDocs } = fb.FS;
+    // Match by last 8 chars of id (order ID suffix) or full id
+    const snap = await getDocs(collection(fb.db,'orders')).catch(()=>null);
+    if(snap){
+      snap.docs.forEach(d=>{
+        const o = {id:d.id,...d.data()};
+        const shortId = o.id.slice(-8).toUpperCase();
+        if(shortId===raw || o.id.toUpperCase()===raw || (o.id.toUpperCase().includes(raw) && raw.length>=6)) order=o;
+      });
+    }
+  } else {
+    const arr = JSON.parse(localStorage.getItem('hc_orders')||'[]');
+    order = arr.find(o=>o.id?.slice(-8).toUpperCase()===raw || o.id?.toUpperCase()===raw);
+  }
+
+  if(!order){
+    el.innerHTML=`<div style="text-align:center;padding:20px">
+      <div style="font-size:32px;margin-bottom:8px">🔍</div>
+      <div style="font-size:14px;font-weight:700;color:#374151">找不到此訂單</div>
+      <div style="font-size:12px;color:var(--mid);margin-top:4px">請檢查訂單號碼是否正確<br>Check your order number and try again</div>
+    </div>`; return;
+  }
+
+  const status = order.status || 'pending';
+  const isPickup = order.delivery === 'pickup';
+  const stages = isPickup ? TRACK_STAGES.filter(s=>PICKUP_STAGES.includes(s.key)) : TRACK_STAGES;
+  const stageIdx = stages.findIndex(s=>s.key===status);
+  const isCancelled = status==='cancelled';
+
+  const timelineHtml = isCancelled
+    ? `<div style="background:#fee2e2;border-radius:8px;padding:12px 14px;text-align:center;font-size:13px;font-weight:700;color:#dc2626">❌ 訂單已取消 Order Cancelled</div>`
+    : `<div class="track-timeline">
+        ${stages.map((s,i)=>{
+          const isDone = i < stageIdx;
+          const isActive = i === stageIdx;
+          return `<div class="track-step ${isDone?'done':isActive?'active':''}">
+            <div class="track-step-label">${s.label}</div>
+            ${isActive?`<div class="track-step-sub">${s.sub}</div>`:''}
+          </div>`;
+        }).join('')}
+      </div>`;
+
+  const items = (order.items||order.cart||[]).map(i=>`${i.nameCn||i.name} ×${i.qty}`).join('、');
+  const shortId = order.id?.slice(-8).toUpperCase() || raw;
+
+  el.innerHTML = `
+    <div class="track-ord-id">訂單編號 Order ID: #${shortId}</div>
+    ${timelineHtml}
+    <div class="track-info-grid">
+      <div class="track-info-cell"><div class="track-info-label">商品 Items</div><div class="track-info-val" style="font-size:12px">${items||'—'}</div></div>
+      <div class="track-info-cell"><div class="track-info-label">總計 Total</div><div class="track-info-val">HK$${order.total||'—'}</div></div>
+      <div class="track-info-cell"><div class="track-info-label">送貨 Delivery</div><div class="track-info-val">${isPickup?'🏪 自取':'📦 順豐SF'}</div></div>
+      ${order.trackingNo?`<div class="track-info-cell"><div class="track-info-label">追蹤號 Tracking</div><div class="track-info-val" style="font-size:12px">${order.courier||''} ${order.trackingNo}</div></div>`:''}
+    </div>
+    <div style="margin-top:14px;text-align:center">
+      <a href="#" onclick="closeTrack();toggleChat();return false" style="font-size:13px;color:var(--green);font-weight:600">💬 有問題？聯絡客服</a>
+    </div>`;
+}
+
+// ── LIVE CHAT ─────────────────────────────────────────────────────────────────
+let _chatId = null;
+let _chatUnsub = null;
+let _chatOpen = false;
+let _chatName = '';
+
+(function _initChatId(){
+  try { _chatId = localStorage.getItem('hc_chatId') || null; } catch(e){}
+})();
+
+function toggleChat(){ _chatOpen ? closeChat() : openChat(); }
+
+function openChat(){
+  _chatOpen = true;
+  document.getElementById('chat-panel').classList.add('open');
+  document.getElementById('chat-unread').classList.remove('show');
+  if(!_chatId){ _renderChatStart(); } else { _renderChatMsgs([]); _subscribeChatMsgs(); }
+}
+
+function closeChat(){
+  _chatOpen = false;
+  document.getElementById('chat-panel').classList.remove('open');
+}
+
+function _renderChatStart(){
+  const nm = S.memberProfile?.name || '';
+  const em = S.user?.email || '';
+  document.getElementById('chat-body').innerHTML = `
+    <div style="padding:16px;display:flex;flex-direction:column;gap:10px;overflow-y:auto">
+      <p style="font-size:13px;color:#6b7280;line-height:1.6;margin:0">
+        有任何問題或商品投訴？請留言，我們會盡快回覆！<br>
+        <span style="font-size:12px">Any questions or product issues? Leave us a message!</span>
+      </p>
+      <input id="cn-name" class="chat-fi" placeholder="您的姓名 Name *" value="${nm}">
+      <input id="cn-email" class="chat-fi" placeholder="電郵 Email (選填)" value="${em}">
+      <input id="cn-order" class="chat-fi" placeholder="訂單編號 Order # (選填)">
+      <select id="cn-type" class="chat-fi">
+        <option value="general">💬 一般查詢 General Enquiry</option>
+        <option value="order">📦 訂單查詢 Order Status</option>
+        <option value="complaint">⚠️ 商品問題 Product Issue</option>
+        <option value="return">🔄 退換貨 Return / Refund</option>
+      </select>
+      <textarea id="cn-msg" class="chat-fi" placeholder="詳情... Details..." style="resize:none;height:80px"></textarea>
+      <button onclick="startChat()" style="background:var(--green-d);color:white;border:none;border-radius:8px;padding:13px;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit">
+        開始對話 Start Chat →
+      </button>
+      <p style="font-size:11px;color:#9ca3af;text-align:center;margin:0">或直接 <a href="#" onclick="openWA();return false" style="color:var(--green)">WhatsApp 我們</a></p>
+    </div>`;
+}
+
+async function startChat(){
+  const name  = (document.getElementById('cn-name').value||'').trim();
+  const email = (document.getElementById('cn-email').value||'').trim();
+  const orderId = (document.getElementById('cn-order').value||'').trim();
+  const type  = document.getElementById('cn-type').value;
+  const msg   = (document.getElementById('cn-msg').value||'').trim();
+  if(!name){ toast('⚠️ 請輸入姓名'); return; }
+  if(!msg) { toast('⚠️ 請輸入問題詳情'); return; }
+
+  _chatName = name;
+  const chatId = 'chat_' + Date.now() + '_' + Math.random().toString(36).slice(2,6);
+  const now = new Date().toISOString();
+  const chatDoc = { id:chatId, guestName:name, guestEmail:email, orderId:orderId||null, type, status:'open',
+    lastMsg:msg, lastAt:now, unreadAdmin:1, createdAt:now, uid:S.user?.uid||null };
+  const firstMsg = { text:msg, sender:'customer', senderName:name, at:now, read:false };
+
+  const fb = await getFirebase().catch(()=>null);
+  if(fb){
+    const { collection, doc, setDoc, addDoc, serverTimestamp } = fb.FS;
+    await setDoc(doc(fb.db,'supportChats',chatId), {...chatDoc, lastAt:serverTimestamp(), createdAt:serverTimestamp()});
+    await addDoc(collection(fb.db,'supportChats',chatId,'messages'), {...firstMsg, at:serverTimestamp()});
+  } else {
+    const arr = JSON.parse(localStorage.getItem('hc_chats')||'[]');
+    arr.unshift({...chatDoc, messages:[firstMsg]});
+    localStorage.setItem('hc_chats', JSON.stringify(arr));
+  }
+
+  _chatId = chatId;
+  try { localStorage.setItem('hc_chatId', chatId); } catch(e){}
+  _renderChatMsgs([firstMsg]);
+  if(fb) _subscribeChatMsgs();
+  toast('✅ 訊息已發送，我們會盡快回覆！');
+}
+
+function _renderChatMsgs(msgs){
+  const msgsHtml = msgs.length ? msgs.map(m=>{
+    const isAdmin = m.sender==='admin';
+    const t = m.at?.toDate ? m.at.toDate() : new Date(m.at||Date.now());
+    const time = t.toLocaleTimeString('zh-HK',{hour:'2-digit',minute:'2-digit'});
+    return `<div class="cm-wrap cm-from-${isAdmin?'admin':'customer'}">
+      <div class="cm-bubble">${(m.text||'').replace(/</g,'&lt;').replace(/\n/g,'<br>')}</div>
+      <div class="cm-time" style="align-self:${isAdmin?'flex-start':'flex-end'}">${isAdmin?'👩‍💼 客服  ':''}${time}</div>
+    </div>`;
+  }).join('') : '<div style="text-align:center;color:#9ca3af;font-size:13px;padding:30px 0">等待客服回覆中...<br><span style="font-size:11px">Awaiting reply...</span></div>';
+
+  document.getElementById('chat-body').innerHTML = `
+    <div class="chat-msgs" id="chat-msgs-list">${msgsHtml}</div>
+    <div class="chat-input-row">
+      <textarea class="chat-inp" id="chat-inp" placeholder="輸入訊息..." rows="1"
+        onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();sendChatMsg()}"></textarea>
+      <button class="chat-send" onclick="sendChatMsg()">➤</button>
+    </div>`;
+  setTimeout(()=>{ const el=document.getElementById('chat-msgs-list'); if(el) el.scrollTop=el.scrollHeight; },80);
+}
+
+async function sendChatMsg(){
+  const inp = document.getElementById('chat-inp');
+  const txt = (inp?.value||'').trim();
+  if(!txt || !_chatId) return;
+  inp.value=''; inp.style.height='';
+  const name = _chatName || S.memberProfile?.name || '顧客';
+  const now = new Date().toISOString();
+  const msg = { text:txt, sender:'customer', senderName:name, at:now, read:false };
+  const fb = await getFirebase().catch(()=>null);
+  if(fb){
+    const { collection, addDoc, doc, updateDoc, serverTimestamp, increment } = fb.FS;
+    await addDoc(collection(fb.db,'supportChats',_chatId,'messages'), {...msg, at:serverTimestamp()});
+    await updateDoc(doc(fb.db,'supportChats',_chatId), { lastMsg:txt, lastAt:serverTimestamp(), unreadAdmin:increment(1) }).catch(()=>{});
+  } else {
+    const arr = JSON.parse(localStorage.getItem('hc_chats')||'[]');
+    const c = arr.find(x=>x.id===_chatId);
+    if(c){ if(!c.messages) c.messages=[]; c.messages.push(msg); c.lastMsg=txt; c.lastAt=now; }
+    localStorage.setItem('hc_chats', JSON.stringify(arr));
+    _renderChatMsgs(c?.messages||[msg]);
+  }
+}
+
+async function _subscribeChatMsgs(){
+  if(_chatUnsub){ _chatUnsub(); _chatUnsub=null; }
+  const fb = await getFirebase().catch(()=>null);
+  if(!fb || !_chatId) return;
+  const { collection, query, orderBy, onSnapshot } = fb.FS;
+  _chatUnsub = onSnapshot(query(collection(fb.db,'supportChats',_chatId,'messages'), orderBy('at','asc')), snap=>{
+    const msgs = snap.docs.map(d=>({...d.data(),id:d.id}));
+    if(_chatOpen){
+      _renderChatMsgs(msgs);
+    } else {
+      const unread = msgs.filter(m=>m.sender==='admin'&&!m.read).length;
+      if(unread){ const b=document.getElementById('chat-unread'); b.textContent=unread; b.classList.add('show'); }
+    }
+  });
+}
+
+Object.assign(window, {
+  filterCat, filterSubcat, filterBadge, openCart, closeCart, openProduct, closePM, dq, pmAdd,
+  openCheckout, closeCM, goStep, confirmOrder, sendWAOrder, clearCart,
+  doSearch, doMobSearch, clearSearch, openWA, toggleDD, closeAllDD, setLang,
+  toggleMobSrch, setSort, toggleSort, quickAdd,
+  openAcct, closeAuth, switchAuthTab, doLogin, doRegister, doVerifyOtp, resendOtp, otpNext,
+  openMember, closeMember, switchMemTab, saveProfile, doLogout, loadMemberOrders, reorder, cancelOrder,
+  togglePointsRedemption,
+  selDelivery, selPayMethod, applyCoupon, selCheckoutMode,
+  toggleChat, openChat, closeChat, startChat, sendChatMsg,
+  submitReview, _setPickStars, _previewRvPhoto,
+  openTrack, closeTrack, trackOrder,
+  initFCM,
+  handleReceiptUpload, clearReceipt,
+  galNav, galThumb,
+});
+
+// ── INIT ──────────────────────────────────────────────────────────────────────
+async function init() {
+  // Load settings
+  const s = localStorage.getItem('hc_settings');
+  if (s) {
+    const o = JSON.parse(s);
+    S.waNum = o.wa || S.waNum;
+    S.fpsNum = o.fps || S.fpsNum;
+    S.adminEmail  = o.adminEmail  || S.adminEmail;
+    S.fcmVapidKey = o.fcmVapidKey || '';
+    S.qr = o.qr || S.qr;
+    S.promoImg = o.promoImg || null;
+    S.annMsgs = o.annMsgs || null;
+    S.infoPills = o.infoPills || null;
+  }
+
+  // Promo banner
+  if (S.promoImg) {
+    document.getElementById('hero').style.display = 'none';
+    document.getElementById('promo-img').src = S.promoImg;
+    document.getElementById('promo-banner').style.display = 'block';
+  }
+
+  buildAnnTicker();
+  buildInfoStrip();
+  updateQR();
+
+  // Init Firebase (shared)
+  const fb = await getFirebase();
+  if (fb) {
+    // Listen to customer auth state
+    fb.AU.onAuthStateChanged(fb.auth, async user => {
+      S.user = user;
+      updateAccountUI();
+      if (user) {
+        await loadMemberProfile(user.uid, fb);
+        restoreCartFromFirebase(user.uid, fb);
+        initFCM(); // request push permission after login
+      } else {
+        S.memberProfile = null;
+      }
+    });
+    // Load categories real-time → rebuild dynamic nav
+    const { collection, onSnapshot, query, orderBy } = fb.FS;
+    onSnapshot(query(collection(fb.db,'categories'), orderBy('order','asc')), snap => {
+      if (!snap.empty) {
+        S.categories = snap.docs.map(d=>({id:d.id,...d.data()})).filter(c=>c.active!==false);
+        _buildDynNav();
+      }
+    }, ()=>{}); // silent fail — static nav remains
+    // Load products real-time
+    onSnapshot(query(collection(fb.db,'products'), orderBy('createdAt','desc')), snap => {
+      S.products = snap.docs.map(d=>({id:d.id,...d.data()}));
+      renderProducts();
+      if (!S.user) _restoreCartLocal(); // guest: restore from localStorage after products ready
+    }, () => {
+      const saved = localStorage.getItem('hc_products');
+      S.products = saved ? JSON.parse(saved) : SAMPLES;
+      renderProducts();
+      if (!S.user) _restoreCartLocal();
+    });
+  } else {
+    // Fallback to localStorage (no Firebase)
+    const saved = localStorage.getItem('hc_products');
+    S.products = saved ? JSON.parse(saved) : SAMPLES;
+    renderProducts();
+    _restoreCartLocal(); // always restore for non-Firebase mode
+  }
+  // Init FCM for returning visitors who already granted permission
+  if (Notification.permission === 'granted') initFCM();
+
+  // Deep link: open product from URL ?p=productId
+  const _deepP = new URLSearchParams(location.search).get('p');
+  if(_deepP){
+    // Products may not be ready yet — wait for first render then open
+    const _tryOpen = () => {
+      if(S.products.length){ openProduct(_deepP); }
+      else { setTimeout(_tryOpen, 150); }
+    };
+    _tryOpen();
+  }
+
+  // Browser back/forward: close modal when navigating back from product URL
+  window.addEventListener('popstate', e => {
+    if(!e.state?.productId){
+      const pm = document.getElementById('pm');
+      if(pm?.classList.contains('open')){ pm.classList.remove('open'); document.body.style.overflow=''; _restoreOG(); }
+    }
+  });
+}
+
+// legacy stub — kept for any cached pages
+async function loadFromFirebase(cfg) {
+  try {
+    const { initializeApp } = await import('https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js');
+    const { getFirestore, collection, onSnapshot, query, orderBy } =
+      await import('https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js');
+    const app = initializeApp(cfg);
+    const db = getFirestore(app);
+    onSnapshot(query(collection(db,'products'), orderBy('createdAt','desc')), snap => {
+      S.products = snap.docs.map(d=>({id:d.id,...d.data()}));
+      renderProducts();
+    });
+  } catch(e) {
+    const saved = localStorage.getItem('hc_products');
+    S.products = saved ? JSON.parse(saved) : SAMPLES;
+    renderProducts();
+  }
+}
+
+// ── ACCOUNT UI ────────────────────────────────────────────────────────────────
+function updateAccountUI() {
+  const btn = document.getElementById('acct-btn');
+  const dot = document.getElementById('acct-dot');
+  if (!btn) return;
+  if (S.user) {
+    btn.classList.add('acct-logged');
+    dot.classList.add('show');
+    btn.title = S.memberProfile?.name || S.user.email || '我的帳戶';
+  } else {
+    btn.classList.remove('acct-logged');
+    dot.classList.remove('show');
+    btn.title = '登入 / 註冊';
+  }
+}
+
+function openAcct() {
+  if (S.user) { openMember(); } else { openAuthModal(); }
+}
+
+function openAuthModal() {
+  document.getElementById('auth-mo').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeAuth() {
+  document.getElementById('auth-mo').classList.remove('open');
+  document.body.style.overflow = '';
+  // If user dismissed auth without logging in, revert checkout to guest
+  if(S._pendingCheckoutMember && !S.user){
+    S._pendingCheckoutMember=false;
+    S.checkoutMode='guest';
+    const cg=document.getElementById('cm-guest'); if(cg)cg.classList.add('sel');
+    const cm=document.getElementById('cm-member'); if(cm)cm.classList.remove('sel');
+  }
+}
+function switchAuthTab(tab) {
+  document.getElementById('at-login').classList.toggle('active', tab === 'login');
+  document.getElementById('at-reg').classList.toggle('active', tab === 'reg');
+  document.getElementById('auth-login-form').style.display = tab === 'login' ? 'block' : 'none';
+  document.getElementById('auth-reg-form').style.display = tab === 'reg' ? 'block' : 'none';
+}
+
+async function doLogin() {
+  const email = document.getElementById('li-email').value.trim();
+  const pw = document.getElementById('li-pw').value;
+  const errEl = document.getElementById('login-err');
+  errEl.classList.remove('show');
+  if (!email || !pw) { errEl.textContent = '請填寫電郵和密碼'; errEl.classList.add('show'); return; }
+  const fb = await getFirebase();
+  if (!fb) { errEl.textContent = 'Firebase 尚未設定，請聯絡管理員'; errEl.classList.add('show'); return; }
+  try {
+    await fb.AU.signInWithEmailAndPassword(fb.auth, email, pw);
+    closeAuth();
+    toast('✅ 登入成功！歡迎回來');
+    if(S._pendingCheckoutMember){ S._pendingCheckoutMember=false; setTimeout(()=>selCheckoutMode('member'),400); }
+  } catch(e) {
+    const msg = { 'auth/wrong-password':'密碼錯誤', 'auth/user-not-found':'找不到此帳戶', 'auth/invalid-email':'電郵格式不正確', 'auth/invalid-credential':'電郵或密碼錯誤' };
+    errEl.textContent = msg[e.code] || e.message; errEl.classList.add('show');
+  }
+}
+
+// OTP state (in-memory only, never persisted)
+let _pendingReg = null;
+let _otpTimer = null;
+
+async function doRegister() {
+  const name = document.getElementById('rg-name').value.trim();
+  const email = document.getElementById('rg-email').value.trim();
+  const phone = document.getElementById('rg-phone').value.trim();
+  const bday = document.getElementById('rg-bday').value;
+  const addr = document.getElementById('rg-addr').value.trim();
+  const pw = document.getElementById('rg-pw').value;
+  const errEl = document.getElementById('reg-err');
+  errEl.classList.remove('show');
+  if (!name || !email || !pw) { errEl.textContent = '請填寫姓名、電郵和密碼'; errEl.classList.add('show'); return; }
+  if (pw.length < 6) { errEl.textContent = '密碼最少6位'; errEl.classList.add('show'); return; }
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { errEl.textContent = '電郵格式不正確'; errEl.classList.add('show'); return; }
+  const fb = await getFirebase();
+  if (!fb) { errEl.textContent = 'Firebase 尚未設定，請聯絡管理員'; errEl.classList.add('show'); return; }
+  // Generate OTP
+  const otp = Math.floor(100000 + Math.random() * 900000).toString();
+  _pendingReg = { name, email, phone, bday, addr, pw, otp, expires: Date.now() + 600000 };
+  // Send OTP email
+  const { default: ejsCfg } = await import('./emailjs-config.js').catch(() => ({default:null}));
+  if (ejsCfg?.templates?.otp) {
+    try { await sendEmail(ejsCfg.templates.otp, { to_name: name, to_email: email, otp_code: otp, store_name: '鴻昌辦館 Hung Cheong Store' }); }
+    catch(e) { console.log('OTP (dev):', otp); }
+  } else { console.log('OTP (dev — EmailJS not configured):', otp); }
+  // Show OTP input screen
+  document.getElementById('rg-step1').style.display = 'none';
+  document.getElementById('rg-step2').style.display = 'block';
+  [1,2,3,4,5,6].forEach(n => { const el=document.getElementById('otp'+n); if(el)el.value=''; });
+  document.getElementById('otp1').focus();
+  _startOtpTimer();
+}
+
+function _startOtpTimer() {
+  let sec = 60;
+  const btn = document.getElementById('otp-resend-btn');
+  if (!btn) return;
+  btn.disabled = true; btn.textContent = `重新發送（${sec}秒後）`;
+  clearInterval(_otpTimer);
+  _otpTimer = setInterval(() => {
+    sec--;
+    btn.textContent = `重新發送（${sec}秒後）`;
+    if (sec <= 0) { clearInterval(_otpTimer); btn.textContent = '重新發送驗證碼'; btn.disabled = false; }
+  }, 1000);
+}
+
+async function doVerifyOtp() {
+  const entered = [1,2,3,4,5,6].map(n => (document.getElementById('otp'+n)||{}).value||'').join('');
+  const errEl = document.getElementById('otp-err');
+  errEl.classList.remove('show');
+  if (!_pendingReg) { errEl.textContent = '請重新開始登記流程'; errEl.classList.add('show'); return; }
+  if (Date.now() > _pendingReg.expires) { errEl.textContent = '驗證碼已過期，請重新發送'; errEl.classList.add('show'); return; }
+  if (entered.length < 6 || entered !== _pendingReg.otp) { errEl.textContent = '驗證碼不正確，請再試'; errEl.classList.add('show'); return; }
+  const fb = await getFirebase();
+  if (!fb) { errEl.textContent = 'Firebase 尚未設定'; errEl.classList.add('show'); return; }
+  try {
+    const cred = await fb.AU.createUserWithEmailAndPassword(fb.auth, _pendingReg.email, _pendingReg.pw);
+    const uid = cred.user.uid;
+    const { doc, setDoc, serverTimestamp } = fb.FS;
+    const welcomeCoupon = { code: 'HC10WELCOME', amount: 10, used: false, grantedAt: new Date().toISOString() };
+    const profile = { name: _pendingReg.name, email: _pendingReg.email, phone: _pendingReg.phone, birthday: _pendingReg.bday, address: _pendingReg.addr, coupons: [welcomeCoupon], createdAt: serverTimestamp() };
+    await setDoc(doc(fb.db, 'members', uid), profile);
+    S.memberProfile = { ...profile, coupons: [welcomeCoupon] };
+    // Welcome email
+    const { default: ejsCfg } = await import('./emailjs-config.js').catch(() => ({default:null}));
+    if (ejsCfg?.templates?.welcome) {
+      sendEmail(ejsCfg.templates.welcome, { to_name: _pendingReg.name, to_email: _pendingReg.email, store_name: '鴻昌辦館 Hung Cheong Store' });
+    }
+    _pendingReg = null; clearInterval(_otpTimer);
+    closeAuth();
+    toast('🎉 歡迎加入鴻昌辦館！您已獲贈 HK$10 現金券！');
+  } catch(e) {
+    const msg = { 'auth/email-already-in-use':'此電郵已被使用，請直接登入', 'auth/invalid-email':'電郵格式不正確', 'auth/weak-password':'密碼太簡單' };
+    errEl.textContent = msg[e.code] || e.message; errEl.classList.add('show');
+  }
+}
+
+async function resendOtp() {
+  if (!_pendingReg) return;
+  const otp = Math.floor(100000 + Math.random() * 900000).toString();
+  _pendingReg.otp = otp; _pendingReg.expires = Date.now() + 600000;
+  const { default: ejsCfg } = await import('./emailjs-config.js').catch(() => ({default:null}));
+  if (ejsCfg?.templates?.otp) {
+    sendEmail(ejsCfg.templates.otp, { to_name: _pendingReg.name, to_email: _pendingReg.email, otp_code: otp, store_name: '鴻昌辦館 Hung Cheong Store' });
+  } else { console.log('New OTP (dev):', otp); }
+  _startOtpTimer();
+  toast('📧 驗證碼已重新發送');
+}
+
+function otpNext(el, nextId) {
+  const v = el.value.toString();
+  if (v.length > 1) el.value = v.slice(-1);
+  if (el.value && nextId) document.getElementById(nextId)?.focus();
+}
+
+async function doLogout() {
+  const fb = await getFirebase();
+  if (fb) await fb.AU.signOut(fb.auth);
+  S.user = null; S.memberProfile = null;
+  updateAccountUI();
+  closeMember();
+  toast('👋 已登出');
+}
+
+// ── MEMBER PANEL ──────────────────────────────────────────────────────────────
+function openMember() {
+  if (!S.user) { openAuthModal(); return; }
+  // Populate profile fields
+  const p = S.memberProfile || {};
+  document.getElementById('mem-name-hd').textContent = p.name || '我的帳戶';
+  document.getElementById('mem-email-disp').textContent = '📧 ' + (S.user?.email || '');
+  const ptsRow = document.getElementById('mem-pts-row');
+  if (ptsRow) {
+    const pts = p.points || 0;
+    document.getElementById('mem-pts-num').textContent = pts;
+    ptsRow.style.display = pts > 0 ? 'block' : 'none';
+  }
+  document.getElementById('mp-name').value = p.name || '';
+  document.getElementById('mp-phone').value = p.phone || '';
+  document.getElementById('mp-bday').value = p.birthday || '';
+  document.getElementById('mp-addr').value = p.address || '';
+  switchMemTab('profile');
+  document.getElementById('mem-ov').classList.add('open');
+  document.getElementById('mem-panel').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeMember() {
+  document.getElementById('mem-ov').classList.remove('open');
+  document.getElementById('mem-panel').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function switchMemTab(tab) {
+  document.getElementById('mt-profile').classList.toggle('active', tab === 'profile');
+  document.getElementById('mt-orders').classList.toggle('active', tab === 'orders');
+  document.getElementById('mem-profile-tab').style.display = tab === 'profile' ? 'block' : 'none';
+  document.getElementById('mem-orders-tab').style.display = tab === 'orders' ? 'block' : 'none';
+  if (tab === 'orders') loadMemberOrders();
+}
+
+async function loadMemberProfile(uid, fb) {
+  if (!fb) return;
+  try {
+    const { doc, getDoc } = fb.FS;
+    const snap = await getDoc(doc(fb.db, 'members', uid));
+    if (snap.exists()) { S.memberProfile = snap.data(); }
+  } catch(e) {}
+  updateAccountUI();
+}
+
+async function saveProfile() {
+  if (!S.user) return;
+  const profile = {
+    name: document.getElementById('mp-name').value.trim(),
+    phone: document.getElementById('mp-phone').value.trim(),
+    birthday: document.getElementById('mp-bday').value,
+    address: document.getElementById('mp-addr').value.trim(),
+    email: S.user.email,
+  };
+  const fb = await getFirebase();
+  if (fb) {
+    const { doc, updateDoc } = fb.FS;
+    await updateDoc(doc(fb.db, 'members', S.user.uid), profile).catch(async () => {
+      const { doc: d, setDoc } = fb.FS;
+      await setDoc(d(fb.db, 'members', S.user.uid), { ...profile, createdAt: new Date().toISOString() });
+    });
+  }
+  S.memberProfile = { ...S.memberProfile, ...profile };
+  document.getElementById('mem-name-hd').textContent = profile.name || '我的帳戶';
+  updateAccountUI();
+  toast('✅ 資料已儲存');
+}
+
+async function loadMemberOrders() {
+  const el = document.getElementById('mem-orders-list');
+  if (!S.user) return;
+  const fb = await getFirebase();
+  if (!fb) {
+    // Fallback: show localStorage orders matched by phone
+    const orders = JSON.parse(localStorage.getItem('hc_orders') || '[]');
+    renderMemberOrders(orders, el);
+    return;
+  }
+  try {
+    const { collection, query, where, orderBy, getDocs } = fb.FS;
+    const q = query(collection(fb.db, 'orders'), where('memberId', '==', S.user.uid), orderBy('createdAt', 'desc'));
+    const snap = await getDocs(q);
+    const orders = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+    renderMemberOrders(orders, el);
+  } catch(e) {
+    el.innerHTML = '<div class="ord-empty">無法載入訂單記錄</div>';
+  }
+}
+
+function renderMemberOrders(orders, el) {
+  if (!orders.length) { el.innerHTML = '<div class="ord-empty">📦 暫時沒有訂單記錄</div>'; return; }
+  const stCls = {
+    pending:'ord-st-pending', confirmed:'ord-st-confirmed', preparing:'ord-st-preparing',
+    collected:'ord-st-collected', transit:'ord-st-transit', shipped:'ord-st-shipped',
+    delivered:'ord-st-delivered', cancelled:'ord-st-cancelled',
+  };
+  const stLbl = {
+    pending:'⏳ 待確認', confirmed:'✅ 已確認', preparing:'📦 備貨中',
+    collected:'🚚 已交速遞', transit:'✈️ 運送中', shipped:'📮 已寄出',
+    delivered:'🎉 已送達', cancelled:'❌ 已取消',
+  };
+  el.innerHTML = orders.map(o => {
+    const date = o.createdAt?.toDate ? o.createdAt.toDate().toLocaleDateString('zh-HK') : (o.createdAt||'').slice(0,10);
+    const items = Array.isArray(o.items) ? o.items : [];
+    const itemsTxt = items.map(i=>`${i.nameCn||i.name||'?'} ×${i.qty}`).join('、');
+    const st = o.status || 'pending';
+    const shortId = (o.id||'').slice(-8).toUpperCase();
+    const canReorder = items.length > 0 && st !== 'cancelled';
+    // Encode items for onclick safely
+    const itemsJson = encodeURIComponent(JSON.stringify(items));
+    return `<div class="ord-card">
+      <div class="ord-hdr">
+        <div class="ord-id">🛒 #${shortId}</div>
+        <span class="ord-st ${stCls[st]||'ord-st-pending'}">${stLbl[st]||st}</span>
+      </div>
+      <div class="ord-date">${date}${o.delivery==='pickup'?' · 🏪 自取':' · 📦 順豐SF'}</div>
+      <div class="ord-items">${itemsTxt||'—'}</div>
+      ${o.trackingNo ? `<div style="font-size:11px;color:var(--mid);margin-bottom:4px">📮 ${o.courier||''} ${o.trackingNo}</div>` : ''}
+      <div class="ord-footer">
+        <div class="ord-tot">HK$${o.total||0}</div>
+        <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+          <a class="track-link" onclick="closeMember();openTrack('${shortId}');return false">🔍 查詢狀態</a>
+          ${canReorder ? `<button class="reorder-btn" onclick="reorder('${encodeURIComponent(o.id)}')">🔁 再次訂購</button>` : ''}
+          ${st==='pending' ? `<button class="reorder-btn" style="background:#fee2e2;color:#dc2626;border:1.5px solid #fca5a5" onclick="cancelOrder('${encodeURIComponent(o.id)}')">✕ 取消訂單</button>` : ''}
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+async function reorder(encodedOrderId) {
+  const orderId = decodeURIComponent(encodedOrderId);
+  // Find the order object from already-loaded list or re-fetch
+  let order = null;
+  const fb = await getFirebase().catch(()=>null);
+  if (fb) {
+    const { doc, getDoc } = fb.FS;
+    const snap = await getDoc(doc(fb.db,'orders',orderId)).catch(()=>null);
+    if (snap?.exists()) order = { id:snap.id, ...snap.data() };
+  }
+  if (!order) {
+    // Fallback: localStorage
+    const arr = JSON.parse(localStorage.getItem('hc_orders')||'[]');
+    order = arr.find(o=>o.id===orderId);
+  }
+  if (!order || !Array.isArray(order.items) || !order.items.length) {
+    toast('⚠️ 找不到訂單商品'); return;
+  }
+
+  let added = 0, skipped = 0;
+  order.items.forEach(item => {
+    // Try to match against current live product list (enriches with latest price/photo)
+    const live = S.products.find(p => p.id === item.id);
+    if (live) {
+      addToCart(live, item.qty);
+      added++;
+    } else if (item.nameCn && item.price) {
+      // Product no longer in catalog — add with stored info and flag it
+      addToCart({ ...item, id: item.id || ('legacy_'+Date.now()), _legacy: true }, item.qty);
+      added++;
+    } else {
+      skipped++;
+    }
+  });
+
+  closeMember();
+  if (skipped > 0 && added > 0) {
+    toast(`🔁 已加入 ${added} 件，${skipped} 件商品已下架`);
+  } else if (added > 0) {
+    toast(`🔁 ${added} 件商品已加入購物車！`);
+  } else {
+    toast('⚠️ 此訂單商品均已下架');
+    return;
+  }
+  openCart();
+}
+
+async function cancelOrder(encodedOrderId) {
+  if (!confirm('確定要取消此訂單嗎？\nCancel this order?')) return;
+  const orderId = decodeURIComponent(encodedOrderId);
+  const fb = await getFirebase().catch(()=>null);
+  if (fb) {
+    const { doc, updateDoc } = fb.FS;
+    await updateDoc(doc(fb.db,'orders',orderId),{status:'cancelled'}).catch(()=>{});
+  }
+  // Update localStorage copy
+  const arr = JSON.parse(localStorage.getItem('hc_orders')||'[]');
+  const idx = arr.findIndex(o=>o.id===orderId);
+  if (idx>=0) { arr[idx].status='cancelled'; localStorage.setItem('hc_orders',JSON.stringify(arr)); }
+  toast('✅ 訂單已取消');
+  loadMemberOrders();
+}
+
+// ── CART SYNC ─────────────────────────────────────────────────────────────────
+async function syncCartToFirebase(uid, fb) {
+  if (!fb || !uid) return;
+  try {
+    const { doc, updateDoc, setDoc } = fb.FS;
+    const cartData = S.cart.map(i => ({ id: i.id, nameCn: i.nameCn, price: i.price, qty: i.qty, photo: i.photo || null, cat: i.cat || '' }));
+    await updateDoc(doc(fb.db, 'members', uid), { cart: cartData }).catch(async () => {
+      await setDoc(doc(fb.db, 'members', uid), { cart: cartData, email: S.user?.email || '' }, { merge: true });
+    });
+  } catch(e) {}
+}
+
+async function restoreCartFromFirebase(uid, fb) {
+  if (!fb || !uid) return;
+  try {
+    const { doc, getDoc } = fb.FS;
+    const snap = await getDoc(doc(fb.db, 'members', uid));
+    if (snap.exists() && snap.data().cart?.length) {
+      // Start with Firebase cart as the base (re-enriched from current products)
+      const fbCart = snap.data().cart.map(ci => {
+        const prod = S.products.find(p => p.id === ci.id);
+        return prod ? { ...prod, qty: ci.qty } : ci;
+      });
+      // Merge in any guest items (from localStorage) that aren't already in Firebase cart
+      S.cart.forEach(localItem => {
+        if (!fbCart.find(m => m.id === localItem.id)) fbCart.push(localItem);
+      });
+      S.cart = fbCart;
+      updateCartBadge(); updateCartBody();
+      _saveCartLocal();
+      toast('🛒 已恢復購物車');
+      // Sync merged cart back to Firebase so nothing is lost
+      syncCartToFirebase(uid, fb);
+    }
+    // If Firebase has no cart, keep whatever is in S.cart (guest localStorage items)
+  } catch(e) {}
+}
+
+// ── ANNOUNCEMENT TICKER ───────────────────────────────────────────────────────
+let annIdx = 0, annTimer;
+function buildAnnTicker() {
+  // annMsgs can be a newline-string (from admin) or array (default)
+  let msgs = S.annMsgs || DEFAULT_ANN_MSGS;
+  if (typeof msgs === 'string') msgs = msgs.split('\n').map(l=>l.trim()).filter(Boolean);
+  if (!msgs.length) msgs = DEFAULT_ANN_MSGS;
+  const ticker = document.getElementById('ann-ticker');
+  ticker.innerHTML = msgs.map((m,i) =>
+    `<div class="ann-slide${i===0?' active':''}" data-i="${i}">${m}</div>`
+  ).join('');
+  clearInterval(annTimer);
+  annTimer = setInterval(() => {
+    const slides = ticker.querySelectorAll('.ann-slide');
+    slides[annIdx].classList.remove('active');
+    annIdx = (annIdx + 1) % slides.length;
+    slides[annIdx].classList.add('active');
+  }, 4000);
+}
+
+// ── INFO STRIP (scrolling marquee) ────────────────────────────────────────────
+function buildInfoStrip() {
+  // infoPills can be array of {icon,text} objects (from admin) or default array
+  let pills = S.infoPills || DEFAULT_INFO_PILLS;
+  // Normalise — if entries are objects {icon,text} use as-is; otherwise fallback
+  if (!Array.isArray(pills) || !pills.length) pills = DEFAULT_INFO_PILLS;
+  // Duplicate for seamless loop
+  const html = [...pills, ...pills].map(p =>
+    `<div class="info-pill"><span class="pi">${p.icon||'•'}</span>${p.text||''}</div>`
+  ).join('');
+  document.getElementById('info-track').innerHTML = html;
+}
+
+// ── LANGUAGE ──────────────────────────────────────────────────────────────────
+function setLang(l) {
+  S.lang = l;
+  document.getElementById('l-cn').classList.toggle('active', l==='cn');
+  document.getElementById('l-en').classList.toggle('active', l==='en');
+  document.querySelectorAll('[data-cn]').forEach(el => {
+    const v = el.getAttribute(l==='cn' ? 'data-cn' : 'data-en');
+    if (v !== null) el.textContent = v;
+  });
+  // Update sort options text
+  document.querySelectorAll('.sort-opt').forEach(btn => {
+    const cn = btn.getAttribute('data-cn'), en = btn.getAttribute('data-en');
+    if (cn) { const node = btn.childNodes[1] ?? btn.childNodes[0]; if (node) node.textContent = l==='cn' ? cn : en; }
+  });
+  renderProducts();
+  // Update search bar label if a search is active
+  if (S.searchQ) {
+    const lbl = document.getElementById('srch-lbl');
+    if (lbl) lbl.innerHTML = l==='cn' ? `搜尋「<strong>${S.searchQ}</strong>」的結果` : `Results for "<strong>${S.searchQ}</strong>"`;
+  }
+}
+
+// ── SEARCH ────────────────────────────────────────────────────────────────────
+function doSearch() { S.searchQ = document.getElementById('srch-in').value.trim(); execSearch(); }
+function doMobSearch() { S.searchQ = document.getElementById('mob-srch-in').value.trim(); execSearch(); }
+function execSearch() {
+  const bar = document.getElementById('srch-bar'), lbl = document.getElementById('srch-lbl');
+  if (!S.searchQ) { bar.classList.remove('show'); S.page=1; renderProducts(); return; }
+  S.cat='all'; S.badgeFilter=null; S.page=1;
+  bar.classList.add('show');
+  lbl.innerHTML = S.lang==='cn' ? `搜尋「<strong>${S.searchQ}</strong>」的結果` : `Results for "<strong>${S.searchQ}</strong>"`;
+  renderProducts();
+}
+function clearSearch() {
+  S.searchQ=''; document.getElementById('srch-in').value=''; document.getElementById('mob-srch-in').value='';
+  document.getElementById('srch-bar').classList.remove('show'); S.page=1; renderProducts();
+}
+function toggleMobSrch() { document.getElementById('mob-srch').classList.toggle('show'); }
+
+// ── DYNAMIC CATALOG NAV ───────────────────────────────────────────────────────
+function _buildDynNav(){
+  const cats = S.categories;
+  if(!cats.length) return;
+  // Remove old dynamic nav if present
+  document.getElementById('dyn-nav-wrap')?.remove();
+  // Build a horizontal pill row injected right before the shop grid
+  const shop = document.getElementById('shop');
+  if (!shop) return;
+  const wrap = document.createElement('div');
+  wrap.id = 'dyn-nav-wrap';
+  wrap.style.cssText='display:flex;flex-wrap:wrap;gap:8px;padding:12px 16px;background:var(--white,#fff);border-bottom:2px solid #d8f3dc;position:sticky;top:152px;z-index:40';
+  const allBtn = `<button onclick="filterCat('all')" id="dnb-all" style="padding:7px 16px;border-radius:20px;border:none;font-size:13px;font-weight:700;cursor:pointer;background:#2d6a4f;color:white;font-family:inherit">🛍 全部</button>`;
+  const catBtns = cats.map(c=>{
+    const subs = (c.subcategories||[]).length
+      ? `<div style="position:absolute;top:100%;left:0;min-width:140px;background:white;border-radius:8px;box-shadow:0 4px 16px rgba(0,0,0,.12);padding:6px 0;display:none;z-index:200" id="dnsub-${c.id}">` +
+        (c.subcategories||[]).map(s=>`<button onclick="filterSubcat('${c.id}','${s.id}')" style="display:block;width:100%;text-align:left;padding:8px 14px;border:none;background:none;font-size:12px;cursor:pointer;font-family:inherit;color:#1b4332;font-weight:600" onmouseover="this.style.background='#f0faf4'" onmouseout="this.style.background='none'">${s.icon||''} ${s.nameCn}</button>`).join('') +
+        '</div>'
+      : '';
+    const hasSub = (c.subcategories||[]).length>0;
+    return `<div style="position:relative">
+      <button id="dnb-${c.id}" onclick="filterCat('${c.id}')" ${hasSub?`onmouseenter="document.getElementById('dnsub-${c.id}').style.display='block'" onmouseleave="document.getElementById('dnsub-${c.id}').style.display='none'"`:''} style="padding:7px 14px;border-radius:20px;border:2px solid #b7e4c7;font-size:13px;font-weight:700;cursor:pointer;background:white;color:#2d6a4f;font-family:inherit">${c.icon||''} ${c.nameCn}${hasSub?' ▾':''}</button>
+      ${subs}
+    </div>`;
+  }).join('');
+  wrap.innerHTML = allBtn + catBtns;
+  shop.insertAdjacentElement('beforebegin', wrap);
+  // Also rebuild localStorage fallback
+  try{ localStorage.setItem('hc_categories', JSON.stringify(cats)); }catch(e){}
+}
+
+function filterSubcat(catId, subcatId) {
+  S.cat = catId; S.subcat = subcatId; S.badgeFilter = null; S.searchQ = ''; S.page = 1;
+  clearSearch(); closeAllDD();
+  document.getElementById('shop').scrollIntoView({behavior:'smooth'});
+  renderProducts();
+}
+
+// ── FILTER ────────────────────────────────────────────────────────────────────
+function filterCat(cat) {
+  S.cat=cat; S.subcat=null; S.badgeFilter=null; S.searchQ=''; S.page=1;
+  clearSearch(); closeAllDD();
+  document.getElementById('shop').scrollIntoView({behavior:'smooth'});
+  // Highlight active nav link
+  document.querySelectorAll('.nav-lnk').forEach(b=>b.classList.remove('cur'));
+  const nlMap={all:'nl-all'};
+  if(nlMap[cat]) document.getElementById(nlMap[cat]).classList.add('cur');
+  // Highlight dynamic nav pill
+  document.querySelectorAll('[id^="dnb-"]').forEach(b=>{b.style.background='white';b.style.color='#2d6a4f';b.style.border='2px solid #b7e4c7';});
+  const dnb = document.getElementById('dnb-'+(cat==='all'?'all':cat));
+  if(dnb){dnb.style.background='#2d6a4f';dnb.style.color='white';dnb.style.border='2px solid #2d6a4f';}
+  renderProducts();
+}
+function filterBadge(badge) {
+  S.badgeFilter=badge; S.cat='all'; S.searchQ=''; S.page=1;
+  clearSearch(); closeAllDD();
+  document.getElementById('shop').scrollIntoView({behavior:'smooth'});
+  renderProducts();
+}
+
+// ── SORT ──────────────────────────────────────────────────────────────────────
+function toggleSort() {
+  document.getElementById('sort-wrap').classList.toggle('open');
+  document.getElementById('sort-menu').style.display =
+    document.getElementById('sort-wrap').classList.contains('open') ? 'block' : 'none';
+}
+function setSort(mode, btn) {
+  S.sortBy = mode; S.page = 1;
+  document.querySelectorAll('.sort-opt').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  // Checkmarks
+  ['default','popular','price-asc','price-desc'].forEach(m => {
+    document.getElementById('sc-'+m).textContent = m===mode ? '✓' : '';
+  });
+  const labels = { default:{cn:'預設排序',en:'Default'}, popular:{cn:'依熱銷排序',en:'By Popularity'},
+    'price-asc':{cn:'價錢：低至高',en:'Price: Low→High'}, 'price-desc':{cn:'價錢：高至低',en:'Price: High→Low'} };
+  document.getElementById('sort-label').textContent = labels[mode][S.lang==='cn'?'cn':'en'];
+  // Close
+  document.getElementById('sort-wrap').classList.remove('open');
+  document.getElementById('sort-menu').style.display = 'none';
+  renderProducts();
+}
+// Close sort on outside click
+document.addEventListener('click', e => {
+  if (!e.target.closest('#sort-wrap')) {
+    document.getElementById('sort-wrap').classList.remove('open');
+    document.getElementById('sort-menu').style.display = 'none';
+  }
+});
+
+// ── DROPDOWN ──────────────────────────────────────────────────────────────────
+function toggleDD(id) {
+  const el=document.getElementById(id), wasOpen=el.classList.contains('open');
+  closeAllDD();
+  if(!wasOpen) el.classList.add('open');
+}
+function closeAllDD() { document.querySelectorAll('.nav-item.open').forEach(e=>e.classList.remove('open')); }
+document.addEventListener('click', e => { if(!e.target.closest('.nav-item')) closeAllDD(); });
+
+// ── RENDER PRODUCTS ───────────────────────────────────────────────────────────
+function getFilteredSorted() {
+  let prods = [...S.products];
+  // Filter
+  if (S.searchQ) {
+    const q = S.searchQ.toLowerCase();
+    prods = prods.filter(p => p.nameCn?.toLowerCase().includes(q) || p.nameEn?.toLowerCase().includes(q) || p.desc?.toLowerCase().includes(q));
+  } else if (S.badgeFilter) {
+    prods = prods.filter(p => p.badge === S.badgeFilter);
+  } else if (S.cat !== 'all') {
+    prods = prods.filter(p => p.cat === S.cat);
+    if (S.subcat) prods = prods.filter(p => p.subcat === S.subcat);
+  }
+  // Sort
+  if (S.sortBy === 'popular') prods.sort((a,b) => (b.sold||0)-(a.sold||0));
+  else if (S.sortBy === 'price-asc') prods.sort((a,b) => a.price-b.price);
+  else if (S.sortBy === 'price-desc') prods.sort((a,b) => b.price-a.price);
+  return prods;
+}
+
+function renderProducts() {
+  const all = getFilteredSorted();
+  const total = all.length;
+  const start = (S.page-1)*S.perPage, end = start+S.perPage;
+  const page = all.slice(start, end);
+
+  // Title
+  const titEl = document.getElementById('shop-title');
+  const icon = CAT_IC[S.cat] || '🛍️';
+  let lbl = S.searchQ ? (S.lang==='cn'?'搜尋結果':'Search Results') :
+    S.badgeFilter ? S.badgeFilter :
+    (S.lang==='cn' ? CAT_CN[S.cat] : CAT_EN[S.cat]);
+  titEl.innerHTML = `${icon} <span>${lbl}</span>`;
+  document.getElementById('prod-count').textContent = `(${total})`;
+
+  // Grid
+  const grid = document.getElementById('prod-grid');
+  if (page.length === 0) {
+    grid.innerHTML = `<div class="empty-state"><div class="ei">📦</div><p>${S.lang==='cn'?'暫時沒有商品':'No products found'}</p></div>`;
+  } else {
+    grid.innerHTML = page.map(p => prodCard(p)).join('');
+  }
+
+  // Pagination
+  renderPagination(total);
+  _startFlashTimer();
+}
+
+function prodCard(p) {
+  const nm = S.lang==='cn' ? p.nameCn : (p.nameEn||p.nameCn);
+  const sub = S.lang==='cn' ? (p.nameEn||'') : '';
+  const catEm = {hkmade:'🇭🇰',nostalgic:'🕰️',wine:'🍷',others:'🧺',snacks:'🥜',biscuits:'🍪',new:'🆕'}[p.cat]||'🛒';
+  const imgH = p.photo
+    ? `<img class="p-img" src="${p.photo}" alt="${p.nameCn}" loading="lazy">`
+    : `<div class="p-placeholder">${catEm}</div>`;
+  const isOos = p.stock === 0;
+  const isLow = !isOos && p.stock > 0 && p.stock <= 5;
+  const badgeMap = { HOT:'bdg-hot', NEW:'bdg-new', SALE:'bdg-sale', HKMADE:'bdg-hk' };
+  const bdgClass = badgeMap[p.badge] || '';
+  const bdgTxt = { HOT:'🔥 HOT', NEW:'🆕 NEW', SALE:'💥 SALE', HKMADE:'🇭🇰 HK' }[p.badge] || '';
+  const flashActive = !!_flashInfo(p);
+  const bdgHtml = isOos
+    ? `<div class="p-badges"><div class="p-bdg" style="background:#9ca3af;color:white">售罄</div></div>`
+    : flashActive
+      ? `<div class="p-badges"><div class="p-bdg flash-bdg">⚡ 限時特賣</div></div>`
+      : (p.badge ? `<div class="p-badges"><div class="p-bdg ${bdgClass}">${bdgTxt}</div></div>` : '');
+  const soldTxt = p.sold ? `<div class="p-sold">${S.lang==='cn'?`已售 ${p.sold}`:`${p.sold} sold`}</div>` : '';
+  const lowTxt = isLow ? `<div class="p-sold" style="color:#d97706;font-weight:700">⚠️ 只剩 ${p.stock} 件！</div>` : '';
+  const addLabel = S.lang==='cn' ? '+加入' : '+Add';
+  const addBtn = isOos
+    ? `<button class="add-btn" style="background:#9ca3af;cursor:not-allowed" disabled onclick="event.stopPropagation()">售罄</button>`
+    : `<button class="add-btn" onclick="event.stopPropagation();quickAdd('${p.id}')">${addLabel}</button>`;
+  const rv = S.reviewSummary?.[p.id];
+  const starsHtml = rv?.count ? `<div class="p-stars">${'★'.repeat(Math.round(rv.avg))}${'☆'.repeat(5-Math.round(rv.avg))} ${rv.avg.toFixed(1)} (${rv.count})</div>` : '';
+  return `<div class="p-card${isOos?' out-of-stock':''}" onclick="openProduct('${p.id}')">
+    <div class="p-img-w">${imgH}</div>
+    ${bdgHtml}
+    <div class="p-body">
+      <div class="p-name">${nm}</div>
+      ${sub ? `<div class="p-sub">${sub}</div>` : ''}
+      ${soldTxt}
+      ${lowTxt}
+      ${starsHtml}
+      <div class="p-row">
+        <div>
+          ${(() => { const fl = _flashInfo(p); if (fl) return `<div class="p-price" style="color:var(--red)">HK$${fl.salePrice}<span class="p-orig-price">HK$${p.price}</span></div><div class="js-countdown" data-ends="${new Date(p.saleEndTime).getTime()}">${_fmtCountdown(fl.msLeft)}</div>`; return `<div class="p-price">HK$${p.price}<span class="u"> /件</span></div>`; })()}
+        </div>
+        ${addBtn}
+      </div>
+    </div>
+  </div>`;
+}
+
+// ── PAGINATION ────────────────────────────────────────────────────────────────
+function renderPagination(total) {
+  const pages = Math.ceil(total / S.perPage);
+  const pg = document.getElementById('pagination');
+  if (pages <= 1) { pg.innerHTML=''; return; }
+
+  let html = `<button class="pg-btn" onclick="goPg(1)" ${S.page===1?'disabled':''}>«</button>`;
+  html += `<button class="pg-btn" onclick="goPg(${S.page-1})" ${S.page===1?'disabled':''}>‹</button>`;
+
+  // Page numbers
+  const range = [];
+  if (pages <= 7) {
+    for (let i=1;i<=pages;i++) range.push(i);
+  } else {
+    range.push(1);
+    if (S.page > 3) range.push('…');
+    for (let i=Math.max(2,S.page-1); i<=Math.min(pages-1,S.page+1); i++) range.push(i);
+    if (S.page < pages-2) range.push('…');
+    range.push(pages);
+  }
+
+  range.forEach(r => {
+    if (r==='…') html += `<span class="pg-dots">…</span>`;
+    else html += `<button class="pg-btn${r===S.page?' active':''}" onclick="goPg(${r})">${r}</button>`;
+  });
+
+  html += `<button class="pg-btn" onclick="goPg(${S.page+1})" ${S.page===pages?'disabled':''}>›</button>`;
+  html += `<button class="pg-btn" onclick="goPg(${pages})" ${S.page===pages?'disabled':''}>»</button>`;
+  pg.innerHTML = html;
+}
+
+window.goPg = (n) => {
+  S.page = n;
+  renderProducts();
+  document.getElementById('shop').scrollIntoView({behavior:'smooth'});
+};
+
+// ── PRODUCT MODAL ─────────────────────────────────────────────────────────────
+function openProduct(id) {
+  const p = S.products.find(x=>x.id===id); if(!p) return;
+  S.modalProd=p; S.modalQty=1;
+  document.getElementById('pm-qty').textContent=1;
+  const nm = S.lang==='cn' ? p.nameCn : (p.nameEn||p.nameCn);
+  document.getElementById('pm-nm').textContent=nm;
+  document.getElementById('pm-en').textContent=S.lang==='cn'?(p.nameEn||''):'';
+  document.getElementById('pm-desc').textContent=p.desc||'';
+  const _fl = _flashInfo(p);
+  const pmPriceEl = document.getElementById('pm-price');
+  if (_fl) {
+    pmPriceEl.innerHTML = `<div class="pm-flash-row"><span class="pm-flash-price">HK$${_fl.salePrice}</span><span class="pm-flash-orig">HK$${p.price}</span><span class="js-countdown" data-ends="${new Date(p.saleEndTime).getTime()}">${_fmtCountdown(_fl.msLeft)}</span></div>`;
+  } else {
+    pmPriceEl.textContent = `HK$${p.price}`;
+  }
+  document.getElementById('pm-sold').textContent=p.sold?(S.lang==='cn'?`已售 ${p.sold} 件`:`${p.sold} sold`):'';
+  const catEm={hkmade:'🇭🇰',nostalgic:'🕰️',wine:'🍷',others:'🧺'}[p.cat]||'🛒';
+  const isOos = p.stock === 0;
+  const isLow = !isOos && p.stock > 0 && p.stock <= 5;
+  const iw=document.getElementById('pm-iw');
+  const _photos = p.photos?.length ? p.photos : (p.photo ? [p.photo] : []);
+  _galPhotos = _photos; _galIdx = 0;
+  if (_photos.length > 1) {
+    iw.innerHTML = `<div class="pm-gallery">
+      <div class="pm-gal-main-w">
+        <img class="pm-gal-main" id="pm-gal-main" src="${_photos[0]}" alt="${p.nameCn}">
+        <button class="pm-gal-nav pm-gal-nav-l" onclick="galNav(-1)">‹</button>
+        <button class="pm-gal-nav pm-gal-nav-r" onclick="galNav(1)">›</button>
+      </div>
+      <div class="pm-thumbs">${_photos.map((src,i)=>`<img class="pm-thumb${i===0?' active':''}" src="${src}" onclick="galThumb(${i})">`).join('')}</div>
+    </div>`;
+  } else {
+    iw.innerHTML = _photos.length
+      ? `<img class="pm-img" src="${_photos[0]}" alt="${p.nameCn}">`
+      : `<div class="pm-ph">${catEm}</div>`;
+  }
+  // Out-of-stock state in modal
+  const pmAddBtn = document.querySelector('#pm .pm-add');
+  if (pmAddBtn) {
+    if (isOos) {
+      pmAddBtn.disabled = true; pmAddBtn.style.background = '#d1d5db'; pmAddBtn.style.cursor = 'not-allowed';
+      pmAddBtn.textContent = S.lang==='cn' ? '售罄 Sold Out' : 'Sold Out';
+    } else {
+      pmAddBtn.disabled = false; pmAddBtn.style.background = ''; pmAddBtn.style.cursor = '';
+      pmAddBtn.textContent = S.lang==='cn' ? '加入購物車 🛒' : 'Add to Cart 🛒';
+    }
+  }
+  // Low stock warning in modal
+  const pmSoldEl = document.getElementById('pm-sold');
+  if (pmSoldEl && isLow) pmSoldEl.innerHTML += ` <span style="color:#d97706;font-weight:700">⚠️ 只剩 ${p.stock} 件！</span>`;
+  document.getElementById('pm').classList.add('open');
+  document.body.style.overflow='hidden';
+  // Update URL + OG for sharing
+  const _prodUrl = `${location.origin}${location.pathname}?p=${id}`;
+  history.pushState({productId: id}, '', _prodUrl);
+  const _ogImg = (_photos[0] && !_photos[0].startsWith('data:')) ? _photos[0] : null;
+  _setOG(
+    `${nm} | 鴻昌辦館 Hung Cheong Store`,
+    p.desc ? `${p.desc} — HK$${p.price}` : `${nm} — 鴻昌辦館`,
+    _ogImg,
+    _prodUrl
+  );
+  // Load reviews
+  document.getElementById('pm-reviews').innerHTML='<div style="text-align:center;color:var(--mid);font-size:12px;padding:12px 0;border-top:1px solid var(--cream-d);margin-top:16px">載入評價中...</div>';
+  _loadReviews(id);
+}
+
+let _pickStars = 0;
+function _setPickStars(n){
+  _pickStars = n;
+  document.querySelectorAll('.star-pick span').forEach((s,i)=>s.classList.toggle('lit', i<n));
+}
+
+async function _loadReviews(productId){
+  const el = document.getElementById('pm-reviews'); if(!el) return;
+  const rv = [];
+  const fb = await getFirebase().catch(()=>null);
+  if(fb){
+    const { collection, query, where, orderBy, getDocs } = fb.FS;
+    const q = query(collection(fb.db,'reviews'), where('productId','==',productId), orderBy('createdAt','desc'));
+    const snap = await getDocs(q).catch(()=>null);
+    if(snap) snap.docs.forEach(d=>rv.push({id:d.id,...d.data()}));
+  } else {
+    const all = JSON.parse(localStorage.getItem('hc_reviews')||'[]');
+    rv.push(...all.filter(r=>r.productId===productId).sort((a,b)=>b.createdAt.localeCompare(a.createdAt)));
+  }
+  // Update summary cache
+  if(rv.length){ const avg=rv.reduce((s,r)=>s+r.stars,0)/rv.length; S.reviewSummary[productId]={avg,count:rv.length}; }
+
+  const canReview = !!S.user;
+  const starsAvg = rv.length ? (rv.reduce((s,r)=>s+r.stars,0)/rv.length).toFixed(1) : null;
+
+  el.innerHTML = `<div id="pm-reviews">
+    <div class="rv-title">
+      ⭐ 顧客評價
+      ${starsAvg ? `<span class="rv-avg">★ ${starsAvg} · ${rv.length} 則</span>` : `<span style="font-size:12px;color:var(--mid);font-weight:400">暫無評價</span>`}
+    </div>
+    ${rv.length ? rv.map(r=>{
+      const stars='★'.repeat(r.stars)+'☆'.repeat(5-r.stars);
+      const d = r.createdAt?.toDate ? r.createdAt.toDate() : new Date(r.createdAt||Date.now());
+      const dateStr = d.toLocaleDateString('zh-HK');
+      return `<div class="rv-item">
+        <div class="rv-meta">
+          <span class="rv-name">${r.reviewerName||'匿名'}</span>
+          <span class="rv-stars">${stars}</span>
+          <span class="rv-date">${dateStr}</span>
+        </div>
+        ${r.comment?`<div class="rv-comment">${r.comment.replace(/</g,'&lt;')}</div>`:''}
+        ${r.photo?`<img class="rv-item-photo" src="${r.photo}" alt="review photo" onclick="this.requestFullscreen?.()">`:''}
+      </div>`;
+    }).join('') : ''}
+    ${canReview ? `
+    <div class="rv-form">
+      <div class="rv-form-title">✍️ 留下您的評價</div>
+      <div class="star-pick" id="star-pick">
+        <span onclick="_setPickStars(1)">★</span><span onclick="_setPickStars(2)">★</span>
+        <span onclick="_setPickStars(3)">★</span><span onclick="_setPickStars(4)">★</span>
+        <span onclick="_setPickStars(5)">★</span>
+      </div>
+      <textarea class="rv-ta" id="rv-ta" placeholder="分享您的使用感受... Share your experience..."></textarea>
+      <label class="rv-photo-label">
+        📷 附上相片（選填）Add Photo (optional)
+        <input type="file" id="rv-photo-inp" accept="image/*" onchange="_previewRvPhoto(this)">
+      </label>
+      <img id="rv-photo-preview" class="rv-photo-preview" style="display:none" alt="">
+      <button class="rv-submit" onclick="submitReview('${productId}')">提交評價 Submit Review</button>
+    </div>` : `<div style="font-size:12px;color:var(--mid);text-align:center;padding:8px 0">
+      <a href="#" onclick="openAcct();return false" style="color:var(--green);font-weight:600">登入 / 註冊</a> 後可留評價
+    </div>`}
+  </div>`;
+  _pickStars = 0;
+  // Related products
+  const relWrap = document.getElementById('pm-related');
+  if (relWrap) relWrap.innerHTML = _renderRelated(S.modalProd || S.products.find(x=>x.id===productId) || {});
+}
+
+async function submitReview(productId){
+  if(!S.user){ toast('⚠️ 請先登入'); return; }
+  if(!_pickStars){ toast('⚠️ 請選擇星數'); return; }
+  const comment = (document.getElementById('rv-ta').value||'').trim();
+  const photoEl = document.getElementById('rv-photo-preview');
+  const photo = (photoEl && photoEl.style.display !== 'none' && photoEl.src) ? photoEl.src : null;
+  const review = {
+    productId, stars: _pickStars, comment,
+    photo: photo || null,
+    reviewerName: S.memberProfile?.name || S.user.email.split('@')[0],
+    uid: S.user.uid,
+    createdAt: new Date().toISOString(),
+    approved: true,
+  };
+  const fb = await getFirebase().catch(()=>null);
+  if(fb){
+    const { collection, addDoc, serverTimestamp } = fb.FS;
+    await addDoc(collection(fb.db,'reviews'), {...review, createdAt: serverTimestamp()});
+  } else {
+    const all = JSON.parse(localStorage.getItem('hc_reviews')||'[]');
+    all.unshift({...review, id:'rv_'+Date.now()});
+    localStorage.setItem('hc_reviews', JSON.stringify(all));
+  }
+  toast('✅ 評價已提交，多謝！');
+  _loadReviews(productId);
+}
+function _previewRvPhoto(input){
+  const file = input.files[0]; if(!file) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    const img = new Image();
+    img.onload = () => {
+      const canvas = document.createElement('canvas');
+      const maxW = 800;
+      const scale = Math.min(1, maxW / img.width);
+      canvas.width = Math.round(img.width * scale);
+      canvas.height = Math.round(img.height * scale);
+      canvas.getContext('2d').drawImage(img, 0, 0, canvas.width, canvas.height);
+      const compressed = canvas.toDataURL('image/jpeg', 0.72);
+      const preview = document.getElementById('rv-photo-preview');
+      if(preview){ preview.src = compressed; preview.style.display = 'block'; }
+      const lbl = input.closest('label');
+      if(lbl) lbl.querySelector('input')._file = file;
+    };
+    img.src = e.target.result;
+  };
+  reader.readAsDataURL(file);
+}
+
+const _OG_DEFAULTS = {
+  title: document.title,
+  ogTitle: '鴻昌辦館 Hung Cheong Store',
+  ogDesc: '香港製造·懷舊零食·酒類 | 買滿$450免運費 | 歡迎自取',
+};
+function _setOG(title, desc, imageUrl, pageUrl){
+  document.title = title;
+  document.querySelector('meta[property="og:title"]')?.setAttribute('content', title);
+  document.querySelector('meta[property="og:description"]')?.setAttribute('content', desc);
+  document.querySelector('meta[property="og:url"]')?.setAttribute('content', pageUrl || location.href);
+  if(imageUrl) document.querySelector('meta[property="og:image"]')?.setAttribute('content', imageUrl);
+}
+function _restoreOG(){
+  _setOG(_OG_DEFAULTS.title, _OG_DEFAULTS.ogDesc, null, location.origin + location.pathname);
+  document.querySelector('meta[property="og:title"]')?.setAttribute('content', _OG_DEFAULTS.ogTitle);
+}
+
+function closePM(){
+  document.getElementById('pm').classList.remove('open');
+  document.body.style.overflow='';
+  if(location.search.includes('p=')) history.pushState({}, '', location.pathname);
+  _restoreOG();
+}
+function dq(d){S.modalQty=Math.max(1,S.modalQty+d);document.getElementById('pm-qty').textContent=S.modalQty;}
+function pmAdd(){if(!S.modalProd)return;if(S.modalProd.stock===0){toast(S.lang==='cn'?'❌ 此商品已售罄':'❌ This item is sold out');return;}addToCart(S.modalProd,S.modalQty);closePM();toast(S.lang==='cn'?`✅ 已加入購物車`:`✅ Added to cart`);}
+function quickAdd(id){const p=S.products.find(x=>x.id===id);if(!p)return;if(p.stock===0){toast(S.lang==='cn'?`❌ ${p.nameCn} 已售罄`:`❌ Sold out`);return;}addToCart(p,1);toast(S.lang==='cn'?`✅ ${p.nameCn} 已加入`:`✅ Added`);}
+
+// ── CART ──────────────────────────────────────────────────────────────────────
+// Save guest cart to localStorage so it survives page refresh
+function _saveCartLocal(){
+  try{ localStorage.setItem('hc_cart', JSON.stringify(S.cart.map(i=>({id:i.id,qty:i.qty})))); }
+  catch(e){}
+}
+// Restore guest cart from localStorage (called on init before Firebase auth)
+function _restoreCartLocal(){
+  try{
+    const saved = localStorage.getItem('hc_cart');
+    if(!saved) return;
+    const ids = JSON.parse(saved); // [{id,qty}]
+    if(!ids.length) return;
+    // Re-enrich from current products list
+    S.cart = ids.map(ci=>{
+      const prod = S.products.find(p=>p.id===ci.id) || SAMPLES.find(p=>p.id===ci.id);
+      return prod ? {...prod, qty:ci.qty} : null;
+    }).filter(Boolean);
+    updateCartBadge(); updateCartBody();
+  }catch(e){}
+}
+
+function addToCart(prod, qty) {
+  if(prod.stock === 0){toast(S.lang==='cn'?'❌ 此商品已售罄':'❌ This item is sold out');return;}
+  const ex=S.cart.find(x=>x.id===prod.id);
+  if(prod.stock != null){
+    const inCart = ex ? ex.qty : 0;
+    const available = prod.stock - inCart;
+    if(available <= 0){toast(S.lang==='cn'?`⚠️ 已達最大購買數量 (${prod.stock} 件)`:`⚠️ Max quantity reached (${prod.stock})`);return;}
+    qty = Math.min(qty, available);
+  }
+  const fl = _flashInfo(prod);
+  const effectivePrice = fl ? fl.salePrice : prod.price;
+  if(ex) ex.qty+=qty; else S.cart.push({...prod, price: effectivePrice, qty});
+  updateCartBadge(); updateCartBody();
+  _saveCartLocal();
+  if (S.user) getFirebase().then(fb => syncCartToFirebase(S.user.uid, fb));
+}
+function updateCartBadge(){
+  const n=S.cart.reduce((s,i)=>s+i.qty,0);
+  const el=document.getElementById('cart-count');
+  el.textContent=n;el.style.display=n>0?'flex':'none';
+}
+function updateCartBody(){
+  const body=document.getElementById('cart-body'),ft=document.getElementById('cart-ft');
+  if(!S.cart.length){body.innerHTML=`<div class="cart-empty">${S.lang==='cn'?'購物車是空的 🛒':'Cart is empty 🛒'}</div>`;ft.style.display='none';return;}
+  const catEm={hkmade:'🇭🇰',nostalgic:'🕰️',wine:'🍷',others:'🧺'}
+  body.innerHTML=S.cart.map((it,i)=>{
+    const ig=it.photo?`<img src="${it.photo}" style="width:100%;height:100%;object-fit:cover">`:(catEm[it.cat]||'🛒');
+    return`<div class="ci"><div class="ci-th">${ig}</div><div class="ci-inf"><div class="ci-nm">${S.lang==='cn'?it.nameCn:it.nameEn||it.nameCn}</div><div class="ci-pr">HK$${it.price}</div><div class="ci-qty"><button class="cq-b" onclick="cqC(${i},-1)">−</button><span class="cq-n">${it.qty}</span><button class="cq-b" onclick="cqC(${i},1)">+</button></div></div><button class="ci-rm" onclick="cqR(${i})">🗑</button></div>`;
+  }).join('');
+  const tot=S.cart.reduce((s,i)=>s+i.price*i.qty,0);
+  document.getElementById('cart-tot-pr').textContent=`HK$${tot}`;
+  ft.style.display='block';
+}
+window.cqC=(i,d)=>{
+  const item=S.cart[i]; const prod=S.products.find(x=>x.id===item.id);
+  const maxQty=prod?.stock??Infinity;
+  item.qty=Math.min(maxQty,Math.max(1,item.qty+d));
+  if(d>0 && prod?.stock!=null && item.qty>=maxQty) toast(S.lang==='cn'?`⚠️ 已達最大購買數量 (${maxQty} 件)`:`⚠️ Max quantity (${maxQty})`);
+  updateCartBadge();updateCartBody();_saveCartLocal();if(S.user)getFirebase().then(fb=>syncCartToFirebase(S.user.uid,fb));
+};
+window.cqR=(i)=>{S.cart.splice(i,1);updateCartBadge();updateCartBody();_saveCartLocal();if(S.user)getFirebase().then(fb=>syncCartToFirebase(S.user.uid,fb));};
+function openCart(){document.getElementById('cart').classList.add('open');document.getElementById('cart-ov').classList.add('open');document.body.style.overflow='hidden';updateCartBody();}
+function closeCart(){document.getElementById('cart').classList.remove('open');document.getElementById('cart-ov').classList.remove('open');document.body.style.overflow='';}
+function clearCart(){
+  S.cart=[];updateCartBadge();updateCartBody();
+  _saveCartLocal(); // writes [] — clears the saved cart
+  if(S.user)getFirebase().then(fb=>syncCartToFirebase(S.user.uid,fb));
+}
+
+// ── CHECKOUT ──────────────────────────────────────────────────────────────────
+function openCheckout(){
+  if(!S.cart.length){toast('🛒 購物車是空的');return;}
+  closeCart();
+  // Reset state
+  S.delivery='pickup'; S.couponApplied=null; S.shippingFee=0; S.payMethod=null; S._coStep=1; S.pointsRedeemed=0;
+  // Reset receipt
+  _receiptImage = null;
+  const rd = document.getElementById('receipt-drop'); if (rd) rd.style.display = 'block';
+  const rp = document.getElementById('receipt-preview'); if (rp) rp.style.display = 'none';
+  const rs = document.getElementById('receipt-section'); if (rs) rs.style.display = 'none';
+  // Reset coupon UI
+  const ci=document.getElementById('coupon-inp');
+  if(ci){ci.value='';ci.disabled=false;}
+  const ck=document.getElementById('coupon-ok');
+  if(ck)ck.classList.remove('show');
+  // Reset delivery UI
+  document.getElementById('del-pickup').classList.add('sel');
+  document.getElementById('del-sf').classList.remove('sel');
+  document.getElementById('sf-addr-fg').style.display='none';
+  // Reset progress dots
+  _coUpdateProgress(1);
+  // Show cs1 first
+  document.querySelectorAll('.co-step').forEach((s,i)=>s.classList.toggle('active',i===0));
+  document.getElementById('cm').classList.add('open');
+  document.body.style.overflow='hidden';
+  renderCartReview();
+  // Auto-select mode
+  if(S.user && S.memberProfile){ selCheckoutMode('member'); } else { selCheckoutMode('guest'); }
+  // Points redemption UI
+  const ptsSection = document.getElementById('pts-redeem-section');
+  const ptsChk = document.getElementById('pts-use-chk');
+  if (ptsSection && ptsChk) {
+    const pts = S.memberProfile?.points || 0;
+    ptsChk.checked = false;
+    document.getElementById('pts-use-detail').style.display = 'none';
+    if (S.user && pts >= 10) {
+      document.getElementById('pts-avail').textContent = pts;
+      document.getElementById('pts-val').textContent = Math.floor(pts / 10);
+      ptsSection.style.display = 'block';
+    } else {
+      ptsSection.style.display = 'none';
+    }
+  }
+}
+
+function closeCM(){document.getElementById('cm').classList.remove('open');document.body.style.overflow='';}
+
+function _coUpdateProgress(n){
+  for(let i=1;i<=4;i++){
+    const dot=document.getElementById('cp'+i);
+    if(!dot)continue;
+    dot.classList.toggle('done',i<n);
+    dot.classList.toggle('active',i===n);
+  }
+  for(let i=1;i<=3;i++){
+    const line=document.getElementById('cl'+(i)+(i+1));
+    if(line)line.classList.toggle('done',i<n);
+  }
+  // Hide progress bar on success step
+  const prog=document.getElementById('co-prog');
+  if(prog)prog.style.display=(n>4)?'none':'flex';
+}
+
+function goStep(n){
+  // Validate current step before advancing
+  if(n > S._coStep && !_coValidate(S._coStep)) return;
+  S._coStep=n;
+  document.querySelectorAll('.co-step').forEach((s,i)=>s.classList.toggle('active',i===n-1));
+  _coUpdateProgress(n);
+  if(n===2) renderCoSummary2();
+  if(n===4){ renderCoSummary3(); document.getElementById('fps-d').textContent=S.fpsNum; }
+}
+
+function _coValidate(step){
+  // Step 2: if SF selected, address is required
+  if(step===2 && S.delivery==='sf'){
+    const addr=(document.getElementById('co-addr')||{}).value?.trim();
+    if(!addr){toast('⚠️ 請填寫順豐送貨地址');return false;}
+  }
+  // Step 3: guest must fill name + phone
+  if(step===3 && S.checkoutMode==='guest'){
+    const nm=(document.getElementById('co-name')||{}).value?.trim();
+    const ph=(document.getElementById('co-phone')||{}).value?.trim();
+    if(!nm||!ph){toast('⚠️ 請填寫姓名和電話');return false;}
+  }
+  // Step 4: payment method must be selected
+  if(step===4 && !S.payMethod){toast('⚠️ 請選擇付款方式');return false;}
+  return true;
+}
+
+function renderCartReview(){
+  const el=document.getElementById('cr-list');
+  if(!el)return;
+  if(!S.cart.length){el.innerHTML='<div style="padding:16px;text-align:center;color:var(--mid);font-size:13px">購物車是空的</div>';return;}
+  el.innerHTML=S.cart.map(i=>`
+    <div class="cr-item">
+      ${i.photo
+        ? `<img class="cr-thumb" src="${i.photo}" alt="${i.nameCn}">`
+        : `<div class="cr-thumb">🛍️</div>`}
+      <div class="cr-info">
+        <div class="cr-nm">${i.nameCn}</div>
+        <div class="cr-pr">HK$${i.price} 每件</div>
+      </div>
+      <div class="cr-qty">x${i.qty}</div>
+      <div class="cr-sub">HK$${i.price*i.qty}</div>
+    </div>`).join('');
+  renderCoSummary();
+}
+
+function togglePointsRedemption() {
+  const chk = document.getElementById('pts-use-chk');
+  const pts = S.memberProfile?.points || 0;
+  const sub = S.cart.reduce((s,i)=>s+i.price*i.qty,0);
+  const disc = S.couponApplied ? S.couponApplied.amount : 0;
+  const maxDisc = Math.max(0, sub - disc);
+  const ptsDisc = Math.min(Math.floor(pts / 10), maxDisc);
+  S.pointsRedeemed = chk.checked ? pts : 0;
+  const detail = document.getElementById('pts-use-detail');
+  const discAmt = document.getElementById('pts-disc-amt');
+  if (chk.checked) {
+    detail.style.display = 'block';
+    if (discAmt) discAmt.textContent = ptsDisc;
+  } else {
+    detail.style.display = 'none';
+  }
+  renderCoSummary();
+}
+
+function _coSummaryHtml(showShipping){
+  const sub=S.cart.reduce((s,i)=>s+i.price*i.qty,0);
+  const disc=S.couponApplied?S.couponApplied.amount:0;
+  const pts = S.memberProfile?.points || 0;
+  const ptsDisc = S.pointsRedeemed ? Math.min(Math.floor(pts/10), Math.max(0,sub-disc)) : 0;
+  const fee=S.shippingFee;
+  const total=Math.max(0,sub-disc-ptsDisc+fee);
+  const shippingTx = showShipping
+    ? `<span class="${fee?'ship-fee':'ship-free'}">${fee?'HK$'+fee:'免費 Free'}</span>`
+    : `<span style="color:var(--mid);font-style:italic;font-size:12px">在下一頁計算</span>`;
+  const totalTx = showShipping ? `HK$${total}` : `HK$${sub-disc-ptsDisc}+`;
+  return `
+    <div class="sum-row"><span>商品小計</span><span>HK$${sub}</span></div>
+    ${disc?`<div class="sum-row"><span>優惠券折扣</span><span class="ship-free">-HK$${disc}</span></div>`:''}
+    ${ptsDisc?`<div class="sum-row"><span>⭐ 積分折扣</span><span class="ship-free">-HK$${ptsDisc}</span></div>`:''}
+    <div class="sum-row"><span>運費</span>${shippingTx}</div>
+    <div class="sum-total"><span>總計 Total</span><span>${totalTx}</span></div>`;
+}
+function renderCoSummary(){const el=document.getElementById('co-summary');if(el)el.innerHTML=_coSummaryHtml(false);}
+function renderCoSummary2(){const el=document.getElementById('co-summary2');if(el)el.innerHTML=_coSummaryHtml(true);}
+function renderCoSummary3(){const el=document.getElementById('co-summary3');if(el)el.innerHTML=_coSummaryHtml(true);}
+
+function selDelivery(type){
+  S.delivery=type;
+  const sub=S.cart.reduce((s,i)=>s+i.price*i.qty,0);
+  const disc=S.couponApplied?S.couponApplied.amount:0;
+  const freeShipCoupon=S.couponApplied?.type==='freeship';
+  S.shippingFee=(type==='sf' && (sub-disc)<450 && !freeShipCoupon)?50:0;
+  document.getElementById('del-pickup').classList.toggle('sel',type==='pickup');
+  document.getElementById('del-sf').classList.toggle('sel',type==='sf');
+  document.getElementById('sf-addr-fg').style.display=(type==='sf')?'block':'none';
+  // Update SF badge text
+  const badge=document.getElementById('del-sf-badge');
+  const desc=document.getElementById('del-sf-desc');
+  if(S.shippingFee===0 && type==='sf'){
+    badge.textContent='免費！';badge.className='del-price-badge del-free';
+    desc.textContent=freeShipCoupon?'優惠碼已豁免運費！':'買滿$450！已符合免運費條件';
+  } else {
+    badge.textContent='+$50';badge.className='del-price-badge del-pay';
+    desc.textContent='買滿$450免運費，否則另加$50運費';
+  }
+  // Update the summary visible on step 2 (not the step-1 div)
+  renderCoSummary2();
+}
+
+function selCheckoutMode(mode){
+  S.checkoutMode=mode;
+  document.getElementById('cm-guest').classList.toggle('sel',mode==='guest');
+  document.getElementById('cm-member').classList.toggle('sel',mode==='member');
+  const gf=document.getElementById('co-guest-form');
+  const mi=document.getElementById('co-member-info');
+  if(mode==='member' && S.user && S.memberProfile){
+    if(gf)gf.style.display='none';
+    if(mi){
+      mi.style.display='block';
+      document.getElementById('co-member-name').textContent=S.memberProfile.name||S.user.email;
+      document.getElementById('co-member-email').textContent=S.user.email;
+    }
+  } else {
+    if(gf)gf.style.display='block';
+    if(mi)mi.style.display='none';
+    if(mode==='member' && !S.user){
+      // Keep Member button highlighted so user knows why modal opened
+      S._pendingCheckoutMember = true;
+      openAuthModal();
+    }
+  }
+}
+
+function selPayMethod(m){
+  S.payMethod=m;
+  document.querySelectorAll('.pay-mc').forEach(c=>c.classList.remove('sel'));
+  document.querySelectorAll('.pay-content-box').forEach(c=>c.classList.remove('show'));
+  document.getElementById('pm-'+m).classList.add('sel');
+  document.getElementById('pc-'+m).classList.add('show');
+  const rs = document.getElementById('receipt-section');
+  if (rs) rs.style.display = m === 'cash' ? 'none' : 'block';
+}
+
+async function applyCoupon(){
+  const code=(document.getElementById('coupon-inp').value||'').trim().toUpperCase();
+  if(!code){toast('⚠️ 請輸入優惠券碼');return;}
+
+  // ── 1. Member profile coupons (personal / one-time) ──
+  const coupons=S.memberProfile?.coupons||[];
+  const found=coupons.find(c=>c.code===code && !c.used);
+  if(found){
+    S.couponApplied={code:found.code,amount:found.amount,type:'fixed'};
+    const ck=document.getElementById('coupon-ok');
+    ck.textContent=`✅ 優惠券已套用！折扣 -HK$${found.amount}`;
+    ck.classList.add('show');
+    document.getElementById('coupon-inp').disabled=true;
+    renderCoSummary();
+    toast(`🎉 優惠券 -HK$${found.amount} 已套用！`);
+    return;
+  }
+
+  // ── 2. Campaign codes (admin-created, Firestore or localStorage) ──
+  const sub=S.cart.reduce((s,i)=>s+i.price*i.qty,0);
+  const today=new Date().toISOString().split('T')[0];
+  const _applyCamp=(camp)=>{
+    if(camp.startDate && camp.startDate>today){toast('❌ 此優惠碼尚未開始使用');return false;}
+    if(camp.endDate   && camp.endDate<today)  {toast('❌ 此優惠碼已過期');return false;}
+    if(camp.minOrder  && sub<camp.minOrder)   {toast(`❌ 最低消費 HK$${camp.minOrder} 才可使用此優惠碼`);return false;}
+    if(camp.type==='freeship'){
+      S.couponApplied={code,amount:0,type:'freeship'}; S.shippingFee=0;
+      const ck=document.getElementById('coupon-ok'); ck.textContent='✅ 免運費優惠已套用！'; ck.classList.add('show');
+      document.getElementById('coupon-inp').disabled=true;
+      renderCoSummary(); renderCoSummary2(); toast('🎉 免運費優惠已套用！');
+    } else {
+      const disc=camp.type==='pct'?Math.floor(sub*camp.amount/100):Math.min(camp.amount,sub);
+      S.couponApplied={code,amount:disc,type:camp.type};
+      const ck=document.getElementById('coupon-ok'); ck.textContent=`✅ 推廣優惠已套用！折扣 -HK$${disc}`; ck.classList.add('show');
+      document.getElementById('coupon-inp').disabled=true;
+      renderCoSummary(); toast(`🎉 優惠碼 -HK$${disc} 已套用！`);
+    }
+    return true;
+  };
+  // Try Firestore first
+  try {
+    const fb=await getFirebase();
+    if(fb && fb.db){
+      const {collection,query,where,getDocs}=fb.FS;
+      const snap=await getDocs(query(collection(fb.db,'campaigns'),where('code','==',code),where('active','==',true)));
+      if(!snap.empty){ _applyCamp(snap.docs[0].data()); return; }
+    }
+  } catch(e){ console.warn('Campaign lookup:',e); }
+  // localStorage fallback (offline / local mode)
+  try {
+    const localCamps=JSON.parse(localStorage.getItem('hc_campaigns')||'[]');
+    const camp=localCamps.find(c=>c.code===code && c.active!==false);
+    if(camp){ _applyCamp(camp); return; }
+  } catch(e){}
+
+  // ── 3. Not found ──
+  if(code==='HC10WELCOME'&&!S.user){
+    toast('❌ 此優惠券需要登入會員才能使用');
+  } else {
+    toast('❌ 無效或已使用的優惠券碼');
+  }
+}
+
+async function confirmOrder(){
+  // Guard: payment method must be chosen (before any data is saved)
+  if(!S.payMethod){toast('⚠️ 請選擇付款方式');return;}
+  // Guard: SF delivery requires an address
+  if(S.delivery==='sf'){
+    const a=(document.getElementById('co-addr')||{}).value?.trim();
+    if(!a){toast('⚠️ 請填寫順豐送貨地址');goStep(2);return;}
+  }
+  let nm,ph,email,addr,note;
+  if(S.checkoutMode==='member' && S.user && S.memberProfile){
+    const p=S.memberProfile;
+    nm=p.name||S.user.email; ph=p.phone||''; email=S.user.email;
+    addr=(document.getElementById('co-addr')||{}).value||p.address||''; note='';
+  } else {
+    nm=(document.getElementById('co-name')||{}).value?.trim()||'';
+    ph=(document.getElementById('co-phone')||{}).value?.trim()||'';
+    if(!nm||!ph){toast('⚠️ 請填寫姓名和電話');return;}
+    email=(document.getElementById('co-email')||{}).value?.trim()||'';
+    addr=(document.getElementById('co-addr')||{}).value||'';
+    note=(document.getElementById('co-note')||{}).value||'';
+  }
+  const sub=S.cart.reduce((s,i)=>s+i.price*i.qty,0);
+  const disc=S.couponApplied?S.couponApplied.amount:0;
+  const memberPts = S.memberProfile?.points || 0;
+  const ptsDisc = S.pointsRedeemed ? Math.min(Math.floor(memberPts/10), Math.max(0,sub-disc)) : 0;
+  const total=Math.max(0,sub-disc-ptsDisc+S.shippingFee);
+  const earnedPts = Math.floor(total);
+  const orderId='o'+Date.now();
+  S.lastOrderId=orderId;
+  document.getElementById('succ-ord-id').textContent=orderId.slice(-8).toUpperCase();
+  const orderObj={
+    id:orderId,name:nm,phone:ph,email:email,addr:addr,note:note,
+    delivery:S.delivery, payMethod:S.payMethod,
+    items:S.cart.map(i=>({id:i.id,nameCn:i.nameCn,qty:i.qty,price:i.price})),
+    subtotal:sub,discount:disc,ptsDiscount:ptsDisc,shippingFee:S.shippingFee,total:total,
+    coupon:S.couponApplied?.code||null,pointsRedeemed:S.pointsRedeemed?memberPts:0,pointsEarned:earnedPts,
+    status:'pending',createdAt:new Date().toISOString(),memberId:S.user?.uid||null,
+    fcmToken: S.fcmToken || null,  // push notification token
+    receiptImage: _receiptImage || null,
+  };
+  // Save locally (cap at 20 most recent to limit PII accumulation)
+  const orders=JSON.parse(localStorage.getItem('hc_orders')||'[]');
+  orders.unshift(orderObj);
+  localStorage.setItem('hc_orders',JSON.stringify(orders.slice(0,20)));
+  // Firestore
+  const fb=await getFirebase();
+  if(fb){
+    const {doc,setDoc,updateDoc,serverTimestamp}=fb.FS;
+    setDoc(doc(fb.db,'orders',orderId),{...orderObj,createdAt:serverTimestamp()}).catch(()=>{});
+    // Mark coupon used
+    if(S.couponApplied && S.user){
+      const coupons=(S.memberProfile?.coupons||[]).map(c=>c.code===S.couponApplied.code?{...c,used:true}:c);
+      updateDoc(doc(fb.db,'members',S.user.uid),{coupons}).catch(()=>{});
+      if(S.memberProfile)S.memberProfile={...S.memberProfile,coupons};
+    }
+    // Update loyalty points
+    if(S.user){
+      const newPts = Math.max(0, memberPts - (S.pointsRedeemed ? memberPts : 0)) + earnedPts;
+      updateDoc(doc(fb.db,'members',S.user.uid),{points:newPts}).catch(()=>{});
+      if(S.memberProfile)S.memberProfile={...S.memberProfile,points:newPts};
+    }
+    if(S.user)syncCartToFirebase(S.user.uid,fb);
+  }
+  const itemsTxt=orderObj.items.map(i=>`${i.nameCn} x${i.qty} = HK$${i.price*i.qty}`).join('\n');
+  const {default:ejsCfg}=await import('./emailjs-config.js').catch(()=>({default:null}));
+  // ① Order confirmation → customer
+  if(email && ejsCfg?.templates?.order){
+    sendEmail(ejsCfg.templates.order,{
+      to_name:nm,to_email:email,
+      order_id:orderId.slice(-8).toUpperCase(),
+      order_items:itemsTxt,
+      order_total:`HK$${total}`,
+      order_method:{pickup:'門市自取',sf:'順豐速遞'}[S.delivery]||S.delivery,
+      store_name:'鴻昌辦館 Hung Cheong Store',
+    });
+  }
+  // ② New order alert → admin
+  const adminEmail=S.adminEmail || (()=>{try{return JSON.parse(localStorage.getItem('hc_settings')||'{}').adminEmail||'';}catch(e){return '';}})();
+  if(adminEmail && ejsCfg?.templates?.adminNotify){
+    const payTxMap={alipay:'Alipay 支付寶',wechat:'WeChat Pay 微信支付',fps:'FPS 轉數快',cash:'門市現金'};
+    sendEmail(ejsCfg.templates.adminNotify,{
+      to_name:'管理員',to_email:adminEmail,
+      order_id:orderId.slice(-8).toUpperCase(),
+      customer_name:nm,
+      customer_phone:ph,
+      customer_email:email||'（未提供）',
+      customer_addr:addr||'門市自取',
+      order_items:itemsTxt,
+      order_subtotal:`HK$${sub}`,
+      order_discount:disc?`-HK$${disc}`:'無',
+      order_shipping:S.shippingFee?`HK$${S.shippingFee}`:'免費',
+      order_total:`HK$${total}`,
+      pay_method:payTxMap[S.payMethod]||S.payMethod||'未知',
+      delivery_method:{pickup:'🏪 門市自取',sf:'📦 順豐速遞'}[S.delivery]||S.delivery,
+      coupon_code:S.couponApplied?.code||'無',
+      order_note:note||'無',
+      store_name:'鴻昌辦館 Hung Cheong Store',
+    });
+  }
+  clearCart();
+  goStep(5);
+  _receiptImage = null;
+}
+
+function sendWAOrder(){
+  let nm,ph,addr,note;
+  if(S.checkoutMode==='member' && S.user && S.memberProfile){
+    const p=S.memberProfile;nm=p.name||'';ph=p.phone||'';
+    // Always prefer the address the user just typed (SF delivery), fall back to saved profile
+    addr=(document.getElementById('co-addr')||{}).value||p.address||'';
+    note='';
+  } else {
+    nm=(document.getElementById('co-name')||{}).value||'';
+    ph=(document.getElementById('co-phone')||{}).value||'';
+    addr=(document.getElementById('co-addr')||{}).value||'';
+    note=(document.getElementById('co-note')||{}).value||'';
+  }
+  const sub=S.cart.reduce((s,i)=>s+i.price*i.qty,0);
+  const disc=S.couponApplied?S.couponApplied.amount:0;
+  const total=Math.max(0,sub-disc+S.shippingFee);
+  const delTx={pickup:'🏪 門市自取',sf:'📦 順豐速遞'};
+  const payTx={alipay:'💙 Alipay 支付寶',wechat:'💚 WeChat Pay 微信支付',fps:'🏦 FPS 轉數快',cash:'💵 門市現金'};
+  const items=S.cart.map(i=>`• ${i.nameCn} x${i.qty} = HK$${i.price*i.qty}`).join('\n');
+  const ordId=S.lastOrderId?S.lastOrderId.slice(-8).toUpperCase():'';
+  const msg=encodeURIComponent(
+    `🏪 鴻昌辦館訂單 #${ordId}\n\n👤 ${nm}\n📞 ${ph}\n${delTx[S.delivery]||S.delivery}${addr?'\n📍 '+addr:''}\n${payTx[S.payMethod]||S.payMethod}\n\n${items}\n\n💰 總計: HK$${total}${disc?`（已扣優惠券 -HK$${disc}）`:''}\n備註: ${note||'無'}\n\n[請附付款截圖以確認訂單]`
+  );
+  window.open(`https://wa.me/${S.waNum}?text=${msg}`,'_blank');
+}
+function openWA(){window.open(`https://wa.me/${S.waNum}`,'_blank');}
+
+// ── QR ────────────────────────────────────────────────────────────────────────
+function updateQR(){
+  ['alipay','wechat'].forEach(t=>{
+    const el=document.getElementById('qr-'+t);
+    if(el && S.qr[t]){
+      el.innerHTML=`<img src="${S.qr[t]}" style="width:100%;height:100%;object-fit:contain"><div class="qr-zoom-hint">點擊放大 Tap to enlarge</div>`;
+    }
+  });
+}
+
+// ── QR FULLSCREEN ─────────────────────────────────────────────────────────────
+function openQRFullscreen(type) {
+  const src = S.qr[type];
+  if (!src) return; // no QR uploaded yet
+  const labels = { alipay:'💙 Alipay 支付寶', wechat:'💚 WeChat Pay 微信支付' };
+  document.getElementById('qr-fs-img').src = src;
+  document.getElementById('qr-fs-lbl').textContent = labels[type] || '';
+  document.getElementById('qr-fs').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeQRFS() {
+  document.getElementById('qr-fs').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// ── FPS COPY ──────────────────────────────────────────────────────────────────
+function copyFPS() {
+  const num = S.fpsNum;
+  if (!num || num === '待更新') return;
+  navigator.clipboard?.writeText(num).then(() => {
+    toast(S.lang==='cn' ? `📋 已複製 ${num}` : `📋 Copied ${num}`);
+  }).catch(() => {
+    // Fallback for older browsers
+    const ta = document.createElement('textarea');
+    ta.value = num; ta.style.position='fixed'; ta.style.opacity='0';
+    document.body.appendChild(ta); ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    toast(`📋 已複製 ${num}`);
+  });
+}
+
+// ── PAYMENT APP DEEP LINKS ─────────────────────────────────────────────────────
+function tryOpenApp(e, scheme) {
+  e.preventDefault();
+  // Try deep link; if no app installed, nothing visible happens (silent fail is fine)
+  window.location.href = scheme;
+  // Fallback toast after short delay
+  setTimeout(() => toast(S.lang==='cn' ? '💡 請確保已安裝相關付款App' : '💡 Please ensure the payment app is installed'), 1200);
+}
+
+// ── RECEIPT UPLOAD ─────────────────────────────────────────────────────────────
+let _receiptImage = null;
+
+function _compressImage(dataUrl, maxW=1200, quality=0.72) {
+  return new Promise(resolve => {
+    const img = new Image();
+    img.onload = () => {
+      const canvas = document.createElement('canvas');
+      const scale = Math.min(1, maxW / img.width);
+      canvas.width = Math.round(img.width * scale);
+      canvas.height = Math.round(img.height * scale);
+      canvas.getContext('2d').drawImage(img, 0, 0, canvas.width, canvas.height);
+      resolve(canvas.toDataURL('image/jpeg', quality));
+    };
+    img.src = dataUrl;
+  });
+}
+
+function handleReceiptUpload(input) {
+  const file = input.files[0]; if (!file) return; input.value = '';
+  const reader = new FileReader();
+  reader.onload = async e => {
+    _receiptImage = await _compressImage(e.target.result);
+    document.getElementById('receipt-img').src = _receiptImage;
+    document.getElementById('receipt-drop').style.display = 'none';
+    document.getElementById('receipt-preview').style.display = 'block';
+  };
+  reader.readAsDataURL(file);
+}
+
+function clearReceipt() {
+  _receiptImage = null;
+  document.getElementById('receipt-drop').style.display = 'block';
+  document.getElementById('receipt-preview').style.display = 'none';
+}
+
+// ── FLASH SALE ────────────────────────────────────────────────────────────────
+function _flashInfo(p) {
+  if (!p.salePrice || !p.saleEndTime) return null;
+  const msLeft = new Date(p.saleEndTime).getTime() - Date.now();
+  if (msLeft <= 0) return null;
+  return { salePrice: p.salePrice, msLeft };
+}
+function _fmtCountdown(ms) {
+  const h = Math.floor(ms / 3600000);
+  const m = Math.floor((ms % 3600000) / 60000);
+  const s = Math.floor((ms % 60000) / 1000);
+  if (h > 0) return `⚡ ${h}小時${m}分`;
+  return `⚡ ${m}分${s.toString().padStart(2,'0')}秒`;
+}
+let _flashTimer = null;
+function _startFlashTimer() {
+  clearInterval(_flashTimer);
+  _flashTimer = setInterval(() => {
+    document.querySelectorAll('.js-countdown[data-ends]').forEach(el => {
+      const ms = +el.dataset.ends - Date.now();
+      if (ms <= 0) { el.textContent = '已結束'; clearInterval(_flashTimer); renderProducts(); return; }
+      el.textContent = _fmtCountdown(ms);
+    });
+  }, 1000);
+}
+
+// ── RELATED PRODUCTS ─────────────────────────────────────────────────────────
+function _renderRelated(p) {
+  const catEm = {hkmade:'🇭🇰',nostalgic:'🕰️',wine:'🍷',others:'🧺'};
+  const related = S.products.filter(x => x.id !== p.id && x.cat === p.cat && x.stock !== 0)
+    .sort(() => Math.random() - 0.5).slice(0, 5);
+  if (!related.length) return '';
+  return `<div class="related-wrap">
+    <div class="related-title">您可能也喜歡 You May Also Like</div>
+    <div class="related-row">
+      ${related.map(r => {
+        const fl = _flashInfo(r);
+        const price = fl ? fl.salePrice : r.price;
+        return `<div class="rel-card" onclick="closePM();setTimeout(()=>openProduct('${r.id}'),200)">
+          <div class="rel-img">${r.photo ? `<img src="${r.photo}" alt="${r.nameCn}">` : (catEm[r.cat]||'🛒')}</div>
+          <div class="rel-name">${r.nameCn}</div>
+          <div class="rel-price">HK$${price}</div>
+        </div>`;
+      }).join('')}
+    </div>
+  </div>`;
+}
+
+// ── GALLERY ───────────────────────────────────────────────────────────────────
+let _galPhotos = [], _galIdx = 0;
+
+function _galRender() {
+  const mainEl = document.getElementById('pm-gal-main');
+  if (mainEl) mainEl.src = _galPhotos[_galIdx];
+  document.querySelectorAll('.pm-thumb').forEach((t,i) => t.classList.toggle('active', i === _galIdx));
+}
+function galNav(dir) { _galIdx = (_galIdx + dir + _galPhotos.length) % _galPhotos.length; _galRender(); }
+function galThumb(i) { _galIdx = i; _galRender(); }
+
+Object.assign(window, { openQRFullscreen, closeQRFS, copyFPS, tryOpenApp });
+
+// ── SCROLL ────────────────────────────────────────────────────────────────────
+window.addEventListener('scroll',()=>document.getElementById('bk-top').classList.toggle('show',scrollY>300));
+
+// ── TOAST ─────────────────────────────────────────────────────────────────────
+let _tt;
+function toast(m){const el=document.getElementById('toast');el.textContent=m;el.classList.add('show');clearTimeout(_tt);_tt=setTimeout(()=>el.classList.remove('show'),2200);}
+window.toast=toast;
+
+// ── BOOT ──────────────────────────────────────────────────────────────────────
+init();
+</script>
+</body>
+</html>

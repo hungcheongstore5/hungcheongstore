@@ -24,11 +24,11 @@
 // ═══════════════════════════════════════════════════════════════
 
 export const firebaseConfig = {
-  apiKey:            "YOUR_API_KEY",
-  authDomain:        "YOUR_PROJECT_ID.firebaseapp.com",
-  projectId:         "YOUR_PROJECT_ID",
-  storageBucket:     "YOUR_PROJECT_ID.appspot.com",
-  messagingSenderId: "YOUR_SENDER_ID",
-  appId:             "YOUR_APP_ID",
-  measurementId:     "YOUR_MEASUREMENT_ID"   // optional, for Analytics
+  apiKey:            "AIzaSyCkexHYtnNVftxKMhyJbkd57dwAx3k3lo0",
+  authDomain:        "hung-cheong-store.firebaseapp.com",
+  projectId:         "hung-cheong-store",
+  storageBucket:     "hung-cheong-store.firebasestorage.app",
+  messagingSenderId: "975591755208",
+  appId:             "1:975591755208:web:b84f65ff255fd35dda84fd",
+  measurementId:     ""
 };

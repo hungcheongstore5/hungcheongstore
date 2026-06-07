@@ -35,7 +35,7 @@
       --r:          12px;
       --rs:         8px;
       --t:          all .25s ease;
-      --ann-h:      36px;
+      --ann-h:      0px;
       --hdr-h:      70px;
       --nav-h:      46px;
     }
@@ -62,9 +62,10 @@
     .ann-ticker{flex:1;overflow:hidden;padding:0 12px;position:relative;height:100%;display:flex;align-items:center}
     .ann-slide{position:absolute;left:0;right:0;text-align:center;color:white;font-size:12px;font-weight:600;letter-spacing:.3px;opacity:0;transform:translateY(10px);transition:opacity .5s ease,transform .5s ease;pointer-events:none}
     .ann-slide.active{opacity:1;transform:translateY(0)}
-    .ann-lang{display:flex;gap:5px;flex-shrink:0}
-    .ann-lang button{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);color:white;border-radius:12px;padding:3px 9px;font-size:11px;font-weight:600;cursor:pointer;transition:var(--t)}
-    .ann-lang button.active{background:rgba(255,255,255,.32);border-color:rgba(255,255,255,.5)}
+    .hdr-lang{display:flex;gap:4px;flex-shrink:0}
+    .hdr-lang button{background:var(--white);border:2px solid var(--cream-d);color:var(--mid);border-radius:14px;padding:5px 10px;font-size:12px;font-weight:700;cursor:pointer;transition:var(--t)}
+    .hdr-lang button.active{background:var(--green);border-color:var(--green);color:white}
+    .hdr-lang button:hover{border-color:var(--green-l)}
 
     /* ══ HEADER ══ */
     #hdr{
@@ -123,31 +124,35 @@
     .promo-close{position:absolute;top:10px;right:10px;background:rgba(0,0,0,.5);color:white;border:none;border-radius:50%;width:32px;height:32px;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center}
 
     /* ══ HERO (default when no promo image) ══ */
-    #hero{background:linear-gradient(135deg,var(--green-d) 0%,var(--green) 60%,#40916c 100%);padding:42px 20px 36px;text-align:center;position:relative;overflow:hidden}
-    #hero::after{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='40' cy='40' r='30' fill='%2395d5b2' fill-opacity='0.06'/%3E%3C/svg%3E");pointer-events:none}
-    .hero-in{position:relative;z-index:1;max-width:700px;margin:0 auto}
-    .hero-em{font-size:50px;margin-bottom:8px}
-    .hero-t{font-size:clamp(26px,6vw,46px);font-weight:900;color:white;line-height:1.05}
-    .hero-t span{color:var(--gold-l)}
-    .hero-s{font-size:clamp(12px,2.5vw,15px);color:rgba(255,255,255,.75);margin-top:8px}
-    .hero-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:20px}
-    .btn-gold{background:var(--gold);color:white;border:none;border-radius:28px;padding:12px 26px;font-size:14px;font-weight:700;box-shadow:0 4px 14px rgba(200,135,26,.45);transition:var(--t);cursor:pointer}
-    .btn-gold:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(200,135,26,.6)}
-    .btn-ghost{background:transparent;color:white;border:2px solid rgba(255,255,255,.5);border-radius:28px;padding:10px 22px;font-size:14px;font-weight:600;transition:var(--t);cursor:pointer}
-    .btn-ghost:hover{background:rgba(255,255,255,.12)}
+    #hero{background:linear-gradient(160deg,#0d2b1e 0%,var(--green-d) 45%,#1f5c3a 100%);padding:30px 20px 26px;text-align:center;position:relative;overflow:hidden;border-bottom:3px solid var(--gold)}
+    #hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 100%,rgba(200,135,26,.13) 0%,transparent 70%);pointer-events:none}
+    #hero::after{content:'';position:absolute;top:-60px;left:50%;transform:translateX(-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(82,183,136,.07) 0%,transparent 65%);pointer-events:none}
+    .hero-in{position:relative;z-index:1;max-width:720px;margin:0 auto}
+    .hero-em{font-size:38px;margin-bottom:8px;filter:drop-shadow(0 2px 12px rgba(200,135,26,.4))}
+    .hero-eyebrow{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold-l);opacity:.9;margin-bottom:8px}
+    .hero-t{font-size:clamp(26px,5.5vw,42px);font-weight:900;color:white;line-height:1.0;letter-spacing:-0.5px;text-shadow:0 2px 24px rgba(0,0,0,.3)}
+    .hero-t span{color:var(--gold-l);display:inline-block}
+    .hero-divider{width:50px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:12px auto}
+    .hero-s{font-size:clamp(12px,2.2vw,15px);color:rgba(255,255,255,.7);margin-top:0;line-height:1.6;max-width:480px;margin-inline:auto}
+    .hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:18px}
+    .btn-gold{background:linear-gradient(135deg,#d4942a,var(--gold));color:white;border:none;border-radius:4px;padding:14px 32px;font-size:14px;font-weight:700;letter-spacing:.5px;box-shadow:0 4px 20px rgba(200,135,26,.5),inset 0 1px 0 rgba(255,255,255,.15);transition:var(--t);cursor:pointer;text-transform:uppercase}
+    .btn-gold:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(200,135,26,.65),inset 0 1px 0 rgba(255,255,255,.15)}
+    .btn-ghost{background:transparent;color:white;border:1px solid rgba(255,255,255,.35);border-radius:4px;padding:13px 28px;font-size:14px;font-weight:600;transition:var(--t);cursor:pointer;letter-spacing:.3px;backdrop-filter:blur(4px)}
+    .btn-ghost:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.6)}
 
     /* ══ INFO STRIP (中間橫額) ══ */
     #info-strip{
       background:var(--white);border-bottom:2px solid var(--cream-d);
       padding:0;overflow:hidden;
     }
-    /* Scrolling marquee */
-    .info-track-wrap{overflow:hidden;height:42px;display:flex;align-items:center;position:relative;cursor:default}
-    .info-track{display:flex;align-items:center;gap:0;white-space:nowrap;animation:marquee 28s linear infinite}
+    /* Thin scrolling marquee (single narrow banner) */
+    .info-track-wrap{overflow:hidden;height:30px;display:flex;align-items:center;position:relative;cursor:default}
+    .info-track{display:flex;align-items:center;gap:0;white-space:nowrap;animation:marquee 30s linear infinite}
     .info-track:hover{animation-play-state:paused}
     @keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-    .info-pill{display:inline-flex;align-items:center;gap:6px;padding:0 22px;font-size:12.5px;font-weight:600;color:var(--text);border-right:1px solid var(--cream-d);white-space:nowrap;height:42px}
-    .info-pill .pi{font-size:15px}
+    .info-pill{display:inline-flex;align-items:center;gap:5px;padding:0 18px;font-size:11.5px;font-weight:600;color:var(--text);white-space:nowrap;height:30px}
+    .info-pill .pi{font-size:13px}
+    .info-pill::after{content:'♥';color:var(--gold);margin-left:18px;font-size:10px;opacity:.7}
 
     /* ══ SEARCH RESULT BAR ══ */
     #srch-bar{display:none;background:var(--cream-d);padding:10px 18px;align-items:center;gap:12px;flex-wrap:wrap}
@@ -181,30 +186,32 @@
     @media(min-width:900px){#prod-grid{grid-template-columns:repeat(auto-fill,minmax(215px,1fr))}}
     @media(min-width:1200px){#prod-grid{grid-template-columns:repeat(auto-fill,minmax(228px,1fr))}}
 
-    .p-card{background:var(--white);border-radius:var(--r);overflow:hidden;box-shadow:0 2px 10px var(--sh);transition:var(--t);cursor:pointer;position:relative}
-    .p-card:hover{transform:translateY(-4px);box-shadow:0 8px 24px var(--sh)}
-    .p-card:hover .p-img{transform:scale(1.05)}
-    .p-img-w{width:100%;aspect-ratio:1;overflow:hidden;background:var(--cream)}
-    .p-img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease}
-    .p-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:54px;background:linear-gradient(135deg,var(--cream),var(--green-p))}
-    .p-badges{position:absolute;top:8px;left:8px;display:flex;flex-direction:column;gap:4px}
-    .p-bdg{font-size:10px;font-weight:700;padding:3px 8px;border-radius:20px;width:fit-content}
-    .bdg-hot{background:#ff4757;color:white}
-    .bdg-new{background:var(--green);color:white}
+    .p-card{background:var(--white);border-radius:2px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.07);transition:all .3s ease;cursor:pointer;position:relative;border:1px solid rgba(0,0,0,.06)}
+    .p-card:hover{transform:translateY(-6px);box-shadow:0 16px 40px rgba(0,0,0,.12);border-color:rgba(200,135,26,.3)}
+    .p-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),var(--gold-l));opacity:0;transition:opacity .3s}
+    .p-card:hover::after{opacity:1}
+    .p-card:hover .p-img{transform:scale(1.07)}
+    .p-img-w{width:100%;aspect-ratio:1;overflow:hidden;background:linear-gradient(135deg,#f8f5ef,var(--green-p))}
+    .p-img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+    .p-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:58px;background:linear-gradient(135deg,var(--cream),#d8f0e4)}
+    .p-badges{position:absolute;top:10px;left:10px;display:flex;flex-direction:column;gap:4px}
+    .p-bdg{font-size:9px;font-weight:800;padding:4px 9px;border-radius:2px;width:fit-content;letter-spacing:.5px;text-transform:uppercase}
+    .bdg-hot{background:#c0392b;color:white}
+    .bdg-new{background:var(--green-d);color:white}
     .bdg-sale{background:var(--gold);color:white}
     .bdg-hk{background:#003087;color:white}
-    .p-body{padding:11px}
-    .p-name{font-size:14px;font-weight:700;color:var(--text);line-height:1.3}
-    .p-sub{font-size:11px;color:var(--mid);margin-top:2px;line-height:1.3}
-    .p-row{display:flex;align-items:center;justify-content:space-between;margin-top:9px;gap:6px}
-    .p-price{font-size:17px;font-weight:800;color:var(--green)}
+    .p-body{padding:14px}
+    .p-name{font-size:14px;font-weight:800;color:var(--text);line-height:1.3;letter-spacing:-.1px}
+    .p-sub{font-size:11px;color:var(--mid);margin-top:3px;line-height:1.3}
+    .p-row{display:flex;align-items:center;justify-content:space-between;margin-top:11px;gap:6px}
+    .p-price{font-size:18px;font-weight:900;color:var(--gold)}
     .p-price .u{font-size:11px;font-weight:400;color:var(--mid)}
-    .p-sold{font-size:10px;color:var(--mid);margin-top:3px}
-    .add-btn{background:var(--green);color:white;border:none;border-radius:var(--rs);padding:7px 11px;font-size:12px;font-weight:700;transition:var(--t);white-space:nowrap;flex-shrink:0}
-    .add-btn:hover{background:var(--green-d)}
+    .p-sold{font-size:10px;color:var(--mid);margin-top:4px;letter-spacing:.2px}
+    .add-btn{background:var(--green-d);color:white;border:none;border-radius:2px;padding:8px 13px;font-size:11px;font-weight:800;transition:var(--t);white-space:nowrap;flex-shrink:0;letter-spacing:.5px;text-transform:uppercase}
+    .add-btn:hover{background:var(--gold)}
     .add-btn:active{transform:scale(.95)}
-    .out-of-stock .p-img-w{filter:grayscale(.5) opacity(.7)}
-    .out-of-stock .add-btn{background:#ccc;cursor:not-allowed}
+    .out-of-stock .p-img-w{filter:grayscale(.6) opacity(.65)}
+    .out-of-stock .add-btn{background:#bbb;cursor:not-allowed}
 
     .empty-state{grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--mid)}
     .empty-state .ei{font-size:52px;margin-bottom:12px}
@@ -221,12 +228,6 @@
     .pg-dots{font-size:14px;color:var(--mid);padding:0 4px}
 
     /* ══ FEATURES ══ */
-    #features{background:var(--white);padding:32px 20px;border-top:2px solid var(--cream-d)}
-    .feat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:14px;max-width:860px;margin:0 auto}
-    .feat-card{text-align:center;padding:18px 10px;background:var(--cream);border-radius:var(--r)}
-    .feat-ic{font-size:28px;margin-bottom:7px}
-    .feat-lbl{font-size:13px;font-weight:700;color:var(--text)}
-    .feat-sub{font-size:11px;color:var(--mid);margin-top:2px;line-height:1.3}
 
     /* ══ FOOTER ══ */
     footer{background:var(--green-d);color:rgba(255,255,255,.9);padding:32px 20px 18px}
@@ -273,25 +274,31 @@
     .mo{position:fixed;inset:0;z-index:2500;background:rgba(27,67,50,.55);backdrop-filter:blur(4px);display:flex;align-items:flex-end;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s}
     .mo.open{opacity:1;pointer-events:all}
     @media(min-width:600px){.mo{align-items:center}}
-    .mo-box{background:var(--white);border-radius:var(--r) var(--r) 0 0;width:100%;max-width:500px;max-height:92vh;overflow-y:auto;padding:22px;position:relative;transform:translateY(40px);transition:transform .3s}
-    @media(min-width:600px){.mo-box{border-radius:var(--r);transform:scale(.95)}}
+    .mo-box{background:var(--white);border-radius:var(--r) var(--r) 0 0;width:100%;max-width:520px;max-height:92vh;overflow-y:auto;padding:0;position:relative;transform:translateY(40px);transition:transform .3s;box-shadow:0 -4px 40px rgba(0,0,0,.15)}
+    @media(min-width:600px){.mo-box{border-radius:2px;transform:scale(.95);box-shadow:0 24px 80px rgba(0,0,0,.2)}}
     .mo.open .mo-box{transform:translateY(0)}
     @media(min-width:600px){.mo.open .mo-box{transform:scale(1)}}
-    .mo-cls{position:absolute;top:13px;right:13px;width:28px;height:28px;background:var(--cream-d);border-radius:50%;font-size:14px;color:var(--text);display:flex;align-items:center;justify-content:center;cursor:pointer;border:none}
+    .mo-cls{position:absolute;top:14px;right:14px;width:32px;height:32px;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);border-radius:50%;font-size:14px;color:white;display:flex;align-items:center;justify-content:center;cursor:pointer;border:none;z-index:10;transition:background .2s}
+    .mo-cls:hover{background:rgba(0,0,0,.8)}
+    .tm-h{font-size:15px;font-weight:800;color:var(--green-d);margin:20px 0 8px;padding-bottom:6px;border-bottom:2px solid var(--gold)}
+    .tm-h:first-of-type{margin-top:0}
+    .tm-p{font-size:13px;line-height:1.75;color:var(--tx);margin:0 0 10px}
 
     /* Product modal */
-    .pm-img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:var(--rs);margin-bottom:13px}
-    .pm-ph{width:100%;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;font-size:72px;background:linear-gradient(135deg,var(--cream),var(--green-p));border-radius:var(--rs);margin-bottom:13px}
-    .pm-nm{font-size:20px;font-weight:800}
-    .pm-en{font-size:13px;color:var(--mid);margin-top:3px}
-    .pm-desc{font-size:13px;color:var(--mid);margin-top:9px;line-height:1.6}
-    .pm-price{font-size:23px;font-weight:800;color:var(--green);margin-top:11px}
-    .pm-sold{font-size:11px;color:var(--mid);margin-top:2px}
-    .qty-row{display:flex;align-items:center;gap:13px;margin-top:13px}
-    .qty-b{width:32px;height:32px;background:var(--cream-d);border-radius:50%;font-size:18px;font-weight:700;color:var(--green);display:flex;align-items:center;justify-content:center;border:none;cursor:pointer}
-    .qty-n{font-size:16px;font-weight:700;min-width:26px;text-align:center}
-    .pm-add{width:100%;margin-top:13px;background:var(--green);color:white;border-radius:var(--r);padding:13px;font-size:15px;font-weight:700;transition:var(--t);cursor:pointer;border:none}
-    .pm-add:hover{background:var(--green-d)}
+    .pm-img{width:100%;aspect-ratio:4/3;object-fit:cover;margin-bottom:0;display:block}
+    .pm-ph{width:100%;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;font-size:80px;background:linear-gradient(135deg,var(--cream),#d8f0e4);margin-bottom:0}
+    .pm-body-pad{padding:22px 22px 28px}
+    .pm-nm{font-size:22px;font-weight:900;letter-spacing:-.3px;line-height:1.2}
+    .pm-en{font-size:11px;color:var(--mid);margin-top:4px;letter-spacing:.8px;text-transform:uppercase}
+    .pm-desc{font-size:13px;color:var(--mid);margin-top:12px;line-height:1.7;padding-top:12px;border-top:1px solid var(--cream-d)}
+    .pm-price{font-size:30px;font-weight:900;color:var(--gold);margin-top:14px;letter-spacing:-.5px}
+    .pm-sold{font-size:11px;color:var(--mid);margin-top:3px;letter-spacing:.2px}
+    .qty-row{display:flex;align-items:center;gap:16px;margin-top:16px}
+    .qty-b{width:36px;height:36px;background:var(--cream-d);border-radius:2px;font-size:20px;font-weight:700;color:var(--green-d);display:flex;align-items:center;justify-content:center;border:1px solid rgba(0,0,0,.08);cursor:pointer;transition:var(--t)}
+    .qty-b:hover{background:var(--gold);color:white;border-color:var(--gold)}
+    .qty-n{font-size:17px;font-weight:800;min-width:28px;text-align:center}
+    .pm-add{width:100%;margin-top:16px;background:var(--green-d);color:white;border-radius:2px;padding:15px;font-size:14px;font-weight:800;transition:var(--t);cursor:pointer;border:none;letter-spacing:.8px;text-transform:uppercase;box-shadow:0 4px 16px rgba(27,67,50,.25)}
+    .pm-add:hover{background:var(--gold);box-shadow:0 6px 20px rgba(200,135,26,.4)}
 
     /* ══ REVIEWS ══ */
     #pm-reviews{margin-top:18px;border-top:1px solid var(--cream-d);padding-top:14px}
@@ -322,16 +329,17 @@
 
     /* ══ CHECKOUT ══ */
     .co-mo .mo-box{max-width:480px;max-height:92vh;overflow-y:auto}
-    .co-prog{display:flex;align-items:center;justify-content:center;margin-bottom:18px;padding:0 4px}
-    .cp-dot{width:28px;height:28px;border-radius:50%;background:var(--cream-d);color:var(--mid);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:var(--t)}
+    .co-prog{display:flex;align-items:center;justify-content:center;margin-bottom:22px;padding:0 4px}
+    .cp-dot{width:30px;height:30px;border-radius:2px;background:var(--cream-d);color:var(--mid);font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:var(--t);letter-spacing:.5px}
     .cp-dot.done{background:var(--green-l);color:white}
-    .cp-dot.active{background:var(--green);color:white;box-shadow:0 0 0 3px var(--green-p)}
+    .cp-dot.active{background:var(--gold);color:white;box-shadow:0 0 0 3px rgba(200,135,26,.25)}
     .cp-line{flex:1;height:2px;background:var(--cream-d);transition:background .3s}
     .cp-line.done{background:var(--green-l)}
     .co-step{display:none}
     .co-step.active{display:block}
-    .co-hd{font-size:17px;font-weight:800;color:var(--green);margin-bottom:14px}
-    .co-bk{color:var(--mid);font-size:13px;cursor:pointer;margin-bottom:11px;background:none;border:none;display:flex;align-items:center;gap:4px}
+    .co-hd{font-size:16px;font-weight:900;color:var(--green-d);margin-bottom:16px;letter-spacing:-.2px;display:flex;align-items:center;gap:8px}
+    .co-bk{color:var(--mid);font-size:13px;cursor:pointer;margin-bottom:12px;background:none;border:none;display:flex;align-items:center;gap:4px;transition:color .2s}
+    .co-bk:hover{color:var(--green)}
     .fg{margin-bottom:11px}
     .fl{font-size:12px;font-weight:600;color:var(--mid);margin-bottom:4px;display:block}
     .fi{width:100%;border:2px solid var(--cream-d);border-radius:var(--rs);padding:9px 12px;font-size:14px;background:var(--cream);outline:none;font-family:inherit;color:var(--text);transition:border-color .2s}
@@ -362,10 +370,10 @@
     .ship-free{color:var(--green);font-weight:700}
     .ship-fee{color:var(--gold);font-weight:700}
     /* Delivery options */
-    .del-opts{display:flex;flex-direction:column;gap:9px;margin-bottom:14px}
-    .del-opt{border:2px solid var(--cream-d);border-radius:var(--r);padding:14px 16px;cursor:pointer;transition:var(--t);display:flex;align-items:center;gap:13px}
-    .del-opt:hover{border-color:var(--green-l)}
-    .del-opt.sel{border-color:var(--green);background:#f0faf4}
+    .del-opts{display:flex;flex-direction:column;gap:10px;margin-bottom:16px}
+    .del-opt{border:1.5px solid var(--cream-d);border-radius:2px;padding:16px 18px;cursor:pointer;transition:var(--t);display:flex;align-items:center;gap:14px;background:white}
+    .del-opt:hover{border-color:var(--gold);box-shadow:0 2px 12px rgba(200,135,26,.12)}
+    .del-opt.sel{border-color:var(--gold);background:linear-gradient(135deg,#fffbf0,#fff8e7);box-shadow:0 2px 16px rgba(200,135,26,.15)}
     .del-radio{width:20px;height:20px;border-radius:50%;border:2px solid var(--cream-d);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:var(--t)}
     .del-opt.sel .del-radio{border-color:var(--green);background:var(--green)}
     .del-radio-dot{width:8px;height:8px;border-radius:50%;background:white;display:none}
@@ -397,6 +405,36 @@
     .qr-iw:hover .qr-zoom-hint{opacity:1}
     .fps-num{font-size:20px;font-weight:800;color:var(--green);letter-spacing:2px;margin:10px 0}
     .fps-note{font-size:12px;color:var(--mid)}
+    /* ── WA CHECKOUT MODAL ── */
+    #wa-co{position:fixed;inset:0;z-index:3000;display:none;align-items:flex-end;justify-content:center;background:rgba(0,0,0,.55);backdrop-filter:blur(3px)}
+    #wa-co.open{display:flex}
+    .waco-box{background:var(--white);border-radius:16px 16px 0 0;width:100%;max-width:520px;max-height:90vh;overflow-y:auto}
+    .waco-hd{background:var(--green-d);color:white;padding:18px 20px;display:flex;align-items:center;justify-content:space-between;border-radius:16px 16px 0 0;position:sticky;top:0;z-index:2}
+    .waco-hd-t{font-size:16px;font-weight:800;letter-spacing:.3px}
+    .waco-cls{background:rgba(255,255,255,.2);border:none;color:white;width:30px;height:30px;border-radius:50%;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+    .waco-sec{padding:16px 20px;border-bottom:1px solid var(--cream-d)}
+    .waco-sec-t{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:var(--mid);margin-bottom:10px}
+    .waco-item{display:flex;justify-content:space-between;align-items:center;padding:5px 0;font-size:13px;border-bottom:1px dashed var(--cream-d)}
+    .waco-item:last-child{border-bottom:none}
+    .waco-tot{display:flex;justify-content:space-between;align-items:center;padding:10px 0 0;font-size:15px;font-weight:900}
+    .waco-tot-pr{color:var(--gold);font-size:20px}
+    .waco-field{margin-bottom:10px}
+    .waco-field label{font-size:11px;font-weight:700;color:var(--mid);text-transform:uppercase;letter-spacing:.5px;display:block;margin-bottom:4px}
+    .waco-field input,.waco-field textarea{width:100%;border:1.5px solid var(--cream-d);border-radius:6px;padding:10px 12px;font-size:14px;font-family:inherit;background:var(--white);color:var(--tx);box-sizing:border-box;transition:border-color .2s}
+    .waco-field input:focus,.waco-field textarea:focus{border-color:var(--green);outline:none}
+    .waco-del-opts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px}
+    .waco-del-opt{border:1.5px solid var(--cream-d);border-radius:8px;padding:10px 8px;text-align:center;cursor:pointer;font-size:13px;font-weight:600;transition:all .2s;background:var(--white)}
+    .waco-del-opt.sel{border-color:var(--gold);background:linear-gradient(135deg,#fffbf0,#fff8e7);color:var(--green-d)}
+    .waco-qr-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin-top:8px}
+    .waco-qr-item{border:1px solid var(--cream-d);border-radius:8px;padding:10px;text-align:center;cursor:pointer;transition:box-shadow .2s}
+    .waco-qr-item:hover{box-shadow:0 4px 14px var(--sh)}
+    .waco-qr-img{width:100px;height:100px;object-fit:contain;border-radius:4px;display:block;margin:0 auto 6px}
+    .waco-qr-lbl{font-size:11px;font-weight:700;color:var(--mid)}
+    .waco-fps-row{display:flex;align-items:center;gap:8px;margin-top:8px;padding:10px 12px;border:1px solid var(--cream-d);border-radius:8px;background:var(--cream)}
+    .waco-fps-num{font-size:14px;font-weight:700;color:var(--tx);flex:1}
+    .waco-fps-copy{background:var(--green-d);color:white;border:none;border-radius:6px;padding:6px 12px;font-size:12px;font-weight:700;cursor:pointer}
+    .waco-submit{display:flex;align-items:center;justify-content:center;gap:8px;background:linear-gradient(135deg,#25d366,#128c7e);color:white;border:none;border-radius:10px;padding:16px 24px;font-size:16px;font-weight:800;width:calc(100% - 40px);margin:16px 20px 20px;cursor:pointer;box-shadow:0 4px 20px rgba(37,211,102,.4);transition:all .2s}
+    .waco-submit:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(37,211,102,.5)}
     .fps-copy{display:inline-flex;align-items:center;gap:5px;background:var(--green);color:white;border:none;border-radius:var(--rs);padding:7px 14px;font-size:13px;font-weight:700;cursor:pointer;margin-top:6px;transition:var(--t)}
     .fps-copy:hover{background:var(--green-d)}
     .pay-app-btns{display:flex;gap:8px;justify-content:center;margin-top:10px;flex-wrap:wrap}
@@ -413,8 +451,8 @@
     .otp-resend{background:none;border:none;color:var(--green);font-size:13px;font-weight:600;cursor:pointer;text-align:center;margin-top:8px;display:block;width:100%;padding:4px}
     .otp-resend:disabled{color:var(--mid);cursor:default}
     /* Next button */
-    .co-nx{width:100%;margin-top:14px;background:var(--green);color:white;border:none;border-radius:var(--r);padding:13px;font-size:15px;font-weight:700;cursor:pointer;transition:var(--t)}
-    .co-nx:hover{background:var(--green-d)}
+    .co-nx{width:100%;margin-top:16px;background:var(--green-d);color:white;border:none;border-radius:2px;padding:15px;font-size:14px;font-weight:800;cursor:pointer;transition:var(--t);letter-spacing:.6px;text-transform:uppercase;box-shadow:0 4px 14px rgba(27,67,50,.25)}
+    .co-nx:hover{background:var(--gold);box-shadow:0 6px 20px rgba(200,135,26,.4)}
     /* Success */
     .succ-box{text-align:center;padding:14px 0}
     .succ-box .si{font-size:58px}
@@ -614,20 +652,6 @@
 <body>
 
 <!-- ══ ANNOUNCEMENT BAR ══ -->
-<div id="ann-bar">
-  <div class="ann-social">
-    <a href="https://www.instagram.com/hungcheongstore" target="_blank">📸</a>
-    <a href="https://www.facebook.com/hungcheongstore" target="_blank">📘</a>
-  </div>
-  <div class="ann-ticker" id="ann-ticker">
-    <!-- slides injected by JS -->
-  </div>
-  <div class="ann-lang">
-    <button onclick="setLang('cn')" id="l-cn" class="active">中</button>
-    <button onclick="setLang('en')" id="l-en">EN</button>
-  </div>
-</div>
-
 <!-- ══ HEADER ══ -->
 <header id="hdr">
   <div class="hdr-in">
@@ -644,6 +668,10 @@
     </div>
     <div class="hdr-acts">
       <button class="mob-srch-btn" onclick="toggleMobSrch()">🔍</button>
+      <div class="hdr-lang">
+        <button onclick="setLang('cn')" id="l-cn" class="active">中</button>
+        <button onclick="setLang('en')" id="l-en">EN</button>
+      </div>
       <button class="hdr-ic" id="acct-btn" onclick="openAcct()" title="會員帳戶">👤<span class="acct-dot" id="acct-dot"></span></button>
       <button class="hdr-ic" onclick="openCart()" title="購物車">
         🛒<span class="cart-badge" id="cart-count">0</span>
@@ -749,7 +777,9 @@
 <section id="hero">
   <div class="hero-in">
     <div class="hero-em">🥢🍪🍷</div>
+    <div class="hero-eyebrow">Since 1980 · 香港製造 · Hong Kong</div>
     <div class="hero-t"><span>鴻昌辦館</span></div>
+    <div class="hero-divider"></div>
     <div class="hero-s" data-cn="香港製造 · 懷舊零食 · 酒類 | 買滿$450免運費" data-en="Made in HK · Nostalgic Snacks · Wine | Free delivery over $450">香港製造 · 懷舊零食 · 酒類 | 買滿$450免運費</div>
     <div class="hero-btns">
       <button class="btn-gold" onclick="document.getElementById('shop').scrollIntoView({behavior:'smooth'})" data-cn="立即選購 →" data-en="Shop Now →">立即選購 →</button>
@@ -809,17 +839,6 @@
   <div id="pagination"></div>
 </section>
 
-<!-- ══ FEATURES ══ -->
-<section id="features">
-  <div class="feat-grid">
-    <div class="feat-card"><div class="feat-ic">🇭🇰</div><div class="feat-lbl" data-cn="正宗香港製造" data-en="Authentic HK">正宗香港製造</div><div class="feat-sub" data-cn="嚴選品質" data-en="Carefully curated">嚴選品質</div></div>
-    <div class="feat-card"><div class="feat-ic">🏪</div><div class="feat-lbl" data-cn="歡迎自取" data-en="In-store Pickup">歡迎自取</div><div class="feat-sub" data-cn="到店取貨免運費" data-en="Free pickup in-store">到店取貨免運費</div></div>
-    <div class="feat-card"><div class="feat-ic">🚚</div><div class="feat-lbl" data-cn="滿$450免運" data-en="Free Delivery $450+">滿$450免運</div><div class="feat-sub" data-cn="本地送遞" data-en="Local delivery">本地送遞</div></div>
-    <div class="feat-card"><div class="feat-ic">📦</div><div class="feat-lbl" data-cn="順豐到付" data-en="SF Express COD">順豐到付</div><div class="feat-sub" data-cn="亦接受其他速遞" data-en="Other couriers too">亦接受其他速遞</div></div>
-    <div class="feat-card"><div class="feat-ic">💳</div><div class="feat-lbl" data-cn="多種付款" data-en="Multiple Payment">多種付款</div><div class="feat-sub">Alipay · WeChat · FPS</div></div>
-    <div class="feat-card"><div class="feat-ic">💬</div><div class="feat-lbl" data-cn="WhatsApp查詢" data-en="WhatsApp Support">WhatsApp查詢</div><div class="feat-sub" data-cn="即時客服" data-en="Live support">即時客服</div></div>
-  </div>
-</section>
 
 <!-- ══ FOOTER ══ -->
 <footer>
@@ -847,8 +866,10 @@
     <div class="ft-col">
       <h4 data-cn="送遞及付款" data-en="Delivery & Payment">送遞及付款</h4>
       <ul>
+        <li data-cn="🎉 門市自取享九折" data-en="🎉 10% off in-store pickup">🎉 門市自取享九折</li>
         <li data-cn="🏪 歡迎到店自取" data-en="🏪 In-store pickup">🏪 歡迎到店自取</li>
-        <li data-cn="🚚 滿$450免運費" data-en="🚚 Free delivery $450+">🚚 滿$450免運費</li>
+        <li data-cn="🚚 滿$450免運費（酒類除外）" data-en="🚚 Free delivery $450+ (excl. wine)">🚚 滿$450免運費（酒類除外）</li>
+        <li data-cn="🍷 酒類送貨低消 $1,000" data-en="🍷 Wine delivery min. $1,000">🍷 酒類送貨低消 $1,000</li>
         <li data-cn="📦 順豐/速遞到付" data-en="📦 SF Express COD">📦 順豐/速遞到付</li>
         <li>💙 Alipay · 💚 WeChat · 🏦 FPS</li>
       </ul>
@@ -858,6 +879,7 @@
       <ul>
         <li><a href="#" onclick="openWA();return false" data-cn="💬 WhatsApp查詢" data-en="💬 WhatsApp">💬 WhatsApp查詢</a></li>
         <li><a href="#" onclick="openTrack();return false" data-cn="🔍 訂單查詢" data-en="🔍 Track Order">🔍 訂單查詢</a></li>
+        <li><a href="#" onclick="openTerms();return false" data-cn="📜 條款及細則" data-en="📜 Terms & Policy">📜 條款及細則</a></li>
         <li>📸 @hungcheongstore</li>
       </ul>
     </div>
@@ -873,6 +895,65 @@
   <div id="qr-fs-lbl"></div>
   <img id="qr-fs-img" src="" alt="QR Code">
   <button id="qr-fs-close" onclick="closeQRFS()">✕ 關閉 Close</button>
+</div>
+
+<!-- ══ TERMS & POLICY MODAL ══ -->
+<div class="mo" id="terms-mo" onclick="if(event.target===this)closeTerms()">
+  <div class="mo-box" style="max-width:600px">
+    <button class="mo-cls" onclick="closeTerms()">✕</button>
+    <div style="padding:28px 24px 32px">
+      <h2 style="font-size:22px;font-weight:900;color:var(--green-d);margin:0 0 4px">📜 條款及細則</h2>
+      <div style="font-size:13px;color:var(--mid);margin-bottom:20px">Terms, Conditions & Policies</div>
+
+      <!-- Sales Terms -->
+      <h3 class="tm-h">銷售條款及細則 Sales Terms</h3>
+      <p class="tm-p">以下各項條款（下稱「銷售條款」）適用於閣下通過本網上商店購買各項產品。通過本網上商店提交訂單，即表示閣下同意遵守本銷售條款及相關法律法規之規定。</p>
+      <p class="tm-p">「鴻昌辦館」是指 hungcheongstore.com 及其網上商店；「產品」是指本網上商店提供的任何銷售項目。</p>
+
+      <h3 class="tm-h">網站錯誤 Website Errors</h3>
+      <p class="tm-p">即使閣下已經提交訂單，且無論訂單是否已獲確認，鴻昌辦館均保留隨時撤銷產品要約及取消訂單的權利，並保留對網站出現的錯誤、失準或遺漏進行更正的權利。如就訂單有任何疑問，請透過 WhatsApp 與我們聯絡，同事會盡快跟進。</p>
+
+      <h3 class="tm-h">確認訂單 Order Confirmation</h3>
+      <p class="tm-p">閣下透過 WhatsApp 提交訂單後，我們會於 1 至 2 個工作天內確認訂單及付款。請於下單後附上付款截圖，以便加快確認。</p>
+
+      <!-- Delivery -->
+      <h3 class="tm-h">送貨安排 Delivery</h3>
+      <p class="tm-p">• 門市自取：每日下午 7 時前，免運費，並可享 <strong>九折優惠</strong>。<br>
+      • 順豐到付：一般 1 至 2 個工作天到達，運費按重量由買家承擔。<br>
+      • 本地送貨：買滿 HK$450 免運費（酒類除外）。<br>
+      • 酒類產品送貨最低消費為 HK$1,000。</p>
+
+      <!-- Alcohol -->
+      <h3 class="tm-h">酒類聲明 Alcohol Notice</h3>
+      <p class="tm-p">根據香港法例，向未成年人士（未滿18歲）售賣或供應酒類乃屬違法。購買酒類產品即表示閣下確認已年滿 18 歲。我們保留要求出示有效年齡證明的權利。</p>
+
+      <!-- Refund Policy -->
+      <h3 class="tm-h">退換貨政策 Refund &amp; Return Policy</h3>
+      <p class="tm-p">
+      1. 所有貨品包裝一經開封，非品質原因不予退貨。<br>
+      2. 因個人原因造成的商品損壞（如自行修改、拆散）及保管不當、商品的正常磨損，不予退貨。<br>
+      3. 食品及酒類產品，貨品出門後一律不設退換（品質問題除外）。<br>
+      4. 附贈品之商品、組合銷售商品、禮包、套裝中的商品不可以部分退貨。<br>
+      5. 退貨寄運過程中如因任何原因導致貨品損壞或遺失，風險由買家承擔。<br>
+      6. 所有非質量問題要求退換貨品，運費將由買家承擔。<br>
+      7. 退換貨時，請保持原品牌包裝完好，並連同發貨單一併退回。如缺少發貨單或包裝破損／丟失，即使在退換貨期內亦無法辦理。
+      </p>
+
+      <!-- Disclaimer -->
+      <h3 class="tm-h">免責聲明 Disclaimer</h3>
+      <p class="tm-p">本網站所提供之產品資料、圖片及價格僅供參考，實際以收到之貨品為準。商品圖片可能因拍攝及螢幕顯示而與實物略有差異。</p>
+      <p class="tm-p">在不限制前述各項規定為前提下，如有任何爭議，鴻昌辦館 (Hung Cheong Store) 保留最終決定權及解釋權。</p>
+      <p class="tm-p">本店對因使用或無法使用本網站、或因產品引致的任何直接、間接、附帶或相應而生的損失，概不負責，惟法律另有規定者除外。</p>
+
+      <!-- Privacy -->
+      <h3 class="tm-h">私隱政策 Privacy</h3>
+      <p class="tm-p">我們僅收集處理訂單所需的個人資料（姓名、電話、地址），用於聯絡及送貨用途，不會出售或轉讓予第三方。</p>
+
+      <p class="tm-p" style="margin-top:18px;color:var(--mid);font-size:12px">如有查詢，請透過 WhatsApp 與我們聯絡。<br>For enquiries, please contact us via WhatsApp.</p>
+
+      <button class="auth-btn" style="margin-top:18px" onclick="closeTerms()">我已明白 Got it</button>
+    </div>
+  </div>
 </div>
 
 <!-- ══ AUTH MODAL ══ -->
@@ -997,7 +1078,7 @@
       <span data-cn="總計" data-en="Total">總計</span>
       <span id="cart-tot-pr">HK$0</span>
     </div>
-    <button class="co-btn" onclick="openCheckout()" data-cn="前往結帳 →" data-en="Checkout →">前往結帳 →</button>
+    <button class="co-btn" onclick="openWACheckout()" data-cn="💬 WhatsApp 下單 →" data-en="💬 Order via WhatsApp →">💬 WhatsApp 下單 →</button>
   </div>
 </div>
 
@@ -1006,19 +1087,115 @@
   <div class="mo-box">
     <button class="mo-cls" onclick="closePM()">✕</button>
     <div id="pm-iw"></div>
-    <div class="pm-nm" id="pm-nm"></div>
-    <div class="pm-en" id="pm-en"></div>
-    <div class="pm-desc" id="pm-desc"></div>
-    <div class="pm-price" id="pm-price"></div>
-    <div class="pm-sold" id="pm-sold"></div>
-    <div class="qty-row">
-      <button class="qty-b" onclick="dq(-1)">−</button>
-      <div class="qty-n" id="pm-qty">1</div>
-      <button class="qty-b" onclick="dq(1)">+</button>
+    <div class="pm-body-pad">
+      <div class="pm-nm" id="pm-nm"></div>
+      <div class="pm-en" id="pm-en"></div>
+      <div class="pm-desc" id="pm-desc"></div>
+      <div class="pm-price" id="pm-price"></div>
+      <div class="pm-sold" id="pm-sold"></div>
+      <div class="qty-row">
+        <button class="qty-b" onclick="dq(-1)">−</button>
+        <div class="qty-n" id="pm-qty">1</div>
+        <button class="qty-b" onclick="dq(1)">+</button>
+      </div>
+      <button class="pm-add" onclick="pmAdd()" data-cn="加入購物車 🛒" data-en="Add to Cart 🛒">加入購物車 🛒</button>
+      <div id="pm-reviews"></div>
+      <div id="pm-related"></div>
     </div>
-    <button class="pm-add" onclick="pmAdd()" data-cn="加入購物車 🛒" data-en="Add to Cart 🛒">加入購物車 🛒</button>
-    <div id="pm-reviews"></div>
-    <div id="pm-related"></div>
+  </div>
+</div>
+
+<!-- ══ WHATSAPP CHECKOUT ══ -->
+<div id="wa-co" onclick="if(event.target===this)closeWACO()">
+  <div class="waco-box">
+    <div class="waco-hd">
+      <span class="waco-hd-t">💬 WhatsApp 下單</span>
+      <button class="waco-cls" onclick="closeWACO()">✕</button>
+    </div>
+    <!-- Cart summary -->
+    <div class="waco-sec">
+      <div class="waco-sec-t" data-cn="🛒 訂單明細" data-en="🛒 Order Summary">🛒 訂單明細</div>
+      <div id="waco-items"></div>
+      <div style="display:flex;gap:8px;margin-top:10px">
+        <input id="waco-coupon" type="text" placeholder="優惠券碼 Coupon Code" style="flex:1;border:1.5px solid var(--cream-d);border-radius:6px;padding:8px 10px;font-size:13px;font-family:inherit;background:var(--white)">
+        <button onclick="wacoApplyCoupon()" style="background:var(--green-d);color:white;border:none;border-radius:6px;padding:8px 14px;font-size:13px;font-weight:700;cursor:pointer;flex-shrink:0">使用</button>
+      </div>
+      <div id="waco-coupon-ok" style="font-size:12px;color:var(--green);margin-top:4px;display:none"></div>
+      <div id="waco-breakdown"></div>
+      <div class="waco-tot">
+        <span data-cn="合計" data-en="Total">合計</span>
+        <span class="waco-tot-pr" id="waco-total">HK$0</span>
+      </div>
+    </div>
+    <!-- Contact -->
+    <div class="waco-sec">
+      <div class="waco-sec-t" data-cn="👤 聯絡資料" data-en="👤 Contact Info">👤 聯絡資料</div>
+      <div class="waco-field">
+        <label data-cn="姓名 *" data-en="Name *">姓名 *</label>
+        <input id="waco-name" type="text" placeholder="您的姓名">
+      </div>
+      <div class="waco-field">
+        <label data-cn="電話 *" data-en="Phone *">電話 *</label>
+        <input id="waco-phone" type="tel" placeholder="WhatsApp 電話號碼">
+      </div>
+    </div>
+    <!-- Delivery -->
+    <div class="waco-sec">
+      <div class="waco-sec-t" data-cn="🚚 取貨方式" data-en="🚚 Delivery">🚚 取貨方式</div>
+      <div class="waco-del-opts">
+        <div class="waco-del-opt sel" id="waco-del-pickup" onclick="wacoSetDel('pickup')">
+          🏪 門市自取<br><span style="font-size:11px;font-weight:700;color:#c8871a">免運費 · 九折優惠 🎉</span>
+        </div>
+        <div class="waco-del-opt" id="waco-del-sf" onclick="wacoSetDel('sf')">
+          📦 順豐速遞<br><span style="font-size:11px;font-weight:400;color:var(--mid)">按重量收費</span>
+        </div>
+      </div>
+      <!-- Wine minimum warning -->
+      <div id="waco-wine-warn" style="display:none;background:#fff3cd;border:1px solid #ffc107;border-radius:8px;padding:10px 12px;font-size:12px;color:#856404;line-height:1.5;margin-bottom:8px">
+        🍷 酒類商品送貨最低消費為 <strong>HK$1,000</strong>。目前未達最低消費，請增加數量或選擇門市自取。<br>
+        <span style="color:#6c757d">Wine delivery requires a minimum order of HK$1,000.</span>
+      </div>
+      <div id="waco-addr-row" class="waco-field" style="display:none">
+        <label data-cn="送貨地址" data-en="Delivery Address">送貨地址</label>
+        <input id="waco-addr" type="text" placeholder="詳細送貨地址">
+      </div>
+      <div class="waco-field">
+        <label data-cn="備註（可選）" data-en="Note (optional)">備註（可選）</label>
+        <textarea id="waco-note" rows="2" placeholder="特別要求、口味等..." style="resize:none"></textarea>
+      </div>
+    </div>
+    <!-- Age verification (wine) -->
+    <div class="waco-sec" id="waco-age-sec" style="display:none;background:linear-gradient(135deg,#fff8f0,#fff3e0);border-left:3px solid #e65100">
+      <div style="display:flex;align-items:flex-start;gap:12px">
+        <span style="font-size:28px;flex-shrink:0">🔞</span>
+        <div style="flex:1">
+          <div style="font-size:13px;font-weight:800;color:#e65100;margin-bottom:4px">年齡確認 Age Verification</div>
+          <p style="font-size:12px;color:#6d4c41;margin:0 0 10px;line-height:1.6">
+            根據香港法例，購買酒類產品須年滿18歲。<br>
+            <span style="color:#795548">Under HK law, you must be 18+ to purchase alcohol.</span>
+          </p>
+          <label style="display:flex;align-items:center;gap:10px;cursor:pointer;font-size:13px;font-weight:700;color:#e65100">
+            <input type="checkbox" id="waco-age-cb" style="width:18px;height:18px;accent-color:#e65100;cursor:pointer;flex-shrink:0">
+            我確認本人已年滿 18 歲 &nbsp;/&nbsp; I confirm I am aged 18 or above
+          </label>
+        </div>
+      </div>
+    </div>
+    <!-- Payment QR -->
+    <div class="waco-sec" id="waco-qr-sec">
+      <div class="waco-sec-t" data-cn="💳 付款 — 掃碼或轉數" data-en="💳 Payment QR">💳 付款 — 掃碼或轉數</div>
+      <div class="waco-qr-grid" id="waco-qr-grid"></div>
+      <div id="waco-fps-row" class="waco-fps-row" style="display:none">
+        <span style="font-size:13px;color:var(--mid);font-weight:600;flex-shrink:0">🏦 FPS</span>
+        <span class="waco-fps-num" id="waco-fps-num"></span>
+        <button class="waco-fps-copy" onclick="wacoFPSCopy()">複製</button>
+      </div>
+      <p style="font-size:11px;color:var(--mid);margin:8px 0 0;line-height:1.6">付款後點下方按鈕，系統將自動把訂單資料填入 WhatsApp，請再附上付款截圖確認訂單。謝謝！</p>
+    </div>
+    <!-- Submit -->
+    <button class="waco-submit" onclick="submitWACheckout()">
+      <span style="font-size:22px">💬</span> WhatsApp 確認訂單
+    </button>
   </div>
 </div>
 
@@ -1280,6 +1457,7 @@ async function sendEmail(templateId, params) {
 
 // ── DEFAULT BANNER MESSAGES ────────────────────────────────────────────────────
 const DEFAULT_ANN_MSGS = [
+  '🎉 門市自取享九折優惠 | 10% OFF for in-store pickup',
   '🚚 買滿$450免運費 | Free delivery over HK$450',
   '🏪 歡迎到店自取 | In-store pickup welcome',
   '📦 接受順豐速遞到付 | SF Express COD accepted',
@@ -1288,6 +1466,7 @@ const DEFAULT_ANN_MSGS = [
 ];
 
 const DEFAULT_INFO_PILLS = [
+  { icon:'🎉', text:'門市自取九折 | 10% OFF Pickup' },
   { icon:'🏪', text:'歡迎到店自取 | In-store Pickup' },
   { icon:'🚚', text:'買滿$450免運費 | Free Delivery over $450' },
   { icon:'📦', text:'順豐速遞到付 | SF Express COD' },
@@ -1299,31 +1478,7 @@ const DEFAULT_INFO_PILLS = [
 ];
 
 // ── SAMPLE PRODUCTS (2 per category) ──────────────────────────────────────────
-const SAMPLES = [
-  // 香港製造
-  {id:'hk1', nameCn:'嘉頓梳打餅', nameEn:'Garden Cream Crackers', price:18, cat:'hkmade',
-   desc:'香港嘉頓出品，薄脆鹹香，佐茶一流，分量足夠。是香港家庭常備零食。', badge:'HKMADE', photo:null, sold:238},
-  {id:'hk2', nameCn:'美樂粟米條', nameEn:'Mei Lok Corn Sticks', price:25, cat:'hkmade',
-   desc:'香港本地品牌，香脆粟米條，輕盈不油膩，獨立小包裝。', badge:'HOT', photo:null, sold:189},
-
-  // 懷舊零食
-  {id:'no1', nameCn:'旺旺仙貝', nameEn:'Want Want Rice Crackers', price:28, cat:'nostalgic',
-   desc:'80年代經典零食！香脆可口，雙重米餅口感，全家大小都喜愛。', badge:'HOT', photo:null, sold:412},
-  {id:'no2', nameCn:'喜之郎果凍', nameEn:'Xizhilang Jelly Cups', price:15, cat:'nostalgic',
-   desc:'童年必備！多口味果凍杯，QQ彈彈，甜蜜童年味道。', badge:'NEW', photo:null, sold:156},
-
-  // 酒類
-  {id:'wi1', nameCn:'法國波爾多紅酒', nameEn:'Bordeaux Red Wine 750ml', price:188, cat:'wine',
-   desc:'法國波爾多AOC產區，單寧豐富，果香濃郁，配搭紅肉一流。', badge:'', photo:null, sold:67},
-  {id:'wi2', nameCn:'日本獺祭清酒', nameEn:'Dassai Japanese Sake 720ml', price:320, cat:'wine',
-   desc:'日本山口縣名酒，純米大吟釀，口感極為細滑清雅，送禮佳品。', badge:'NEW', photo:null, sold:43},
-
-  // 其他
-  {id:'ot1', nameCn:'港式絲滑奶茶包', nameEn:'HK Silk Milk Tea Bags', price:35, cat:'others',
-   desc:'重現正宗香港茶餐廳絲滑奶茶，特調茶葉配方，在家輕鬆沖泡。', badge:'', photo:null, sold:201},
-  {id:'ot2', nameCn:'李錦記老抽王', nameEn:'Lee Kum Kee Premium Soy Sauce', price:28, cat:'others',
-   desc:'香港著名品牌，老抽王色澤鮮亮，豉香濃郁，炒菜撈麵均適用。', badge:'', photo:null, sold:178},
-];
+const SAMPLES = []; // Start empty — add real products via Admin panel
 
 // ── STATE ──────────────────────────────────────────────────────────────────────
 const S = {
@@ -1659,8 +1814,9 @@ async function _subscribeChatMsgs(){
 
 Object.assign(window, {
   filterCat, filterSubcat, filterBadge, openCart, closeCart, openProduct, closePM, dq, pmAdd,
+  openWACheckout, closeWACO, wacoApplyCoupon, wacoSetDel, wacoFPSCopy, submitWACheckout,
   openCheckout, closeCM, goStep, confirmOrder, sendWAOrder, clearCart,
-  doSearch, doMobSearch, clearSearch, openWA, toggleDD, closeAllDD, setLang,
+  doSearch, doMobSearch, clearSearch, openWA, openTerms, closeTerms, toggleDD, closeAllDD, setLang,
   toggleMobSrch, setSort, toggleSort, quickAdd,
   openAcct, closeAuth, switchAuthTab, doLogin, doRegister, doVerifyOtp, resendOtp, otpNext,
   openMember, closeMember, switchMemTab, saveProfile, doLogout, loadMemberOrders, reorder, cancelOrder,
@@ -2185,11 +2341,12 @@ async function restoreCartFromFirebase(uid, fb) {
 // ── ANNOUNCEMENT TICKER ───────────────────────────────────────────────────────
 let annIdx = 0, annTimer;
 function buildAnnTicker() {
+  const ticker = document.getElementById('ann-ticker');
+  if (!ticker) return; // top announcement bar removed
   // annMsgs can be a newline-string (from admin) or array (default)
   let msgs = S.annMsgs || DEFAULT_ANN_MSGS;
   if (typeof msgs === 'string') msgs = msgs.split('\n').map(l=>l.trim()).filter(Boolean);
   if (!msgs.length) msgs = DEFAULT_ANN_MSGS;
-  const ticker = document.getElementById('ann-ticker');
   ticker.innerHTML = msgs.map((m,i) =>
     `<div class="ann-slide${i===0?' active':''}" data-i="${i}">${m}</div>`
   ).join('');
@@ -2202,7 +2359,7 @@ function buildAnnTicker() {
   }, 4000);
 }
 
-// ── INFO STRIP (scrolling marquee) ────────────────────────────────────────────
+// ── INFO STRIP (thin scrolling marquee) ───────────────────────────────────────
 function buildInfoStrip() {
   // infoPills can be array of {icon,text} objects (from admin) or default array
   let pills = S.infoPills || DEFAULT_INFO_PILLS;
@@ -3142,6 +3299,160 @@ async function confirmOrder(){
   _receiptImage = null;
 }
 
+// ─── WHATSAPP CHECKOUT ───────────────────────────────────────────────────────
+function openWACheckout(){
+  if(!S.cart.length){toast(S.lang==='cn'?'🛒 購物車是空的':'🛒 Cart is empty');return;}
+  closeCart();
+  S.waCoupon=null; S.waDelivery='pickup';
+  // Pre-fill member info
+  if(S.user&&S.memberProfile){
+    const p=S.memberProfile;
+    const nm=document.getElementById('waco-name'); if(nm)nm.value=p.name||'';
+    const ph=document.getElementById('waco-phone'); if(ph)ph.value=p.phone||'';
+  } else {
+    const nm=document.getElementById('waco-name'); if(nm)nm.value='';
+    const ph=document.getElementById('waco-phone'); if(ph)ph.value='';
+  }
+  // Reset coupon
+  const ci=document.getElementById('waco-coupon'); if(ci){ci.value='';ci.disabled=false;}
+  const ck=document.getElementById('waco-coupon-ok'); if(ck)ck.style.display='none';
+  // Reset delivery
+  document.getElementById('waco-del-pickup').classList.add('sel');
+  document.getElementById('waco-del-sf').classList.remove('sel');
+  document.getElementById('waco-addr-row').style.display='none';
+  const nt=document.getElementById('waco-note'); if(nt)nt.value='';
+  // Show age check if wine in cart
+  const hasWine=S.cart.some(i=>(i.cat||'').toLowerCase()==='wine');
+  const ageSec=document.getElementById('waco-age-sec');
+  const ageCb=document.getElementById('waco-age-cb');
+  if(ageSec) ageSec.style.display=hasWine?'block':'none';
+  if(ageCb) ageCb.checked=false;
+  // Render
+  _wacoRenderItems(); _wacoRenderQR(); _wacoCheckWineMin();
+  document.getElementById('wa-co').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeWACO(){
+  document.getElementById('wa-co').classList.remove('open');
+  document.body.style.overflow='';
+}
+const PICKUP_DISC_RATE=0.10; // 門市自取九折
+function _wacoCalc(){
+  const sub=S.cart.reduce((s,i)=>s+i.price*i.qty,0);
+  const coupon=S.waCoupon?S.waCoupon.amount:0;
+  const afterCoupon=Math.max(0,sub-coupon);
+  const pickupDisc=S.waDelivery==='pickup'?Math.round(afterCoupon*PICKUP_DISC_RATE):0;
+  const ship=S.waDelivery==='sf'?(S.shippingFee||0):0;
+  const total=Math.max(0,afterCoupon-pickupDisc+ship);
+  return {sub,coupon,pickupDisc,ship,total};
+}
+function _wacoRenderItems(){
+  const c=_wacoCalc();
+  document.getElementById('waco-items').innerHTML=
+    S.cart.map(i=>`<div class="waco-item"><span>${i.nameCn||i.name} ×${i.qty}</span><span style="font-weight:700">HK$${i.price*i.qty}</span></div>`).join('');
+  // Breakdown rows
+  let bd='';
+  if(c.coupon) bd+=`<div class="waco-item" style="color:var(--green)"><span>🎟 優惠券折扣</span><span style="font-weight:700">-HK$${c.coupon}</span></div>`;
+  if(c.pickupDisc) bd+=`<div class="waco-item" style="color:#c8871a"><span>🏪 門市自取九折 (-10%)</span><span style="font-weight:700">-HK$${c.pickupDisc}</span></div>`;
+  if(c.ship) bd+=`<div class="waco-item"><span>🚚 順豐運費</span><span style="font-weight:700">HK$${c.ship}</span></div>`;
+  document.getElementById('waco-breakdown').innerHTML=bd;
+  document.getElementById('waco-total').textContent=`HK$${c.total}`;
+}
+function wacoApplyCoupon(){
+  const code=(document.getElementById('waco-coupon').value||'').trim().toUpperCase();
+  if(!code){toast('請輸入優惠券碼');return;}
+  const cp=(S.campaigns||[]).find(c=>c.type==='coupon'&&(c.code||'').toUpperCase()===code&&c.active);
+  if(!cp){toast('❌ 無效優惠券');return;}
+  S.waCoupon={code,amount:cp.discount||0};
+  const ck=document.getElementById('waco-coupon-ok');
+  ck.textContent=`✅ 已套用 -HK$${cp.discount}`; ck.style.display='block';
+  const ci=document.getElementById('waco-coupon'); ci.disabled=true;
+  _wacoRenderItems();
+}
+function wacoSetDel(type){
+  S.waDelivery=type;
+  document.getElementById('waco-del-pickup').classList.toggle('sel',type==='pickup');
+  document.getElementById('waco-del-sf').classList.toggle('sel',type==='sf');
+  document.getElementById('waco-addr-row').style.display=type==='sf'?'block':'none';
+  _wacoRenderItems(); _wacoCheckWineMin();
+}
+function _wacoCheckWineMin(){
+  const WINE_MIN=1000;
+  const hasWine=S.cart.some(i=>(i.cat||'').toLowerCase()==='wine');
+  const total=S.cart.reduce((s,i)=>s+i.price*i.qty,0)-(S.waCoupon?S.waCoupon.amount:0);
+  const warn=document.getElementById('waco-wine-warn');
+  if(!warn) return;
+  // Show warning only when SF selected and wine present and total < minimum
+  warn.style.display=(hasWine && S.waDelivery==='sf' && total<WINE_MIN)?'block':'none';
+}
+function _wacoRenderQR(){
+  const grid=document.getElementById('waco-qr-grid');
+  let html='';
+  if(S.qr&&S.qr.alipay) html+=`<div class="waco-qr-item" onclick="openQRFullscreen('alipay')"><img class="waco-qr-img" src="${S.qr.alipay}"><div class="waco-qr-lbl">💙 Alipay 支付寶</div></div>`;
+  if(S.qr&&S.qr.wechat) html+=`<div class="waco-qr-item" onclick="openQRFullscreen('wechat')"><img class="waco-qr-img" src="${S.qr.wechat}"><div class="waco-qr-lbl">💚 WeChat Pay 微信支付</div></div>`;
+  grid.innerHTML=html;
+  const fpsRow=document.getElementById('waco-fps-row');
+  const fpsNum=document.getElementById('waco-fps-num');
+  const hasFPS=S.fpsNum&&S.fpsNum!=='待更新'&&S.fpsNum!=='852XXXXXXXX';
+  if(hasFPS){fpsNum.textContent=S.fpsNum;fpsRow.style.display='flex';}
+  else{fpsRow.style.display='none';}
+  document.getElementById('waco-qr-sec').style.display=(html||hasFPS)?'block':'none';
+}
+function wacoFPSCopy(){
+  navigator.clipboard?.writeText(S.fpsNum).then(()=>toast('✅ FPS 號碼已複製'));
+}
+function submitWACheckout(){
+  const nm=(document.getElementById('waco-name').value||'').trim();
+  const ph=(document.getElementById('waco-phone').value||'').trim();
+  if(!nm){toast('請填寫姓名');document.getElementById('waco-name').focus();return;}
+  if(!ph){toast('請填寫電話');document.getElementById('waco-phone').focus();return;}
+  // Wine age check
+  const hasWine=S.cart.some(i=>(i.cat||'').toLowerCase()==='wine');
+  if(hasWine){
+    const ageCb=document.getElementById('waco-age-cb');
+    if(!ageCb||!ageCb.checked){
+      toast('🔞 請先確認您已年滿18歲');
+      document.getElementById('waco-age-sec').scrollIntoView({behavior:'smooth',block:'center'});
+      return;
+    }
+  }
+  // Wine minimum order for SF delivery
+  const sub=S.cart.reduce((s,i)=>s+i.price*i.qty,0);
+  const disc=S.waCoupon?S.waCoupon.amount:0;
+  if(hasWine && S.waDelivery==='sf' && (sub-disc)<1000){
+    toast('🍷 酒類送貨最低消費 HK$1,000，請增加數量或選門市自取');
+    document.getElementById('waco-wine-warn').scrollIntoView({behavior:'smooth',block:'center'});
+    return;
+  }
+  const addr=(document.getElementById('waco-addr').value||'').trim();
+  const note=(document.getElementById('waco-note').value||'').trim();
+  const c=_wacoCalc();
+  const delTx={pickup:'🏪 門市自取',sf:'📦 順豐速遞'};
+  const items=S.cart.map(i=>`• ${i.nameCn||i.name} ×${i.qty}  HK$${i.price*i.qty}`).join('\n');
+  const msg=encodeURIComponent([
+    '🏪 鴻昌辦館訂單',
+    '━━━━━━━━━━━━',
+    `👤 ${nm}`,
+    `📞 ${ph}`,
+    delTx[S.waDelivery]+(addr?' — '+addr:''),
+    '',
+    '🛒 訂單明細:',
+    items,
+    '',
+    `💰 小計: HK$${c.sub}`,
+    c.coupon?`🎟 優惠券 -HK$${c.coupon}`:'',
+    c.pickupDisc?`🏪 門市自取九折 -HK$${c.pickupDisc}`:'',
+    c.ship?`🚚 運費: HK$${c.ship}`:'',
+    `💵 合計: HK$${c.total}`,
+    note?`📝 備註: ${note}`:'',
+    hasWine?'🔞 客戶已確認年滿18歲':'',
+    '━━━━━━━━━━━━',
+    '請附付款截圖確認訂單，謝謝！'
+  ].filter(Boolean).join('\n'));
+  window.open(`https://wa.me/${S.waNum}?text=${msg}`,'_blank');
+  closeWACO();
+}
+
 function sendWAOrder(){
   let nm,ph,addr,note;
   if(S.checkoutMode==='member' && S.user && S.memberProfile){
@@ -3168,6 +3479,8 @@ function sendWAOrder(){
   window.open(`https://wa.me/${S.waNum}?text=${msg}`,'_blank');
 }
 function openWA(){window.open(`https://wa.me/${S.waNum}`,'_blank');}
+function openTerms(){document.getElementById('terms-mo').classList.add('open');document.body.style.overflow='hidden';}
+function closeTerms(){document.getElementById('terms-mo').classList.remove('open');document.body.style.overflow='';}
 
 // ── QR ────────────────────────────────────────────────────────────────────────
 function updateQR(){

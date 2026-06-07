@@ -1584,7 +1584,7 @@ window.saveProduct = async () => {
   const prodData = { nameCn:cn, nameEn:en, price, stock, cat, subcat, badge, desc, photo, photos:photosArr,
     salePrice: salePrice||null, saleEndTime: saleEndTime||null };
 
-  if (FIREBASE_MODE && db) {
+  if (FIREBASE_MODE && db && !LOCAL_MODE) {
     const { collection, addDoc, updateDoc, doc, serverTimestamp } = firestoreFns;
     try {
       let photoURL = photo;
@@ -1657,7 +1657,7 @@ window.cancelEdit = () => {
 
 window.deleteProduct = async (id) => {
   if(!confirm('Delete this product?')) return;
-  if(FIREBASE_MODE && db) {
+  if(FIREBASE_MODE && db && !LOCAL_MODE) {
     const { doc, deleteDoc } = firestoreFns;
     await deleteDoc(doc(db,'products',id)).catch(console.error);
   } else {
@@ -1742,7 +1742,7 @@ async function sendPushNotification(fcmToken, title, body, orderId) {
 
 window.updateOrderStatus = async (id, status) => {
   const o = orders.find(x=>x.id===id);
-  if(FIREBASE_MODE && db) {
+  if(FIREBASE_MODE && db && !LOCAL_MODE) {
     const { doc, updateDoc } = firestoreFns;
     await updateDoc(doc(db,'orders',id),{status}).catch(console.error);
   } else {
@@ -1785,7 +1785,7 @@ window.contactOrderWA = (id) => {
 
 window.deleteOrder = async (id) => {
   if(!confirm('Delete this order?')) return;
-  if(FIREBASE_MODE && db) {
+  if(FIREBASE_MODE && db && !LOCAL_MODE) {
     const { doc, deleteDoc } = firestoreFns;
     await deleteDoc(doc(db,'orders',id)).catch(console.error);
   } else {
@@ -1816,7 +1816,7 @@ window.confirmShip = async () => {
 
   // Update status to 'collected' + add tracking info
   const update = { status: 'collected', courier, trackingNo: tracking, tracking, shippedAt: new Date().toISOString() };
-  if (FIREBASE_MODE && db) {
+  if (FIREBASE_MODE && db && !LOCAL_MODE) {
     const { doc, updateDoc } = firestoreFns;
     await updateDoc(doc(db, 'orders', _shipOrderId), update).catch(console.error);
   } else {
@@ -2005,7 +2005,7 @@ window.saveCategory = async () => {
   if (!cn) { showToast('⚠️ 請填寫分類名稱'); return; }
   const catData = { icon, nameCn:cn, nameEn:en, order, active:true };
 
-  if (FIREBASE_MODE && db) {
+  if (FIREBASE_MODE && db && !LOCAL_MODE) {
     const { collection, addDoc, updateDoc, doc, serverTimestamp } = firestoreFns;
     try {
       if (editingCatId) {
@@ -2054,7 +2054,7 @@ window.cancelCatEdit = () => {
 
 window.deleteCategory = async (id) => {
   if(!confirm('Delete this category?')) return;
-  if(FIREBASE_MODE && db){
+  if(FIREBASE_MODE && db && !LOCAL_MODE){
     const {doc,deleteDoc}=firestoreFns;
     await deleteDoc(doc(db,'categories',id)).catch(console.error);
   } else {
@@ -2067,7 +2067,7 @@ window.deleteCategory = async (id) => {
 window.toggleCatActive = async (id) => {
   const c=categories.find(x=>x.id===id); if(!c) return;
   const val=!(c.active!==false);
-  if(FIREBASE_MODE && db){
+  if(FIREBASE_MODE && db && !LOCAL_MODE){
     const {doc,updateDoc}=firestoreFns;
     await updateDoc(doc(db,'categories',id),{active:val}).catch(console.error);
   } else { c.active=val; saveLocalCategories(); renderCatalog(); }
@@ -2081,7 +2081,7 @@ window.addSubcategory = async (catId) => {
   const cat=categories.find(c=>c.id===catId); if(!cat) return;
   const newSub={id:'s'+Date.now(),icon,nameCn:cn,nameEn:en};
   const subcats=[...(cat.subcategories||[]),newSub];
-  if(FIREBASE_MODE && db){
+  if(FIREBASE_MODE && db && !LOCAL_MODE){
     const {doc,updateDoc}=firestoreFns;
     await updateDoc(doc(db,'categories',catId),{subcategories:subcats}).catch(console.error);
   } else { cat.subcategories=subcats; saveLocalCategories(); renderCatalog(); }
@@ -2092,7 +2092,7 @@ window.addSubcategory = async (catId) => {
 window.removeSubcategory = async (catId,subId) => {
   const cat=categories.find(c=>c.id===catId); if(!cat) return;
   const subcats=(cat.subcategories||[]).filter(s=>s.id!==subId);
-  if(FIREBASE_MODE && db){
+  if(FIREBASE_MODE && db && !LOCAL_MODE){
     const {doc,updateDoc}=firestoreFns;
     await updateDoc(doc(db,'categories',catId),{subcategories:subcats}).catch(console.error);
   } else { cat.subcategories=subcats; saveLocalCategories(); renderCatalog(); }
@@ -2163,7 +2163,7 @@ window.savePaymentRecord = async () => {
   const status=document.getElementById('pay-st').value;
   if(isNaN(amount)||amount<=0){showToast('⚠️ 請填寫正確金額');return;}
   const rec={orderId,amount,method,date,ref,status,createdAt:new Date().toISOString()};
-  if(FIREBASE_MODE && db){
+  if(FIREBASE_MODE && db && !LOCAL_MODE){
     const {collection,addDoc,serverTimestamp}=firestoreFns;
     await addDoc(collection(db,'payments'),{...rec,createdAt:serverTimestamp()}).catch(e=>showToast('❌ '+e.message));
   } else {
@@ -2183,7 +2183,7 @@ window.savePaymentRecord = async () => {
 
 window.deletePaymentRecord = async (id) => {
   if(!confirm('Delete this payment record?')) return;
-  if(FIREBASE_MODE && db){const {doc,deleteDoc}=firestoreFns;await deleteDoc(doc(db,'payments',id)).catch(console.error);}
+  if(FIREBASE_MODE && db && !LOCAL_MODE){const {doc,deleteDoc}=firestoreFns;await deleteDoc(doc(db,'payments',id)).catch(console.error);}
   else {paymentRecords=paymentRecords.filter(p=>p.id!==id);saveLocalPayments();renderPayments();}
   showToast('🗑 Deleted');
 };
@@ -2233,7 +2233,7 @@ window.saveCampaign = async () => {
 
   const campData = { name, code, type, amount, minOrder, startDate, endDate, active };
 
-  if (FIREBASE_MODE && db) {
+  if (FIREBASE_MODE && db && !LOCAL_MODE) {
     const { collection, addDoc, updateDoc, doc, serverTimestamp } = firestoreFns;
     try {
       if (editingCampaignId) {
@@ -2276,7 +2276,7 @@ window.editCampaign = (id) => {
 
 window.deleteCampaign = async (id) => {
   if(!confirm('Delete this campaign? 確認刪除推廣?')) return;
-  if(FIREBASE_MODE && db) {
+  if(FIREBASE_MODE && db && !LOCAL_MODE) {
     const { doc, deleteDoc } = firestoreFns;
     await deleteDoc(doc(db,'campaigns',id)).catch(console.error);
   } else {

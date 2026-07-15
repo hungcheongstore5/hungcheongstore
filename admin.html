@@ -484,8 +484,15 @@
               <input class="fi" id="p-sale-end" type="datetime-local">
             </div>
             <div class="form-full">
-              <label class="fl">Description 商品描述</label>
-              <textarea class="fta" id="p-desc" placeholder="商品描述，口感，包裝等..."></textarea>
+              <label class="fl" style="display:flex;align-items:center;justify-content:space-between;gap:8px">
+                <span>Description 商品描述</span>
+                <button type="button" id="ai-desc-btn" onclick="generateProductDesc()"
+                  style="background:linear-gradient(135deg,#7c3aed,#a855f7);color:white;border:none;border-radius:14px;padding:6px 14px;font-size:12px;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;gap:5px">
+                  ✨ AI 生成描述
+                </button>
+              </label>
+              <textarea class="fta" id="p-desc" placeholder="商品描述，口感，包裝等...（可按「AI 生成描述」自動填寫，再手動修改）"></textarea>
+              <div style="font-size:11px;color:#aaa;margin-top:4px">💡 先填寫商品名稱，再按 ✨ AI 生成描述。生成後可自由修改。</div>
             </div>
             <div class="form-full">
               <label class="fl">Product Photos 商品圖片</label>
@@ -1033,8 +1040,18 @@
     <canvas id="proc-canvas"></canvas>
     <div class="proc-options">
       <div>
+        <label class="proc-opt-lbl">✨ 美化 Enhance</label>
+        <select class="proc-sel" id="enh-style" onchange="reprocessImage()">
+          <option value="on">✨ 自動美化 On</option>
+          <option value="off">原相 Off</option>
+        </select>
+      </div>
+      <div>
         <label class="proc-opt-lbl">背景 Background</label>
         <select class="proc-sel" id="bg-style" onchange="reprocessImage()">
+          <option value="brand">🏪 本店風格 Shop Style</option>
+          <option value="spotlight">🔦 聚光 Spotlight</option>
+          <option value="gradient">🌅 漸變 Gradient</option>
           <option value="white">⬜ 白色 White</option>
           <option value="cream">🟡 米色 Cream</option>
           <option value="dark">⬛ 深色 Dark</option>
@@ -1445,11 +1462,43 @@ function _drawProcessed(img, bgStyle, wmStyle) {
   const SIZE = 900;
   canvas.width = SIZE; canvas.height = SIZE;
   const ctx = canvas.getContext('2d');
+  const enhance = (document.getElementById('enh-style')?.value || 'on') === 'on';
 
   // ── Background ──
-  const bgFills = { white:'#FFFFFF', cream:'#fefae0', dark:'#1b4332' };
-  ctx.fillStyle = bgFills[bgStyle] || '#FFFFFF';
-  ctx.fillRect(0, 0, SIZE, SIZE);
+  const isDarkBg = bgStyle === 'dark';
+  if (bgStyle === 'brand') {
+    // 🏪 鴻昌辦館 signature look — warm spotlight + forest-green vignette corners
+    const base = ctx.createLinearGradient(0,0,SIZE,SIZE);
+    base.addColorStop(0,'#fbf6ea'); base.addColorStop(1,'#f1e6cc');
+    ctx.fillStyle = base; ctx.fillRect(0,0,SIZE,SIZE);
+    // Bright centre spotlight so the product pops
+    const sp = ctx.createRadialGradient(SIZE/2, SIZE*0.42, SIZE*0.05, SIZE/2, SIZE*0.48, SIZE*0.72);
+    sp.addColorStop(0,'rgba(255,255,255,0.96)');
+    sp.addColorStop(1,'rgba(255,255,255,0)');
+    ctx.fillStyle = sp; ctx.fillRect(0,0,SIZE,SIZE);
+    // Subtle forest-green vignette in the corners (brand colour)
+    const vg = ctx.createRadialGradient(SIZE/2,SIZE/2,SIZE*0.42,SIZE/2,SIZE/2,SIZE*0.78);
+    vg.addColorStop(0,'rgba(27,67,50,0)');
+    vg.addColorStop(1,'rgba(27,67,50,0.14)');
+    ctx.fillStyle = vg; ctx.fillRect(0,0,SIZE,SIZE);
+  } else if (bgStyle === 'spotlight') {
+    // Soft radial spotlight — makes the product pop (eye-catching)
+    ctx.fillStyle = '#eef2ee'; ctx.fillRect(0,0,SIZE,SIZE);
+    const g = ctx.createRadialGradient(SIZE/2, SIZE*0.42, SIZE*0.05, SIZE/2, SIZE*0.5, SIZE*0.72);
+    g.addColorStop(0, '#ffffff');
+    g.addColorStop(1, '#dfe7df');
+    ctx.fillStyle = g; ctx.fillRect(0,0,SIZE,SIZE);
+  } else if (bgStyle === 'gradient') {
+    // Warm premium gradient
+    const g = ctx.createLinearGradient(0,0,SIZE,SIZE);
+    g.addColorStop(0, '#fff8ec');
+    g.addColorStop(1, '#f4e4c4');
+    ctx.fillStyle = g; ctx.fillRect(0,0,SIZE,SIZE);
+  } else {
+    const bgFills = { white:'#FFFFFF', cream:'#fefae0', dark:'#1b4332' };
+    ctx.fillStyle = bgFills[bgStyle] || '#FFFFFF';
+    ctx.fillRect(0, 0, SIZE, SIZE);
+  }
 
   // ── Draw image centred with padding ──
   const PAD = 72;
@@ -1457,7 +1506,22 @@ function _drawProcessed(img, bgStyle, wmStyle) {
   const scale = Math.min(avail / img.width, avail / img.height);
   const w = img.width * scale, h = img.height * scale;
   const ox = (SIZE - w) / 2, oy = (SIZE - h) / 2;
+
+  // ── Soft drop shadow under product (depth / eye-catching) ──
+  if (enhance && !isDarkBg) {
+    ctx.save();
+    ctx.shadowColor = 'rgba(0,0,0,0.22)';
+    ctx.shadowBlur = 34;
+    ctx.shadowOffsetY = 18;
+    ctx.fillStyle = 'rgba(255,255,255,0.001)';
+    ctx.fillRect(ox, oy, w, h);
+    ctx.restore();
+  }
+
+  // ── Auto-enhance: brighten, boost contrast & colour so products pop ──
+  if (enhance) ctx.filter = 'brightness(1.06) contrast(1.12) saturate(1.22)';
   ctx.drawImage(img, ox, oy, w, h);
+  ctx.filter = 'none';
 
   // ── Watermark ──
   if (wmStyle !== 'none') {
@@ -1507,6 +1571,16 @@ function _drawProcessed(img, bgStyle, wmStyle) {
       ctx.fillText('鴻昌', SIZE - 24 - cSize/2, 24 + cSize/2 + 5);
       ctx.globalAlpha = 1;
     }
+  }
+
+  // ── Brand gold frame (premium border for 本店風格) ──
+  if (bgStyle === 'brand') {
+    ctx.strokeStyle = '#c8871a';
+    ctx.lineWidth = 5;
+    ctx.strokeRect(20, 20, SIZE - 40, SIZE - 40);
+    ctx.strokeStyle = 'rgba(200,135,26,0.35)';
+    ctx.lineWidth = 1;
+    ctx.strokeRect(28, 28, SIZE - 56, SIZE - 56);
   }
   return canvas.toDataURL('image/jpeg', 0.88);
 }
@@ -1935,23 +2009,41 @@ window.saveSettings = () => {
   settings.annMsgs  = annMsgs;
   settings.infoPills = infoPills;
   saveLocalSettings();
+  // Sync to Firebase so ALL customers see QR codes / WhatsApp number / banners
+  syncSettingsToFirebase();
   showToast('✅ All settings saved! 設定已儲存');
 };
 
+// Write the settings object to Firebase doc settings/store so the live storefront
+// (every customer) loads QR codes, WhatsApp number, FPS, and banners.
+async function syncSettingsToFirebase() {
+  if (!(FIREBASE_MODE && db && currentUser)) {
+    showToast('⚠️ 本地模式：設定只存於此瀏覽器，顧客看不到。請用 Firebase 登入。');
+    return;
+  }
+  try {
+    const { doc, setDoc } = firestoreFns;
+    // Strip the local admin password — never store it in the public settings doc
+    const { adminPw, ...publicSettings } = settings;
+    await setDoc(doc(db,'settings','store'), publicSettings, { merge: true });
+  } catch(e) {
+    showToast('❌ 同步失敗 Sync failed: ' + e.message);
+  }
+}
+
 window.handlePromoUpload = (input) => {
   const file = input.files[0]; if (!file) return;
-  if (file.size > 5 * 1024 * 1024) { showToast('⚠️ Image too large (max 5MB)'); return; }
-  const reader = new FileReader();
-  reader.onload = e => {
-    settings.promoImg = e.target.result;
+  if (file.size > 10 * 1024 * 1024) { showToast('⚠️ Image too large (max 10MB)'); return; }
+  // Resize to max 1280px @ 0.85 — keeps banner crisp but small enough for Firebase
+  resizeImageFile(file, 1280, 0.85, dataUrl => {
+    settings.promoImg = dataUrl;
     const pw = document.getElementById('promo-preview-wrap');
-    document.getElementById('promo-preview').src = e.target.result;
+    document.getElementById('promo-preview').src = dataUrl;
     pw.style.display = 'block';
     document.getElementById('promo-drop').style.display = 'none';
     document.getElementById('promo-status').textContent = '✅ 促銷橫額已設定 Promo banner active — remember to Save Settings';
     showToast('✅ Banner image uploaded!');
-  };
-  reader.readAsDataURL(file);
+  });
 };
 
 window.clearPromo = () => {
@@ -1963,17 +2055,39 @@ window.clearPromo = () => {
   showToast('🗑 Promo banner removed');
 };
 
-window.uploadQR = (type, input) => {
-  const file=input.files[0]; if(!file) return;
-  const r=new FileReader();
-  r.onload=e=>{
-    if(!settings.qr) settings.qr={};
-    settings.qr[type]=e.target.result;
-    const prev=document.getElementById(`qr-${type}-prev`);
-    prev.src=e.target.result; prev.style.display='block';
-    showToast(`✅ ${type==='alipay'?'Alipay':'WeChat Pay'} QR uploaded`);
+// Resize an image file via canvas → returns a compact data-URL (keeps QR scannable, fits Firestore)
+function resizeImageFile(file, maxDim, quality, cb) {
+  const r = new FileReader();
+  r.onload = e => {
+    const img = new Image();
+    img.onload = () => {
+      let { width:w, height:h } = img;
+      if (w > maxDim || h > maxDim) {
+        if (w >= h) { h = Math.round(h * maxDim / w); w = maxDim; }
+        else        { w = Math.round(w * maxDim / h); h = maxDim; }
+      }
+      const c = document.createElement('canvas');
+      c.width = w; c.height = h;
+      const ctx = c.getContext('2d');
+      ctx.fillStyle = '#fff'; ctx.fillRect(0,0,w,h); // white bg keeps QR crisp
+      ctx.drawImage(img, 0, 0, w, h);
+      cb(c.toDataURL('image/jpeg', quality));
+    };
+    img.src = e.target.result;
   };
   r.readAsDataURL(file);
+}
+
+window.uploadQR = (type, input) => {
+  const file=input.files[0]; if(!file) return;
+  // Resize to max 640px @ 0.92 quality — keeps the QR sharp/scannable but small
+  resizeImageFile(file, 640, 0.92, dataUrl => {
+    if(!settings.qr) settings.qr={};
+    settings.qr[type]=dataUrl;
+    const prev=document.getElementById(`qr-${type}-prev`);
+    prev.src=dataUrl; prev.style.display='block';
+    showToast(`✅ ${type==='alipay'?'Alipay':'WeChat Pay'} QR uploaded — 記得按 Save All Settings`);
+  });
 };
 
 // ─── PREVIEW ───────────────────────────────────────────────────────────────────
@@ -2528,6 +2642,54 @@ window.toggleResolve = async function(chatId){
   showToast(newStatus==='resolved'?'✅ 已標記為已解決':'🔄 已重新開啟');
   // Re-open to refresh header button
   setTimeout(()=>openSupportThread(chatId),300);
+};
+
+// ─── AI PRODUCT DESCRIPTION ─────────────────────────────────────────────────────
+window.generateProductDesc = async () => {
+  const key = localStorage.getItem('ai_claude_key');
+  if (!key) {
+    showToast('⚠️ 請先到「AI Posts 社交貼文」頁設定 API Key');
+    return;
+  }
+  const cn = document.getElementById('p-cn').value.trim();
+  const en = document.getElementById('p-en').value.trim();
+  if (!cn) { showToast('請先填寫中文名稱'); document.getElementById('p-cn').focus(); return; }
+  const catSel = document.getElementById('p-cat');
+  const catTxt = catSel ? catSel.options[catSel.selectedIndex]?.text || '' : '';
+  const btn = document.getElementById('ai-desc-btn');
+  const orig = btn.innerHTML;
+  btn.disabled = true; btn.innerHTML = '⏳ 生成中...';
+  try {
+    const prompt = `你是香港「鴻昌辦館」網店的文案。為以下產品寫一段吸引、生動的繁體中文商品描述（2至3句，約40-70字），帶出口感、特色、適合場合，語氣親切地道。請勿用標題或項目符號，直接輸出描述文字。\n\n產品名稱：${cn}${en?`（英文：${en}）`:''}\n分類：${catTxt}`;
+    const res = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: {
+        'x-api-key': key,
+        'anthropic-version': '2023-06-01',
+        'anthropic-dangerous-allow-browser': 'true',
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify({
+        model: 'claude-haiku-4-5-20251001',
+        max_tokens: 400,
+        messages: [{ role: 'user', content: prompt }]
+      })
+    });
+    if (!res.ok) {
+      const err = await res.json().catch(() => ({}));
+      throw new Error(err.error?.message || `API error ${res.status}`);
+    }
+    const data = await res.json();
+    const text = (data.content?.[0]?.text || '').trim();
+    if (!text) throw new Error('AI 未能生成，請重試');
+    document.getElementById('p-desc').value = text;
+    showToast('✅ 已生成描述，可自由修改');
+  } catch (e) {
+    showToast('❌ ' + e.message);
+    console.error('[AI Desc]', e);
+  } finally {
+    btn.disabled = false; btn.innerHTML = orig;
+  }
 };
 
 // ─── AI SOCIAL POSTS ────────────────────────────────────────────────────────────

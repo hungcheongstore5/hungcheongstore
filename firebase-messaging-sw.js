@@ -1,39 +1,61 @@
 // ═══════════════════════════════════════════════════════════════
-//  🔥 FIREBASE CONFIGURATION — 鴻昌辦館 Hung Cheong Store
+//  🔔  Firebase Cloud Messaging Service Worker
+//      鴻昌辦館 Hung Cheong Store
 //
-//  HOW TO FILL THIS IN:
-//  1. Go to https://console.firebase.google.com
-//  2. Create a new project → name it "hung-cheong-store"
-//  3. Click ⚙️ Project Settings → Your Apps → Add Web App
-//  4. Copy the firebaseConfig values below
-//  5. In Firebase Console, enable:
-//     - Authentication → Email/Password
-//     - Firestore Database (production mode, then update rules)
-//     - Storage
-//     - Analytics (optional)
+//  This file MUST live at the root of your site (same folder as
+//  index.html). GitHub Pages serves it from the repo root.
 //
-//  SECURITY RULES for Firestore (paste in Firebase Console):
-//  rules_version = '2';
-//  service cloud.firestore {
-//    match /databases/{database}/documents {
-//      match /products/{doc} { allow read: if true; allow write: if request.auth != null; }
-//      match /orders/{doc}   { allow read, write: if request.auth != null; allow create: if true; }
-//      match /analytics/{doc}{ allow read: if request.auth != null; allow write: if true; }
-//    }
-//  }
+//  HOW IT WORKS:
+//  1. The storefront requests notification permission from the user
+//  2. FCM gives the browser a unique push token
+//  3. The token is saved to Firestore (attached to the order)
+//  4. When admin updates order status, a push is sent via FCM API
+//  5. This service worker shows the notification even when the
+//     browser tab is closed / in background
 // ═══════════════════════════════════════════════════════════════
 
-export const firebaseConfig = {
-  apiKey:            "AIzaSyCkexHYtnNVftxKMhyJbkd57dwAx3k3lo0",
-  authDomain:        "hung-cheong-store.firebaseapp.com",
-  projectId:         "hung-cheong-store",
-  storageBucket:     "hung-cheong-store.firebasestorage.app",
-  messagingSenderId: "975591755208",
-  appId:             "1:975591755208:web:b84f65ff255fd35dda84fd",
-  measurementId:     ""
-};
+importScripts('https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js');
+importScripts('https://www.gstatic.com/firebasejs/10.12.2/firebase-messaging-compat.js');
 
-// Also expose as the default export.
-// index.html imports this file as `{ default: cfg }`, while admin.html
-// imports it as `{ firebaseConfig }`. Providing both keeps each working.
-export default firebaseConfig;
+let _initialized = false;
+
+// The main page sends the Firebase config via postMessage so we
+// don't have to duplicate it here.
+self.addEventListener('message', event => {
+  if (event.data?.type === 'FCM_INIT' && !_initialized) {
+    try {
+      _initialized = true;
+      firebase.initializeApp(event.data.config);
+      const messaging = firebase.messaging();
+
+      // Background / closed-tab notifications
+      messaging.onBackgroundMessage(payload => {
+        const n   = payload.notification || {};
+        const data= payload.data         || {};
+        self.registration.showNotification(n.title || '鴻昌辦館 Hung Cheong Store', {
+          body:   n.body  || '',
+          icon:   n.icon  || './icon-192.png',
+          badge:  './icon-192.png',
+          tag:    data.orderId || 'hc-update',
+          data:   { url: data.url || '/', orderId: data.orderId || '' },
+          requireInteraction: false,
+          vibrate: [200, 100, 200],
+        });
+      });
+    } catch(e) { console.warn('[SW] FCM init error:', e); }
+  }
+});
+
+// Clicking the notification opens / focuses the site
+self.addEventListener('notificationclick', event => {
+  event.notification.close();
+  const targetUrl = event.notification.data?.url || '/';
+  event.waitUntil(
+    clients.matchAll({ type: 'window', includeUncontrolled: true }).then(cs => {
+      // If a window with this URL is already open, focus it
+      const existing = cs.find(c => c.url.startsWith(self.location.origin));
+      if (existing && 'focus' in existing) return existing.focus();
+      return clients.openWindow(targetUrl);
+    })
+  );
+});

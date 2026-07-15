@@ -32,3 +32,8 @@ export const firebaseConfig = {
   appId:             "1:975591755208:web:b84f65ff255fd35dda84fd",
   measurementId:     ""
 };
+
+// Also expose as the default export.
+// index.html imports this file as `{ default: cfg }`, while admin.html
+// imports it as `{ firebaseConfig }`. Providing both keeps each working.
+export default firebaseConfig;

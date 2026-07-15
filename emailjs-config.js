@@ -128,14 +128,14 @@
 // ═══════════════════════════════════════════════════════════════
 
 export default {
-  publicKey:  "YOUR_EMAILJS_PUBLIC_KEY",    // e.g. "user_XXXXXXXXXXXXXXXXX"
-  serviceId:  "YOUR_SERVICE_ID",             // e.g. "service_xxxxxxx"
+  publicKey:  "KlUQ_y5cyIyjfujg6",           // ✅ filled
+  serviceId:  "service_9j3312h",             // ✅ filled
   templates: {
-    welcome:      "YOUR_WELCOME_TEMPLATE_ID",       // e.g. "template_xxxxxxx"
-    order:        "YOUR_ORDER_TEMPLATE_ID",         // e.g. "template_xxxxxxx"
-    shipped:      "YOUR_SHIPPED_TEMPLATE_ID",       // e.g. "template_xxxxxxx"
-    otp:          "YOUR_OTP_TEMPLATE_ID",           // e.g. "template_xxxxxxx"
-    statusUpdate: "YOUR_STATUS_UPDATE_TEMPLATE_ID",  // e.g. "template_xxxxxxx"
-    adminNotify:  "YOUR_ADMIN_NOTIFY_TEMPLATE_ID",  // e.g. "template_xxxxxxx"
+    welcome:      "YOUR_WELCOME_TEMPLATE_ID",       // (optional — add later)
+    order:        "template_9lz676l",               // ✅ customer order confirmation
+    shipped:      "YOUR_SHIPPED_TEMPLATE_ID",       // (optional — add later)
+    otp:          "YOUR_OTP_TEMPLATE_ID",           // (optional — add later)
+    statusUpdate: "YOUR_STATUS_UPDATE_TEMPLATE_ID",  // (optional — add later)
+    adminNotify:  "template_9lz676l",               // ✅ new-order alert (same template)
   }
 };

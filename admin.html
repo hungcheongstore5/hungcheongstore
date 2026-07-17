@@ -505,6 +505,9 @@
               </div>
               <div style="font-size:11px;color:#aaa;margin-top:6px;text-align:center">自動去背景 · 加水印 · 裁正方形 | Auto-process: background · watermark · square crop</div>
               <div class="photo-preview-wrap" id="photo-previews"></div>
+              <button type="button" id="ai-photo-btn" onclick="analyzeProductPhoto()" style="margin-top:10px;width:100%;background:linear-gradient(135deg,#0ea5e9,#6366f1);color:#fff;border:none;border-radius:12px;padding:11px;font-size:14px;font-weight:700;cursor:pointer">🤖 AI 識別相片 &amp; 參考價格</button>
+              <div style="font-size:11px;color:#aaa;margin-top:5px;text-align:center">上載相片後，AI 自動辨識產品、填寫名稱／分類／描述，並上網搜尋參考價格 | Auto-identify & price</div>
+              <div id="ai-photo-result" style="display:none;margin-top:10px"></div>
             </div>
           </div>
           <div class="form-actions">
@@ -524,6 +527,10 @@
             <option value="others">🧺 Others</option>
           </select>
           <button class="add-prod-btn" onclick="scrollToForm()">➕ Add Product</button>
+          <input type="file" id="csv-file" accept=".csv,text/csv" style="display:none" onchange="handleProductCSV(this)">
+          <button class="add-prod-btn" style="background:#0ea5e9" onclick="document.getElementById('csv-file').click()">📥 匯入 CSV</button>
+          <button class="add-prod-btn" style="background:#64748b" onclick="exportProductsCSV()">📤 匯出 CSV</button>
+          <button class="add-prod-btn" style="background:#94a3b8" onclick="downloadProductTemplate()">📄 範本</button>
         </div>
 
         <div style="overflow-x:auto">
@@ -544,6 +551,9 @@
       <div class="page" id="page-orders">
         <div class="page-heading">🛒 Orders 訂單管理</div>
         <div style="display:flex;gap:10px;margin-bottom:16px;flex-wrap:wrap">
+          <input id="order-search" class="pc-search" type="search" placeholder="🔍 姓名 / 電話 / 單號" oninput="renderOrders()" style="min-width:180px">
+          <input id="order-date-filter" class="pc-filter" type="date" onchange="renderOrders()" title="以日期篩選">
+          <button class="pc-filter" style="cursor:pointer" onclick="document.getElementById('order-search').value='';document.getElementById('order-date-filter').value='';document.getElementById('order-status-filter').value='';renderOrders()">↺ 清除</button>
           <select id="order-status-filter" class="pc-filter" onchange="renderOrders()">
             <option value="">All Orders</option>
             <option value="pending">⏳ 待確認 Pending</option>
@@ -606,7 +616,20 @@
         </div>
 
         <!-- ② Announcement Bar (rotating ticker at very top) -->
+                <!-- Delivery / free-shipping -->
         <div class="settings-section">
+          <h3>🚚 順豐運費 Delivery &amp; Free-Shipping</h3>
+          <div style="font-size:13px;color:var(--tm);margin-bottom:12px;line-height:1.6">
+            設定順豐速遞運費及免運門檻。顧客買滿門檻自動免運，購物車會顯示「再購 $X 即免運費」進度條。<br>
+            SF flat fee + free-shipping threshold. Orders at/above the threshold ship free. Fee 0 = always free.
+          </div>
+          <div style="display:flex;gap:12px;flex-wrap:wrap">
+            <div style="flex:1;min-width:150px"><label class="fl">順豐運費 SF Fee (HK$)</label><input class="fi" id="set-ship-fee" type="number" min="0" step="1" placeholder="e.g. 40（0＝一律免運）"></div>
+            <div style="flex:1;min-width:150px"><label class="fl">免運門檻 Free over (HK$)</label><input class="fi" id="set-free-ship" type="number" min="0" step="10" placeholder="e.g. 450（0＝停用）"></div>
+          </div>
+        </div>
+
+<div class="settings-section">
           <h3>📢 頂部公告欄 Announcement Bar <small style="font-weight:400;font-size:12px;color:var(--tm)">(rotating messages at top)</small></h3>
           <p style="font-size:12px;color:var(--tm);margin-bottom:12px">每條訊息會輪流顯示於頂部綠色欄。每行一條。<br>Each line = one rotating message shown in the top green bar.</p>
           <textarea class="fta" id="set-ann-msgs" rows="6" style="font-size:13px;line-height:1.7"
@@ -943,6 +966,21 @@
             <button class="ai-clear-btn" onclick="clearAIKey()">🗑 Clear</button>
           </div>
           <div id="ai-key-status" style="font-size:12px;margin-top:8px;color:var(--tm)"></div>
+        </div>
+
+        <!-- ── AI Photo Identify & Price (Gemini via Cloudflare Worker) ── -->
+        <div class="settings-section">
+          <h3>🤖 AI 相片估價 Worker 設定</h3>
+          <div style="font-size:13px;color:var(--tm);margin-bottom:12px;line-height:1.6">
+            用於商品表單的「🤖 AI 識別相片 &amp; 參考價格」。部署 Cloudflare Worker（步驟見 <code>cloudflare/SETUP-AI.md</code>）後，把 Worker 網址貼在這裡。API 金鑰只存放於 Worker，不會出現在此頁。<br>
+            Powers photo→product identification &amp; web price lookup. Paste your deployed Cloudflare Worker URL here.
+          </div>
+          <div class="ai-key-row">
+            <input class="fi" type="url" id="ai-worker-url-inp" placeholder="https://your-worker.your-name.workers.dev" style="flex:1;min-width:220px;font-family:monospace;font-size:13px">
+            <button class="save-btn" onclick="saveAIWorker()">💾 Save URL</button>
+            <button class="ai-clear-btn" onclick="clearAIWorker()">🗑 Clear</button>
+          </div>
+          <div id="ai-worker-status" style="font-size:12px;margin-top:8px;color:var(--tm)"></div>
         </div>
 
         <!-- Tabs -->
@@ -1610,6 +1648,10 @@ window.confirmPhotoProc = () => {
   const canvas = document.getElementById('proc-canvas');
   pendingPhotos.push(canvas.toDataURL('image/jpeg', 0.88));
   renderPhotoPreviews();
+  // Auto-run AI identify on the FIRST photo (fills only empty fields + shows price refs)
+  if (pendingPhotos.length === 1 && localStorage.getItem('ai_worker_url') && !document.getElementById('p-cn').value.trim()) {
+    setTimeout(() => { try { window.analyzeProductPhoto(true); } catch (e) {} }, 250);
+  }
   document.getElementById('photo-proc-mo').classList.remove('open');
   _procRawImg = null;
   if (_procQueue.length > 0) {
@@ -1742,6 +1784,69 @@ window.deleteProduct = async (id) => {
   loadDashboard();
 };
 
+// ─── BULK CSV IMPORT / EXPORT ───────────────────────────────────────────────────
+const CSV_COLS = ['nameCn','nameEn','price','stock','cat','subcat','badge','desc','salePrice','saleEndTime','photo'];
+function _csvCell(v){ v=(v==null?'':String(v)); return /[",\n]/.test(v) ? '"'+v.replace(/"/g,'""')+'"' : v; }
+function _downloadCSV(filename, text){
+  const blob=new Blob(['﻿'+text],{type:'text/csv;charset=utf-8'}); // BOM so Excel reads Chinese
+  const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download=filename;
+  document.body.appendChild(a); a.click(); a.remove(); setTimeout(()=>URL.revokeObjectURL(a.href),1000);
+}
+window.exportProductsCSV = () => {
+  const rows=[['id',...CSV_COLS]];
+  (products||[]).forEach(p=>rows.push([p.id,p.nameCn,p.nameEn,p.price,p.stock,p.cat,p.subcat,p.badge,p.desc,p.salePrice,p.saleEndTime,(p.photo&&!String(p.photo).startsWith('data:'))?p.photo:'']));
+  _downloadCSV(`hungcheong-products-${new Date().toISOString().slice(0,10)}.csv`, rows.map(r=>r.map(_csvCell).join(',')).join('\n'));
+  showToast(`📤 已匯出 ${(products||[]).length} 件商品`);
+};
+window.downloadProductTemplate = () => {
+  const rows=[CSV_COLS,['旺旺仙貝','Want Want Rice Crackers','12','50','nostalgic','','HOT','香脆米餅，懷舊經典','','','']];
+  _downloadCSV('hungcheong-product-template.csv', rows.map(r=>r.map(_csvCell).join(',')).join('\n'));
+  showToast('📄 已下載範本 CSV');
+};
+function _parseCSV(text){
+  text=text.replace(/^﻿/,''); const rows=[]; let row=[],cell='',q=false;
+  for(let i=0;i<text.length;i++){ const c=text[i];
+    if(q){ if(c==='"'){ if(text[i+1]==='"'){cell+='"';i++;} else q=false; } else cell+=c; }
+    else if(c==='"') q=true;
+    else if(c===',') { row.push(cell); cell=''; }
+    else if(c==='\n'){ row.push(cell); rows.push(row); row=[]; cell=''; }
+    else if(c!=='\r') cell+=c;
+  }
+  if(cell!==''||row.length){ row.push(cell); rows.push(row); }
+  return rows.filter(r=>r.some(x=>String(x).trim()!==''));
+}
+window.handleProductCSV = async (input) => {
+  const file=input.files[0]; input.value=''; if(!file) return;
+  const rows=_parseCSV(await file.text());
+  if(rows.length<2){ showToast('❌ CSV 沒有資料'); return; }
+  const header=rows[0].map(h=>h.trim()); const idx={};
+  CSV_COLS.forEach(c=>{ idx[c]=header.findIndex(h=>h.toLowerCase()===c.toLowerCase()); });
+  if(idx.nameCn<0 || idx.price<0){ showToast('❌ CSV 必須有 nameCn 和 price 欄'); return; }
+  const valid=[]; let skipped=0;
+  for(let r=1;r<rows.length;r++){ const row=rows[r]; const get=k=> idx[k]>=0?(row[idx[k]]||'').trim():'';
+    const nameCn=get('nameCn'), price=parseFloat(get('price'));
+    if(!nameCn||isNaN(price)){ skipped++; continue; }
+    const cat=get('cat')||'others', sp=parseFloat(get('salePrice')), ph=get('photo');
+    valid.push({ nameCn, nameEn:get('nameEn'), price, stock:parseInt(get('stock'))||null,
+      cat:['hkmade','nostalgic','wine','others'].includes(cat)?cat:'others', subcat:get('subcat')||null,
+      badge:get('badge')||'', desc:get('desc'), salePrice:isNaN(sp)?null:sp,
+      saleEndTime:get('saleEndTime')||null, photo:ph||null, photos:ph?[ph]:[] });
+  }
+  if(!valid.length){ showToast('❌ 沒有有效商品可匯入'); return; }
+  if(!confirm(`匯入 ${valid.length} 件商品${skipped?`（略過 ${skipped} 行資料不完整）`:''}？`)) return;
+  showToast('⏳ 匯入中...');
+  if(FIREBASE_MODE && db && !LOCAL_MODE){
+    const { collection, addDoc, serverTimestamp } = firestoreFns; let ok=0;
+    for(const p of valid){ try{ await addDoc(collection(db,'products'),{...p,createdAt:serverTimestamp()}); ok++; }catch(e){ console.error('CSV add',e); } }
+    showToast(`✅ 已匯入 ${ok}/${valid.length} 件商品`);
+  } else {
+    valid.forEach((p,i)=>products.push({ id:'p'+Date.now()+'_'+i, ...p }));
+    saveLocalProds(); renderProductTable();
+    showToast(`✅ 已匯入 ${valid.length} 件商品`);
+  }
+  loadDashboard();
+};
+
 // ─── ORDERS ────────────────────────────────────────────────────────────────────
 function _orderActionBtns(o) {
   const s = o.status||'pending';
@@ -1768,9 +1873,13 @@ function _orderActionBtns(o) {
 
 window.renderOrders = () => {
   const filter=document.getElementById('order-status-filter').value;
+  const q=(document.getElementById('order-search')?.value||'').trim().toLowerCase();
+  const dateF=document.getElementById('order-date-filter')?.value||'';
   const el=document.getElementById('orders-list');
   let ords=[...orders];
   if(filter) ords=ords.filter(o=>(o.status||'pending')===filter);
+  if(q) ords=ords.filter(o=>((o.name||'')+' '+(o.phone||'')+' '+(o.id||'')+' '+(o.email||'')).toLowerCase().includes(q));
+  if(dateF) ords=ords.filter(o=>{ const d=o.createdAt?.toDate?o.createdAt.toDate():(o.createdAt?new Date(o.createdAt):null); if(!d)return false; const iso=new Date(d.getTime()-d.getTimezoneOffset()*60000).toISOString().slice(0,10); return iso===dateF; });
   if(!ords.length){el.innerHTML=`<div class="empty-table" style="padding:40px;text-align:center;color:var(--tm)">No orders${filter?' with this status':''} yet</div>`;return;}
   el.innerHTML=ords.map(o=>{
     const date=o.createdAt?.toDate?o.createdAt.toDate().toLocaleDateString('zh-HK'):o.createdAt?new Date(o.createdAt).toLocaleDateString('zh-HK'):'';
@@ -1792,9 +1901,37 @@ window.renderOrders = () => {
       ${o.note?`<div style="font-size:12px;color:var(--tm);margin-top:4px">📝 ${o.note}</div>`:''}
       ${(o.trackingNo||o.tracking)?`<div style="font-size:12px;color:var(--blue);margin-top:4px">📦 ${o.courier||''} · ${o.trackingNo||o.tracking}</div>`:''}
       ${o.receiptImage?`<div style="margin-top:8px"><img src="${o.receiptImage}" style="max-height:70px;border-radius:6px;border:2px solid var(--cd);cursor:pointer" onclick="window.open('${o.receiptImage}','_blank')" title="付款截圖 Receipt"><span style="font-size:10px;color:var(--tm);margin-left:6px">📸 付款截圖</span></div>`:''}
-      <div class="order-actions">${_orderActionBtns(o)}</div>
+      <div class="order-actions">${_orderActionBtns(o)}<button onclick="printPackingSlip('${o.id}')" style="background:#334155;color:#fff;border:none;border-radius:8px;padding:7px 12px;font-size:13px;font-weight:600;cursor:pointer">🖨 執貨單 Slip</button></div>
     </div>`;
   }).join('');
+};
+
+// ─── PRINTABLE PACKING SLIP ─────────────────────────────────────────────────────
+window.printPackingSlip = (id) => {
+  const o = orders.find(x => x.id === id); if (!o) { showToast('找不到訂單'); return; }
+  const esc = s => (s==null?'':String(s)).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+  const date = o.createdAt?.toDate ? o.createdAt.toDate().toLocaleString('zh-HK') : (o.createdAt ? new Date(o.createdAt).toLocaleString('zh-HK') : '');
+  const items = (Array.isArray(o.items)?o.items:[]).map(i=>`<tr><td>${esc(i.nameCn||i.name||'')}</td><td style="text-align:center">${esc(i.qty)}</td><td style="text-align:right">HK$${esc(i.price||0)}</td><td style="text-align:right">HK$${(i.price||0)*(i.qty||0)}</td></tr>`).join('');
+  const delTx = {pickup:'🏪 門市自取 Pickup', sf:'📦 順豐速遞 SF Express'}[o.delivery] || o.delivery || '';
+  const payTx = {alipay:'Alipay 支付寶', wechat:'WeChat Pay 微信', fps:'FPS 轉數快', cash:'現金 Cash'}[o.payMethod] || o.payMethod || '';
+  document.getElementById('print-area').innerHTML = `
+    <div class="slip">
+      <h2>鴻昌辦館 Hung Cheong Store</h2>
+      <div class="slip-sub">執貨單 Packing Slip</div>
+      <table class="slip-meta">
+        <tr><td><b>單號 Order</b> #${esc((o.id||'').slice(-8).toUpperCase())}</td><td style="text-align:right"><b>日期</b> ${esc(date)}</td></tr>
+        <tr><td><b>客戶 Customer</b> ${esc(o.name||'-')}</td><td style="text-align:right"><b>電話</b> ${esc(o.phone||'-')}</td></tr>
+        <tr><td colspan="2"><b>送貨 Delivery</b> ${esc(delTx)}${o.addr?' — '+esc(o.addr):''}</td></tr>
+        <tr><td colspan="2"><b>付款 Payment</b> ${esc(payTx)}${o.coupon?' · 🎁 '+esc(o.coupon):''}</td></tr>
+        ${o.note?`<tr><td colspan="2"><b>備註 Note</b> ${esc(o.note)}</td></tr>`:''}
+      </table>
+      <table class="slip-items"><thead><tr><th>商品 Item</th><th>數量 Qty</th><th>單價 Price</th><th>小計 Subtotal</th></tr></thead><tbody>${items||'<tr><td colspan="4">—</td></tr>'}</tbody></table>
+      <div class="slip-total">總計 Total： HK$${esc(o.total||0)}${o.discount?`　<span style="font-size:12px;color:#555">（已折 -HK$${esc(o.discount)}）</span>`:''}</div>
+      <div class="slip-foot">☑ 已執貨　☑ 已核對　☑ 已包裝　　多謝惠顧！Thank you.</div>
+    </div>`;
+  document.body.classList.add('printing');
+  window.print();
+  setTimeout(() => document.body.classList.remove('printing'), 600);
 };
 
 // ─── FCM PUSH HELPER ──────────────────────────────────────────────────────────
@@ -1961,6 +2098,8 @@ function loadSettings() {
   document.getElementById('set-admin-email').value = settings.adminEmail || '';
   document.getElementById('set-vapid').value   = settings.fcmVapidKey  || '';
   document.getElementById('set-fcm-key').value = settings.fcmServerKey || '';
+  const _sf=document.getElementById('set-ship-fee'); if(_sf) _sf.value = settings.shippingFee ?? '';
+  const _ft=document.getElementById('set-free-ship'); if(_ft) _ft.value = settings.freeShipThreshold ?? 450;
   // Announcement messages
   document.getElementById('set-ann-msgs').value = settings.annMsgs || DEFAULT_ANN_MSGS;
   // Info pills
@@ -2008,6 +2147,8 @@ window.saveSettings = () => {
   if (fcmServerKey) settings.fcmServerKey = fcmServerKey; else delete settings.fcmServerKey;
   settings.annMsgs  = annMsgs;
   settings.infoPills = infoPills;
+  const _shipFee=parseFloat(document.getElementById('set-ship-fee')?.value); settings.shippingFee = isNaN(_shipFee)?0:_shipFee;
+  const _freeThr=parseFloat(document.getElementById('set-free-ship')?.value); settings.freeShipThreshold = isNaN(_freeThr)?0:_freeThr;
   saveLocalSettings();
   // Sync to Firebase so ALL customers see QR codes / WhatsApp number / banners
   syncSettingsToFirebase();
@@ -2692,6 +2833,82 @@ window.generateProductDesc = async () => {
   }
 };
 
+// ─── AI PHOTO IDENTIFY & PRICE (Gemini via Cloudflare Worker) ───────────────────
+window.saveAIWorker = () => {
+  let url = document.getElementById('ai-worker-url-inp').value.trim();
+  if (!url) { showToast('請輸入 Worker URL'); return; }
+  if (!/^https:\/\//i.test(url)) { showToast('URL 須以 https:// 開頭'); return; }
+  url = url.replace(/\/+$/, '');
+  localStorage.setItem('ai_worker_url', url);
+  document.getElementById('ai-worker-url-inp').value = '';
+  _refreshAIWorkerStatus();
+  showToast('✅ AI Worker URL 已儲存');
+};
+window.clearAIWorker = () => {
+  localStorage.removeItem('ai_worker_url');
+  _refreshAIWorkerStatus();
+  showToast('🗑 已清除 Worker URL');
+};
+function _refreshAIWorkerStatus() {
+  const url = localStorage.getItem('ai_worker_url');
+  const el = document.getElementById('ai-worker-status');
+  if (!el) return;
+  el.innerHTML = url
+    ? `✅ 已設定 <span style="font-family:monospace;background:var(--cd);padding:1px 6px;border-radius:4px">${url.slice(0, 44)}${url.length > 44 ? '…' : ''}</span>`
+    : '⚠️ 未設定。部署 Cloudflare Worker 後把網址貼在上方（詳見 cloudflare/SETUP-AI.md）。';
+}
+
+// Send the uploaded product photo to the Worker → fill empty fields + show prices
+window.analyzeProductPhoto = async (auto = false) => {
+  const url = localStorage.getItem('ai_worker_url');
+  const photo = (typeof pendingPhotos !== 'undefined' && pendingPhotos[0]) || null;
+  const btn = document.getElementById('ai-photo-btn');
+  const panel = document.getElementById('ai-photo-result');
+  if (!photo) { if (!auto) showToast('請先上載商品相片'); return; }
+  if (!url)  { if (!auto) showToast('⚠️ 請先到「AI Posts」頁設定 AI Worker URL'); return; }
+  const orig = btn ? btn.innerHTML : '';
+  if (btn) { btn.disabled = true; btn.innerHTML = '⏳ AI 識別中...'; }
+  if (panel) { panel.style.display = 'block'; panel.innerHTML = '<div style="padding:10px;color:var(--tm)">⏳ 正在分析相片並搜尋參考價格…</div>'; }
+  try {
+    const res = await fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ image: photo, hintName: document.getElementById('p-cn').value.trim() }),
+    });
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok) throw new Error(data.error || `Worker HTTP ${res.status}`);
+    const id = data.identify || {};
+    // Fill only EMPTY fields — never overwrite what the admin already typed
+    const cn = document.getElementById('p-cn'); if (id.nameCn && !cn.value.trim()) cn.value = id.nameCn;
+    const en = document.getElementById('p-en'); if (id.nameEn && !en.value.trim()) en.value = id.nameEn;
+    const cat = document.getElementById('p-cat');
+    if (id.category && [...cat.options].some(o => o.value === id.category)) {
+      cat.value = id.category; try { updateSubcatSelect && updateSubcatSelect(); } catch (e) {}
+    }
+    const desc = document.getElementById('p-desc'); if (id.description && !desc.value.trim()) desc.value = id.description;
+
+    const p = data.price || {};
+    const esc = s => (s || '').toString().replace(/[&<>]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]));
+    const srcs = (p.sources || [])
+      .map(s => `<a href="${esc(s.uri)}" target="_blank" rel="noopener" style="color:var(--g);text-decoration:underline">${esc((s.title || s.uri).slice(0, 40))}</a>`)
+      .join(' · ');
+    if (panel) panel.innerHTML = `
+      <div style="background:var(--cd);border:1px solid var(--bd,#e5e7eb);border-radius:12px;padding:12px;font-size:13px;line-height:1.6">
+        <div style="font-weight:700;margin-bottom:2px">🤖 AI 已填入名稱／分類／描述（可自由修改）</div>
+        <div style="font-weight:700;margin:10px 0 4px">💰 參考價格 <span style="font-weight:400;color:var(--tm)">（僅供參考，請自行定價）</span></div>
+        <div style="white-space:pre-wrap">${esc(p.text) || '（暫無價格資料）'}</div>
+        ${srcs ? `<div style="margin-top:8px;font-size:11px;color:var(--tm)">🔗 來源：${srcs}</div>` : ''}
+      </div>`;
+    if (!auto) showToast('✅ AI 分析完成');
+  } catch (e) {
+    if (panel) panel.innerHTML = `<div style="color:#c0392b;padding:8px;font-size:13px">❌ ${(e.message || e)}</div>`;
+    if (!auto) showToast('❌ ' + (e.message || e));
+    console.error('[AI Photo]', e);
+  } finally {
+    if (btn) { btn.disabled = false; btn.innerHTML = orig; }
+  }
+};
+
 // ─── AI SOCIAL POSTS ────────────────────────────────────────────────────────────
 window._aiLastType = 'product';
 
@@ -2724,7 +2941,8 @@ function _refreshAIKeyStatus() {
 
 function loadSocialPage() {
   _refreshAIKeyStatus();
-  const prods = S.products || [];
+  _refreshAIWorkerStatus();
+  const prods = products || [];
   const toOpt = p => `<option value="${p.id}">${p.nameCN || p.nameEN || p.id}${p.nameEN && p.nameCN ? ' – '+p.nameEN : ''}</option>`;
   document.getElementById('ai-prod-select').innerHTML = prods.length ? prods.map(toOpt).join('') : '<option value="">No products</option>';
   const flashProds = prods.filter(p => p.salePrice && p.saleEnd && new Date(p.saleEnd) > new Date());
@@ -2747,7 +2965,7 @@ window.generatePost = async (type) => {
   const key = localStorage.getItem('ai_claude_key');
   if (!key) { showToast('⚠️ 請先設定 Claude API Key'); return; }
 
-  const prods = S.products || [];
+  const prods = products || [];
   let context = '';
 
   if (type === 'product') {
@@ -2918,5 +3136,23 @@ function getSamples(){return[
   }
 })();
 </script>
+<div id="print-area"></div>
+<style>
+#print-area{display:none}
+@media print{
+  body.printing>*{display:none !important}
+  body.printing #print-area{display:block !important;position:absolute;left:0;top:0;width:100%}
+  #print-area .slip{font-family:'Noto Sans',sans-serif;color:#000;padding:16px;max-width:760px;margin:0 auto}
+  #print-area .slip h2{margin:0;font-size:22px}
+  #print-area .slip-sub{font-size:14px;color:#333;margin:2px 0 12px;border-bottom:2px solid #000;padding-bottom:8px}
+  #print-area .slip-meta{width:100%;font-size:13px;margin-bottom:10px;border-collapse:collapse}
+  #print-area .slip-meta td{padding:3px 0;vertical-align:top}
+  #print-area .slip-items{width:100%;border-collapse:collapse;font-size:13px;margin:12px 0}
+  #print-area .slip-items th,#print-area .slip-items td{border:1px solid #999;padding:6px 8px}
+  #print-area .slip-items th{background:#eee;text-align:left}
+  #print-area .slip-total{text-align:right;font-size:16px;font-weight:700;margin-top:8px}
+  #print-area .slip-foot{margin-top:22px;font-size:12px;color:#444;text-align:center;border-top:1px dashed #999;padding-top:10px}
+}
+</style>
 </body>
 </html>

@@ -59,3 +59,51 @@ self.addEventListener('notificationclick', event => {
     })
   );
 });
+
+// ═══════════════════════════════════════════════════════════════
+//  📲  PWA offline shell (added) — lets the site install as an app
+//      and load the shell when offline. Firebase/CDN requests are
+//      left untouched (network only).
+// ═══════════════════════════════════════════════════════════════
+const HC_CACHE = 'hc-shell-v1';
+const HC_ASSETS = ['./', './index.html', './manifest.webmanifest',
+  './icon-192.png', './icon-512.png', './apple-touch-icon.png'];
+
+self.addEventListener('install', event => {
+  self.skipWaiting();
+  event.waitUntil(caches.open(HC_CACHE).then(c => c.addAll(HC_ASSETS)).catch(() => {}));
+});
+
+self.addEventListener('activate', event => {
+  event.waitUntil(
+    caches.keys()
+      .then(keys => Promise.all(keys.filter(k => k !== HC_CACHE).map(k => caches.delete(k))))
+      .then(() => self.clients.claim())
+  );
+});
+
+self.addEventListener('fetch', event => {
+  const req = event.request;
+  if (req.method !== 'GET') return;
+  let url;
+  try { url = new URL(req.url); } catch (e) { return; }
+  if (url.origin !== self.location.origin) return; // never touch Firebase / CDN / APIs
+
+  // Navigations: network-first (shoppers get the latest), cached shell as offline fallback
+  if (req.mode === 'navigate') {
+    event.respondWith(fetch(req).catch(() => caches.match('./index.html')));
+    return;
+  }
+  // Same-origin static assets (icons, manifest): cache-first
+  if (['image', 'style', 'script', 'font'].includes(req.destination)) {
+    event.respondWith(
+      caches.match(req).then(hit => {
+        if (hit) return hit;
+        return fetch(req).then(res => {
+          if (res && res.ok) { const clone = res.clone(); caches.open(HC_CACHE).then(c => c.put(req, clone)).catch(() => {}); }
+          return res;
+        });
+      })
+    );
+  }
+});

@@ -3,6 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- PWA: installable app -->
+  <link rel="manifest" href="./manifest.webmanifest">
+  <meta name="theme-color" content="#14532d">
+  <link rel="apple-touch-icon" href="./apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="./icon-192.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="鴻昌辦館">
   <title>鴻昌辦館 Hung Cheong Store | 香港零食 懷舊零食 酒類</title>
   <meta name="description" content="鴻昌辦館 — 香港製造、懷舊零食、酒類網上購物。歡迎自取。買滿$450免運費。支援Alipay、WeChat Pay及FPS。">
   <meta name="keywords" content="鴻昌辦館,香港零食,香港製造,懷舊零食,HK snacks,網上購物,自取,順豐到付">
@@ -1093,6 +1101,7 @@
   </div>
   <div class="cart-body" id="cart-body"></div>
   <div id="cart-ft" class="cart-ft" style="display:none">
+    <div id="cart-freeship" style="display:none;margin-bottom:10px"></div>
     <div class="cart-tot">
       <span data-cn="總計" data-en="Total">總計</span>
       <span id="cart-tot-pr">HK$0</span>
@@ -1100,6 +1109,9 @@
     <button class="co-btn" onclick="openWACheckout()" data-cn="前往結帳 →" data-en="Checkout →">前往結帳 →</button>
   </div>
 </div>
+
+<!-- PWA install button (shows on supported browsers) -->
+<button id="pwa-install" onclick="installPWA()" style="display:none;position:fixed;left:16px;bottom:20px;z-index:1500;background:#14532d;color:#ecc96a;border:none;border-radius:99px;padding:10px 16px;font-size:13px;font-weight:700;box-shadow:0 4px 14px rgba(0,0,0,.28);cursor:pointer">📲 安裝App Install</button>
 
 <!-- ══ PRODUCT MODAL ══ -->
 <div class="mo" id="pm" onclick="if(event.target===this)closePM()">
@@ -1357,6 +1369,7 @@ const S = {
   delivery: 'pickup',
   couponApplied: null,
   shippingFee: 0,
+  freeShipThreshold: 450, // 買滿此金額順豐免運費（0 = 停用）
   checkoutMode: 'guest',
   payMethod: null,
   lastOrderId: null,
@@ -1684,6 +1697,8 @@ async function init() {
     S.fpsNum = o.fps || S.fpsNum;
     S.adminEmail  = o.adminEmail  || S.adminEmail;
     S.fcmVapidKey = o.fcmVapidKey || '';
+    if(o.shippingFee!=null) S.shippingFee = o.shippingFee;
+    if(o.freeShipThreshold!=null) S.freeShipThreshold = o.freeShipThreshold;
     S.qr = o.qr || S.qr;
     S.promoImg = o.promoImg || null;
     S.annMsgs = o.annMsgs || null;
@@ -1727,6 +1742,8 @@ async function init() {
         if (o.fps) S.fpsNum = o.fps;
         if (o.adminEmail)  S.adminEmail  = o.adminEmail;
         if (o.fcmVapidKey) S.fcmVapidKey = o.fcmVapidKey;
+        if (o.shippingFee!=null) S.shippingFee = o.shippingFee;
+        if (o.freeShipThreshold!=null) S.freeShipThreshold = o.freeShipThreshold;
         if (o.qr)  S.qr = o.qr;
         if (o.annMsgs)  S.annMsgs  = o.annMsgs;
         if (o.infoPills) S.infoPills = o.infoPills;
@@ -2756,6 +2773,21 @@ function updateCartBadge(){
   const el=document.getElementById('cart-count');
   el.textContent=n;el.style.display=n>0?'flex':'none';
 }
+function _freeShipInfo(base){
+  const thr=S.freeShipThreshold||0, fee=S.shippingFee||0;
+  if(thr<=0 || fee<=0) return null; // no SF fee configured → nothing to nudge toward
+  return { thr, fee, remain:Math.max(0,thr-base), pct:Math.min(100,Math.round(base/thr*100)), qualified:base>=thr };
+}
+function _renderFreeShipNudge(base){
+  const el=document.getElementById('cart-freeship'); if(!el) return;
+  const info=_freeShipInfo(base);
+  if(!info){ el.style.display='none'; el.innerHTML=''; return; }
+  el.style.display='block';
+  const cn=S.lang==='cn';
+  el.innerHTML = info.qualified
+    ? `<div style="text-align:center;color:#15803d;font-weight:700;font-size:13px">🎉 ${cn?'已享順豐免運費！':'Free SF delivery unlocked!'}</div>`
+    : `<div style="font-size:12.5px;color:#c2410c;font-weight:600;margin-bottom:5px">🚚 ${cn?`再購 HK$${info.remain} 即享順豐免運費`:`Add HK$${info.remain} for free SF delivery`}</div><div style="height:7px;background:#eee;border-radius:99px;overflow:hidden"><div style="height:100%;width:${info.pct}%;background:linear-gradient(90deg,#f59e0b,#16a34a);transition:width .3s"></div></div>`;
+}
 function updateCartBody(){
   const body=document.getElementById('cart-body'),ft=document.getElementById('cart-ft');
   if(!S.cart.length){body.innerHTML=`<div class="cart-empty">${S.lang==='cn'?'購物車是空的 🛒':'Cart is empty 🛒'}</div>`;ft.style.display='none';return;}
@@ -2766,6 +2798,7 @@ function updateCartBody(){
   }).join('');
   const tot=S.cart.reduce((s,i)=>s+i.price*i.qty,0);
   document.getElementById('cart-tot-pr').textContent=`HK$${tot}`;
+  _renderFreeShipNudge(tot);
   ft.style.display='block';
 }
 window.cqC=(i,d)=>{
@@ -2833,9 +2866,11 @@ function _wacoCalc(){
   const coupon=S.waCoupon?S.waCoupon.amount:0;
   const afterCoupon=Math.max(0,sub-coupon);
   const pickupDisc=S.waDelivery==='pickup'?Math.round(afterCoupon*PICKUP_DISC_RATE):0;
-  const ship=S.waDelivery==='sf'?(S.shippingFee||0):0;
+  const thr=S.freeShipThreshold||0;
+  const freeShip=thr>0 && afterCoupon>=thr;
+  const ship=(S.waDelivery==='sf' && !freeShip)?(S.shippingFee||0):0;
   const total=Math.max(0,afterCoupon-pickupDisc+ship);
-  return {sub,coupon,pickupDisc,ship,total};
+  return {sub,coupon,pickupDisc,ship,total,freeShip,threshold:thr};
 }
 function _wacoRenderItems(){
   const c=_wacoCalc();
@@ -2846,6 +2881,10 @@ function _wacoRenderItems(){
   if(c.coupon) bd+=`<div class="waco-item" style="color:var(--green)"><span>🎟 優惠券折扣</span><span style="font-weight:700">-HK$${c.coupon}</span></div>`;
   if(c.pickupDisc) bd+=`<div class="waco-item" style="color:#c8871a"><span>🏪 門市自取九折 (-10%)</span><span style="font-weight:700">-HK$${c.pickupDisc}</span></div>`;
   if(c.ship) bd+=`<div class="waco-item"><span>🚚 順豐運費</span><span style="font-weight:700">HK$${c.ship}</span></div>`;
+  if(S.waDelivery==='sf'){
+    if(c.freeShip) bd+=`<div class="waco-item" style="color:var(--green)"><span>🚚 順豐免運費</span><span style="font-weight:700">FREE</span></div>`;
+    else if(c.threshold>0 && (S.shippingFee||0)>0){ const _rem=Math.max(0,c.threshold-(c.sub-c.coupon)); if(_rem>0) bd+=`<div class="waco-item" style="color:#c8871a"><span>🚚 再買 HK$${_rem} 免運費</span><span></span></div>`; }
+  }
   document.getElementById('waco-breakdown').innerHTML=bd;
   document.getElementById('waco-total').textContent=`HK$${c.total}`;
 }
@@ -3200,6 +3239,24 @@ window.toast=toast;
 
 // ── BOOT ──────────────────────────────────────────────────────────────────────
 init();
+
+// ── PWA: service worker registration + install button ──
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => { navigator.serviceWorker.register('./firebase-messaging-sw.js').catch(()=>{}); });
+}
+let _deferredPrompt = null;
+window.addEventListener('beforeinstallprompt', e => {
+  e.preventDefault(); _deferredPrompt = e;
+  const b = document.getElementById('pwa-install'); if (b) b.style.display = 'block';
+});
+window.installPWA = async () => {
+  const b = document.getElementById('pwa-install');
+  if (!_deferredPrompt) { if (b) b.style.display = 'none'; return; }
+  _deferredPrompt.prompt();
+  await _deferredPrompt.userChoice.catch(() => {});
+  _deferredPrompt = null; if (b) b.style.display = 'none';
+};
+window.addEventListener('appinstalled', () => { const b = document.getElementById('pwa-install'); if (b) b.style.display = 'none'; });
 </script>
 </body>
 </html>
